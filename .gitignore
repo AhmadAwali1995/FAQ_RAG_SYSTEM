@@ -1,0 +1,20 @@
+# Environment
+.venv/
+.env
+
+# Generated index artifacts (rebuild with: python -m faqrag.index)
+data/index/
+data/index_chroma/
+
+# Logs and eval output
+logs/*.jsonl
+logs/*.log
+eval_report.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/

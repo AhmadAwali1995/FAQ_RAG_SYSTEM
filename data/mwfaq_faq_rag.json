@@ -1,0 +1,684 @@
+{
+  "faqs": [
+    {
+      "faq_id": "001",
+      "category": "About Mwfaq",
+      "lang": "ar",
+      "question": "ما هي منصة موفق؟",
+      "answer": "موفق هي المنصة الرقمية الرائدة في المملكة العربية السعودية لأتمتة وتسهيل الفحوصات الطبية الإلزامية، عبر شبكة وطنية موحدة من المراكز والمستشفيات المعتمدة. تخدم الأفراد والشركات، وتهدف لتمكينهم من تحقيق الامتثال الصحي بكفاءة وسرعة، بما يدعم مستهدفات رؤية 2030.",
+      "keywords": [
+        "موفق",
+        "تعريف",
+        "منصة",
+        "فحوصات طبية",
+        "امتثال صحي",
+        "رؤية 2030"
+      ]
+    },
+    {
+      "faq_id": "001",
+      "category": "About Mwfaq",
+      "lang": "en",
+      "question": "What is the Mwfaq platform?",
+      "answer": "Mwfaq is Saudi Arabia's leading digital platform for automating and simplifying mandatory medical examinations, operating through a unified national network of certified medical centers and hospitals. It serves both individuals and companies, aiming to help them achieve health compliance efficiently and quickly, supporting Saudi Vision 2030 goals.",
+      "keywords": [
+        "Mwfaq",
+        "definition",
+        "platform",
+        "medical exams",
+        "health compliance",
+        "Vision 2030"
+      ]
+    },
+    {
+      "faq_id": "002",
+      "category": "About Mwfaq",
+      "lang": "ar",
+      "question": "ما هي رؤية وطموح موفق؟",
+      "answer": "رؤية موفق تتجاوز مجرد تسهيل المواعيد؛ فهي تسعى لإعادة تعريف الامتثال الصحي وأتمتة الفحوصات الطبية بكفاءة مطلقة، لتمنح الشركات والأفراد حماية تشغيلية وربطاً فورياً يواكب المستقبل.",
+      "keywords": [
+        "رؤية موفق",
+        "طموح",
+        "امتثال صحي",
+        "أتمتة"
+      ]
+    },
+    {
+      "faq_id": "002",
+      "category": "About Mwfaq",
+      "lang": "en",
+      "question": "What is Mwfaq's vision and ambition?",
+      "answer": "Mwfaq's vision goes beyond simplifying appointments; it aims to redefine health compliance and automate medical examinations with absolute efficiency, giving companies and individuals operational protection and instant connectivity that keeps pace with the future.",
+      "keywords": [
+        "Mwfaq vision",
+        "ambition",
+        "health compliance",
+        "automation"
+      ]
+    },
+    {
+      "faq_id": "003",
+      "category": "About Mwfaq",
+      "lang": "ar",
+      "question": "ما هي قيم موفق الأساسية؟",
+      "answer": "تقوم موفق على ست قيم أساسية: الابتكار، الجودة، المرونة، السرعة والكفاءة، التعاون، والوعي الصحي.",
+      "keywords": [
+        "قيم موفق",
+        "الابتكار",
+        "الجودة",
+        "المرونة",
+        "الوعي الصحي"
+      ]
+    },
+    {
+      "faq_id": "003",
+      "category": "About Mwfaq",
+      "lang": "en",
+      "question": "What are Mwfaq's core values?",
+      "answer": "Mwfaq is built on six core values: Innovation, Quality, Flexibility, Speed & Efficiency, Collaboration, and Health Awareness.",
+      "keywords": [
+        "Mwfaq values",
+        "innovation",
+        "quality",
+        "flexibility",
+        "health awareness"
+      ]
+    },
+    {
+      "faq_id": "004",
+      "category": "About Mwfaq",
+      "lang": "ar",
+      "question": "لماذا تأسست موفق؟ وما هي قصتها؟",
+      "answer": "بدأت موفق من قناعة أن الامتثال الصحي لا يجب أن يكون عبئاً إدارياً على المنشأة. فبُنيت منصة موحدة تدمج المنشآت والمختبرات في شبكة رقمية واحدة، لتصبح المصدر الرسمي والموثق للفحوصات الطبية، والوجهة اليومية لآلاف المستخدمين في المملكة.",
+      "keywords": [
+        "قصة موفق",
+        "التأسيس",
+        "لماذا موفق",
+        "نشأة الشركة"
+      ]
+    },
+    {
+      "faq_id": "004",
+      "category": "About Mwfaq",
+      "lang": "en",
+      "question": "Why was Mwfaq founded, and what's its story?",
+      "answer": "Mwfaq began with the belief that health compliance shouldn't be an administrative burden on a business. The team built a unified platform that integrates medical facilities and labs into one digital network, becoming the official, documented source for medical examinations and the daily destination for thousands of users across Saudi Arabia.",
+      "keywords": [
+        "Mwfaq story",
+        "founding",
+        "why Mwfaq",
+        "company origin"
+      ]
+    },
+    {
+      "faq_id": "005",
+      "category": "About Mwfaq",
+      "lang": "ar",
+      "question": "ما هي أرقام وإنجازات موفق حتى الآن؟",
+      "answer": "تضم شبكة موفق أكثر من 214 مركزاً طبياً معتمداً، وقد أنجزت آلاف الفحوصات الطبية، وتغطي أكثر من 38 مدينة حول المملكة، بنسبة دقة وموثوقية في النتائج تصل إلى 100%.",
+      "keywords": [
+        "أرقام موفق",
+        "إحصائيات",
+        "عدد المراكز الطبية",
+        "التغطية الجغرافية"
+      ]
+    },
+    {
+      "faq_id": "005",
+      "category": "About Mwfaq",
+      "lang": "en",
+      "question": "What are Mwfaq's key numbers and achievements so far?",
+      "answer": "Mwfaq's network includes 214+ certified medical centers, has processed thousands of medical examinations, covers 38+ cities across Saudi Arabia, and delivers 100% accurate and reliable results.",
+      "keywords": [
+        "Mwfaq numbers",
+        "statistics",
+        "medical centers count",
+        "geographic coverage"
+      ]
+    },
+    {
+      "faq_id": "006",
+      "category": "About Mwfaq",
+      "lang": "ar",
+      "question": "ماذا قال المدير التنفيذي عن رؤية موفق؟",
+      "answer": "قال د. سعيد العسيري، المدير التنفيذي لموفق: \"رؤيتنا تتجاوز مجرد تسهيل المواعيد؛ نحن هنا لإعادة تعريف الامتثال الصحي وأتمتة الفحوصات الطبية بكفاءة مطلقة، لنمنح الشركات والأفراد حماية تشغيلية وربطاً فورياً يواكب المستقبل.\"",
+      "keywords": [
+        "المدير التنفيذي",
+        "د. سعيد العسيري",
+        "اقتباس",
+        "قيادة موفق"
+      ]
+    },
+    {
+      "faq_id": "006",
+      "category": "About Mwfaq",
+      "lang": "en",
+      "question": "What did Mwfaq's CEO say about the company's vision?",
+      "answer": "Dr. Saeed Al-Asiri, CEO of Mwfaq, said: \"Our vision goes beyond simplifying appointments; we are here to redefine health compliance and automate medical examinations with absolute efficiency, giving companies and individuals operational protection and instant connectivity that keeps pace with the future.\"",
+      "keywords": [
+        "CEO",
+        "Dr. Saeed Al-Asiri",
+        "quote",
+        "Mwfaq leadership"
+      ]
+    },
+    {
+      "faq_id": "007",
+      "category": "Services for Individuals",
+      "lang": "ar",
+      "question": "ما هي الفحوصات الطبية التي تقدمها موفق للأفراد؟",
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "keywords": [
+        "خدمات الأفراد",
+        "فحص الإقامة",
+        "الشهادة الصحية",
+        "فحص رخصة القيادة",
+        "فحص ما قبل الزواج"
+      ]
+    },
+    {
+      "faq_id": "007",
+      "category": "Services for Individuals",
+      "lang": "en",
+      "question": "What medical examinations does Mwfaq offer for individuals?",
+      "answer": "For individuals, Mwfaq offers: residency and residency-renewal exams, health certificate exams, employee and labor exams, driving license exams and delivery-agent exams, pre-marital and pre-school exams, and custom exams tailored to specific needs.",
+      "keywords": [
+        "individual services",
+        "residency exam",
+        "health certificate",
+        "driving license exam",
+        "pre-marital exam"
+      ]
+    },
+    {
+      "faq_id": "008",
+      "category": "Services for Individuals",
+      "lang": "ar",
+      "question": "لماذا أختار موفق لإجراء فحصي الطبي؟",
+      "answer": "لأن موفق منصة موحدة تجمع كل الفحوصات الطبية في مكان واحد، مع حجز فوري وسريع، وشبكة واسعة من المراكز الطبية المعتمدة، وإدارة سهلة وذكية لتقاريرك، بشكل آمن وموثوق بالكامل.",
+      "keywords": [
+        "لماذا موفق",
+        "مميزات المنصة",
+        "حجز فوري",
+        "إدارة التقارير"
+      ]
+    },
+    {
+      "faq_id": "008",
+      "category": "Services for Individuals",
+      "lang": "en",
+      "question": "Why should I choose Mwfaq for my medical exam?",
+      "answer": "Because Mwfaq is a unified platform bringing all medical exams together in one place, with instant, fast booking, a wide network of certified medical centers, easy and smart report management, and a fully secure and trusted process.",
+      "keywords": [
+        "why Mwfaq",
+        "platform advantages",
+        "instant booking",
+        "report management"
+      ]
+    },
+    {
+      "faq_id": "009",
+      "category": "Services for Individuals",
+      "lang": "ar",
+      "question": "كيف أحجز فحصي الطبي عبر موفق؟ (خطوات الحجز)",
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "keywords": [
+        "كيف يعمل موفق",
+        "خطوات الحجز",
+        "آلية العمل",
+        "حجز فحص طبي"
+      ]
+    },
+    {
+      "faq_id": "009",
+      "category": "Services for Individuals",
+      "lang": "en",
+      "question": "How do I book a medical exam through Mwfaq? (booking steps)",
+      "answer": "In just three steps: 1) Choose your exam and appointment: pick the exam type, city, and date, then confirm your booking and pay securely via the platform or app. 2) Visit the center: go to the certified medical center at your scheduled time to complete the exam, and track your request status live via the platform. 3) Receive your certified report: as soon as your result is issued, you'll get a text message, and your certified medical report will be ready to download and share.",
+      "keywords": [
+        "how Mwfaq works",
+        "booking steps",
+        "process flow",
+        "book a medical exam"
+      ]
+    },
+    {
+      "faq_id": "010",
+      "category": "Mwfaq App",
+      "lang": "ar",
+      "question": "ما هي مميزات تطبيق موفق للجوال؟",
+      "answer": "يتيح لك تطبيق موفق إنجاز كل فحوصاتك من شاشة واحدة: احجز فحصك، تتبع موعدك، واستلم نتيجتك فوراً. كما يوفر متابعة لحظية لحالة الفحص بدون اتصالات، وتحميل ملف التقرير الطبي مباشرة على جوالك، وتنبيهات وتذكيرات ذكية بالفحوصات الطبية الدورية قبل انتهاء صلاحيتها.",
+      "keywords": [
+        "تطبيق موفق",
+        "مميزات التطبيق",
+        "متابعة لحظية",
+        "تنبيهات ذكية"
+      ]
+    },
+    {
+      "faq_id": "010",
+      "category": "Mwfaq App",
+      "lang": "en",
+      "question": "What features does the Mwfaq mobile app offer?",
+      "answer": "The Mwfaq app lets you handle everything from a single screen: book your exam, track your appointment, and receive your result instantly. It also provides live, call-free tracking of your exam status, instant download of your medical report to your phone, and smart notifications and reminders about periodic medical exams before they expire.",
+      "keywords": [
+        "Mwfaq app",
+        "app features",
+        "live tracking",
+        "smart notifications"
+      ]
+    },
+    {
+      "faq_id": "011",
+      "category": "Payments & Support",
+      "lang": "ar",
+      "question": "ما هي طرق الدفع المتاحة في موفق؟",
+      "answer": "يمكنك حجز فحصك الطبي والدفع عبر عدة طرق ميسرة: تابي، تمارا، مدى، فيزا، آبل باي، وسامسونج باي.",
+      "keywords": [
+        "طرق الدفع",
+        "تابي",
+        "تمارا",
+        "مدى",
+        "آبل باي"
+      ]
+    },
+    {
+      "faq_id": "011",
+      "category": "Payments & Support",
+      "lang": "en",
+      "question": "What payment methods does Mwfaq accept?",
+      "answer": "You can book your medical exam and pay through several convenient methods: Tabby, Tamara, Mada, Visa, Apple Pay, and Samsung Pay.",
+      "keywords": [
+        "payment methods",
+        "Tabby",
+        "Tamara",
+        "Mada",
+        "Apple Pay"
+      ]
+    },
+    {
+      "faq_id": "012",
+      "category": "Mwfaq Academy",
+      "lang": "ar",
+      "question": "ما هي أكاديمية موفق؟",
+      "answer": "أكاديمية موفق هي منظومة تعليمية ذكية تقدم برامج تأهيل وتدريب متكاملة عبر منصة تعلم واحدة، من الخطوات الأولى للتدريب وحتى اجتياز الاختبار، لتأهيل الأفراد والكوادر مهنياً وصحياً بأقل مجهود تشغيلي.",
+      "keywords": [
+        "أكاديمية موفق",
+        "تعريف الأكاديمية",
+        "برامج تدريبية",
+        "تأهيل مهني"
+      ]
+    },
+    {
+      "faq_id": "012",
+      "category": "Mwfaq Academy",
+      "lang": "en",
+      "question": "What is Mwfaq Academy?",
+      "answer": "Mwfaq Academy is a smart learning system offering integrated qualification and training programs through a single learning platform — from the very first training step through passing the certification exam — qualifying individuals and staff professionally and health-wise with minimal operational effort.",
+      "keywords": [
+        "Mwfaq Academy",
+        "academy definition",
+        "training programs",
+        "professional qualification"
+      ]
+    },
+    {
+      "faq_id": "013",
+      "category": "Mwfaq Academy",
+      "lang": "ar",
+      "question": "ما هي مميزات التدريب في أكاديمية موفق؟",
+      "answer": "تتميز أكاديمية موفق بـ: تدريب مرن ومؤتمت بسبع لغات عالمية (دورات مسجلة واختبارات تجريبية مصغرة متاحة في أي وقت ومكان)، أسعار موحدة وخيارات دفع وفوترة ميسرة، لوحة تحكم وتتبع رقمي عالي الجودة لمسار إنجاز التدريب مع توثيق رقمي لكافة الوثائق، وتنبيهات وتذكيرات آلية قبل انتهاء صلاحية الشهادات لتجديدها في الوقت المناسب.",
+      "keywords": [
+        "مميزات الأكاديمية",
+        "تدريب متعدد اللغات",
+        "لوحة تحكم",
+        "تنبيهات تجديد الشهادات"
+      ]
+    },
+    {
+      "faq_id": "013",
+      "category": "Mwfaq Academy",
+      "lang": "en",
+      "question": "What are the key features of training at Mwfaq Academy?",
+      "answer": "Mwfaq Academy offers: flexible, fully automated training in seven languages (recorded courses and short mock tests available anytime, anywhere), unified pricing with easy payment and invoicing options, a high-quality digital dashboard tracking training progress with full digital documentation, and automated alerts and reminders before certificates expire so you can renew on time.",
+      "keywords": [
+        "academy features",
+        "multilingual training",
+        "dashboard",
+        "certificate renewal alerts"
+      ]
+    },
+    {
+      "faq_id": "014",
+      "category": "Mwfaq Academy",
+      "lang": "ar",
+      "question": "ما هي نسبة نجاح المتدربين في أكاديمية موفق؟ وبكم لغة تقدم التدريب؟",
+      "answer": "تحقق أكاديمية موفق نسبة نجاح 93% في الاختبارات باللغة العربية، و81% في الاختبارات باللغات الأخرى، وتقدم التدريب بأكثر من 7 لغات معتمدة.",
+      "keywords": [
+        "نسبة النجاح",
+        "لغات التدريب",
+        "إحصائيات الأكاديمية"
+      ]
+    },
+    {
+      "faq_id": "014",
+      "category": "Mwfaq Academy",
+      "lang": "en",
+      "question": "What is the pass rate at Mwfaq Academy, and in how many languages is training offered?",
+      "answer": "Mwfaq Academy achieves a 93% pass rate for exams taken in Arabic and an 81% pass rate for exams in other languages, with training offered in 7+ certified languages.",
+      "keywords": [
+        "pass rate",
+        "training languages",
+        "academy statistics"
+      ]
+    },
+    {
+      "faq_id": "015",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "ar",
+      "question": "ما هو موفق أعمال؟",
+      "answer": "موفق أعمال هو نظام متكامل موجّه للشركات وإدارة الموارد البشرية، يؤتمت الفحوصات الطبية لموظفي الشركة في دقائق، ويشمل إدارة الحجوزات، وتتبع التقارير والنتائج، والتذكير الذكي بمواعيد الفحوصات الدورية، بأسعار موحدة وعبر شبكة مراكز طبية معتمدة حول المملكة.",
+      "keywords": [
+        "موفق أعمال",
+        "تعريف الحل",
+        "إدارة الموارد البشرية",
+        "B2B"
+      ]
+    },
+    {
+      "faq_id": "015",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "en",
+      "question": "What is Mwfaq Business?",
+      "answer": "Mwfaq Business is an integrated system for companies and HR management that automates employee medical exams in minutes. It includes booking management, report and result tracking, and smart reminders for periodic exam appointments — all at unified pricing through a nationwide network of certified medical centers.",
+      "keywords": [
+        "Mwfaq Business",
+        "solution definition",
+        "HR management",
+        "B2B"
+      ]
+    },
+    {
+      "faq_id": "016",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "ar",
+      "question": "لماذا يُعد موفق أعمال مهماً للشركات؟",
+      "answer": "لأنه يوفر: أتمتة كاملة وتوفيراً للوقت (بدلاً من المتابعة اليدوية وملفات الإكسل)، امتثالاً قانونياً مضموناً 100% عبر تنبيهات تواريخ انتهاء الرخص والشهادات، تقارير رقمية ولوحة تحكم موحدة لمتابعة حالة فحوصات الموظفين ومؤشرات الصحة المهنية فورياً، وخفضاً للتكاليف التشغيلية الناتجة عن تذبذب أسعار الفحوصات والتدريب بين الفروع والمدن.",
+      "keywords": [
+        "فوائد موفق أعمال",
+        "امتثال قانوني",
+        "خفض التكاليف",
+        "لوحة تحكم موحدة"
+      ]
+    },
+    {
+      "faq_id": "016",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "en",
+      "question": "Why does Mwfaq Business matter for companies?",
+      "answer": "Because it delivers: full automation and time savings (replacing manual follow-up and spreadsheets), 100% guaranteed legal compliance through alerts on license and certificate expiry dates, unified digital reports and a single dashboard for tracking employee exam status and occupational health indicators in real time, and reduced operational costs by eliminating price fluctuations for exams and training across branches and cities.",
+      "keywords": [
+        "Mwfaq Business benefits",
+        "legal compliance",
+        "cost reduction",
+        "unified dashboard"
+      ]
+    },
+    {
+      "faq_id": "017",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "ar",
+      "question": "ما هي خدمة الفحوصات الطبية التي تقدمها موفق أعمال للشركات؟",
+      "answer": "تشمل جدولة فحوصات الموظفين عبر شبكة واسعة من المراكز الطبية المعتمدة، وأتمتة الحجز والمتابعة، ومنصة موحدة للتقارير، وربطاً مباشراً مع المراكز الطبية، ومتابعة ذكية وتنبيهات بصلاحية الرخص.",
+      "keywords": [
+        "فحوصات الموظفين",
+        "جدولة الفحوصات",
+        "ربط مع المراكز الطبية"
+      ]
+    },
+    {
+      "faq_id": "017",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "en",
+      "question": "What medical exam service does Mwfaq Business offer companies?",
+      "answer": "It includes scheduling employee exams through a wide network of certified medical centers, automated booking and follow-up, a unified reporting platform, direct integration with medical centers, and smart tracking with license-validity alerts.",
+      "keywords": [
+        "employee exams",
+        "exam scheduling",
+        "medical center integration"
+      ]
+    },
+    {
+      "faq_id": "018",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "ar",
+      "question": "هل تقدم موفق أعمال خدمات تدريبية للموظفين؟",
+      "answer": "نعم، عبر أكاديمية موفق تقدم موفق أعمال تأهيلاً وتدريباً للكوادر البشرية والمهنية عبر برامج تخصصية معتمدة ومؤتمتة بالكامل، تشمل إجراءات أونلاين، لوحة تحكم مركزية لإدارة الموظفين، متابعة ذكية وتنبيهات بصلاحية الشهادات، وتدريباً متوافقاً مع متطلبات الشهادات.",
+      "keywords": [
+        "خدمات تعليمية للشركات",
+        "أكاديمية موفق للأعمال",
+        "تدريب الموظفين"
+      ]
+    },
+    {
+      "faq_id": "018",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "en",
+      "question": "Does Mwfaq Business offer training services for employees?",
+      "answer": "Yes — through Mwfaq Academy, Mwfaq Business provides qualification and training for staff via specialized, certified, fully automated programs. This includes fully online procedures, a centralized dashboard for staff management, smart tracking with certificate-validity alerts, and training aligned with certification requirements.",
+      "keywords": [
+        "corporate training services",
+        "Mwfaq Academy for business",
+        "employee training"
+      ]
+    },
+    {
+      "faq_id": "019",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "ar",
+      "question": "ما هي خدمة الصحة المهنية التي تقدمها موفق أعمال؟",
+      "answer": "إدارة متكاملة للفحوصات الطبية البيئية والمهنية لحماية المنشأة وضمان استقرارها التشغيلي والقانوني، تشمل أتمتة وإدارة فحوصات الصحة المهنية، لوحة تحكم مركزية لإدارة الموظفين، ربطاً مباشراً مع المراكز الطبية، ومتابعة ذكية وتنبيهات بمؤشرات الصحة المهنية.",
+      "keywords": [
+        "الصحة المهنية",
+        "الفحوصات البيئية",
+        "استقرار تشغيلي وقانوني"
+      ]
+    },
+    {
+      "faq_id": "019",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "en",
+      "question": "What occupational health service does Mwfaq Business offer?",
+      "answer": "An integrated management solution for environmental and occupational medical exams that protects the facility and ensures its operational and legal stability. It includes automation and management of occupational health exams, a centralized staff-management dashboard, direct integration with medical centers, and smart tracking with occupational health indicator alerts.",
+      "keywords": [
+        "occupational health",
+        "environmental exams",
+        "operational and legal stability"
+      ]
+    },
+    {
+      "faq_id": "020",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "ar",
+      "question": "كيف تعمل رحلة موفق أعمال من التسجيل حتى التوسع؟",
+      "answer": "عبر خمس مراحل: 1) التسجيل والحوكمة: توثيق المنشأة والتحقق الفوري من السجل التجاري رقمياً في دقائق. 2) إعداد الهيكل الإداري: إدخال بيانات الطاقم، تنظيم الأقسام، وأتمتة مسارات الموافقة والصلاحيات. 3) حجز وإصدار الخدمات: جدولة الفحوصات الطبية، الشهادات المهنية، وفحوصات التأشيرات عبر شبكة مراكز طبية موحدة. 4) التتبع اللحظي والسيطرة: مراقبة حالة الطلبات والنتائج مباشرة عبر لوحة مركزية واحدة. 5) التوسع بثقة: تفعيل التجديد التلقائي وإصدار تقارير وتحليلات الامتثال لحماية نمو المنشأة.",
+      "keywords": [
+        "رحلة موفق",
+        "خطوات موفق أعمال",
+        "من التسجيل للتوسع",
+        "آلية العمل للشركات"
+      ]
+    },
+    {
+      "faq_id": "020",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "en",
+      "question": "How does the Mwfaq Business journey work, from registration to scaling?",
+      "answer": "In five stages: 1) Registration & governance: digital documentation of the facility with instant commercial-registration verification in minutes. 2) Setting up the admin structure: entering staff data, organizing departments, and automating approval workflows and permissions. 3) Booking & issuing services: scheduling medical exams, professional certificates, and visa exams through a unified medical-center network. 4) Live tracking & control: monitoring request and result status directly via one central dashboard. 5) Scaling with confidence: activating auto-renewal and issuing compliance reports and analytics to protect the business's growth.",
+      "keywords": [
+        "Mwfaq journey",
+        "business onboarding steps",
+        "registration to scale",
+        "how it works for companies"
+      ]
+    },
+    {
+      "faq_id": "021",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "ar",
+      "question": "ما هي خطوات إدارة فحوصات فريق العمل عبر موفق أعمال؟",
+      "answer": "ثلاث خطوات رئيسية: التوثيق والإعداد (تسجيل المنشأة، التحقق من السجل التجاري، وإدخال بيانات الفريق رقمياً في دقائق)، الجدولة الفورية (حجز الفحوصات الطبية والشهادات المهنية والتأشيرات عبر شبكة مراكز طبية موحدة بنقرة واحدة)، والتتبع والامتثال (مراقبة النتائج مباشرة عبر لوحة تحكم مركزية مع تفعيل تنبيهات التجديد).",
+      "keywords": [
+        "إدارة فحوصات الفريق",
+        "التوثيق والإعداد",
+        "الجدولة الفورية",
+        "التتبع والامتثال"
+      ]
+    },
+    {
+      "faq_id": "021",
+      "category": "Business Solutions (Mwfaq Business)",
+      "lang": "en",
+      "question": "What are the steps to manage my team's exams through Mwfaq Business?",
+      "answer": "Three main steps: Documentation & setup (registering the facility, verifying the commercial registration, and entering team data digitally within minutes), Instant scheduling (booking medical exams, professional certificates, and visas through a unified medical-center network with one click), and Tracking & compliance (monitoring results live via one central dashboard with renewal alerts activated).",
+      "keywords": [
+        "team exam management",
+        "documentation and setup",
+        "instant scheduling",
+        "tracking and compliance"
+      ]
+    },
+    {
+      "faq_id": "022",
+      "category": "General",
+      "lang": "ar",
+      "question": "من هو الجمهور المستهدف لمنصة موفق؟",
+      "answer": "تستهدف موفق فئتين رئيسيتين: المستهلكين الأفراد (عبر تطبيق موفق للجوال)، والمستهلكين من الشركات (عبر منصة موفق أعمال).",
+      "keywords": [
+        "الجمهور المستهدف",
+        "الأفراد والشركات",
+        "شرائح العملاء"
+      ]
+    },
+    {
+      "faq_id": "022",
+      "category": "General",
+      "lang": "en",
+      "question": "Who is Mwfaq's target audience?",
+      "answer": "Mwfaq targets two main audiences: individual consumers (via the Mwfaq mobile app) and company/business consumers (via the Mwfaq Business platform).",
+      "keywords": [
+        "target audience",
+        "individuals and companies",
+        "customer segments"
+      ]
+    },
+    {
+      "faq_id": "023",
+      "category": "Company History",
+      "lang": "ar",
+      "question": "ما هي أبرز محطات مسيرة موفق منذ التأسيس؟",
+      "answer": "2023: انطلاق الفكرة والتأسيس، وبناء النواة الأولى للفريق حول قناعة واحدة أن الالتزام الطبي يمكن أن يكون تجربة واحدة لا خمساً. 2024: توثيق وإصدار أكثر من 10,000 فحص طبي مكتمل، واستقبال أوائل الشركاء المؤسسين. 2025: تدشين أكاديمية موفق لتقديم برامج تدريبية متخصصة بإجراءات رقمية مؤتمتة بالكامل. 2026: إعادة تعريف الامتثال الصحي الشامل بإطلاق حلول الصحة المهنية المؤتمتة لحوكمة المنشآت رقمياً.",
+      "keywords": [
+        "مسيرة موفق",
+        "تاريخ الشركة",
+        "محطات زمنية",
+        "2023",
+        "2024",
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "faq_id": "023",
+      "category": "Company History",
+      "lang": "en",
+      "question": "What are the key milestones in Mwfaq's journey since its founding?",
+      "answer": "2023: The idea launched and the company was founded, building the first core team around one belief — that medical compliance can be a single experience rather than five. 2024: Documented and issued more than 10,000 completed medical exams, welcoming the first founding partners. 2025: Launched Mwfaq Academy, offering specialized training programs with fully automated digital procedures. 2026: Redefined comprehensive health compliance by launching automated occupational health solutions for digital facility governance.",
+      "keywords": [
+        "Mwfaq journey",
+        "company history",
+        "timeline",
+        "2023",
+        "2024",
+        "2025",
+        "2026"
+      ]
+    },
+    {
+      "faq_id": "024",
+      "category": "Contact",
+      "lang": "ar",
+      "question": "أين يقع مقر موفق؟ وكيف أتواصل معهم؟",
+      "answer": "يقع مقر موفق في الرياض، شارع الملك فيصل، مركز يو التجاري، المملكة العربية السعودية. يمكن التواصل مع فريق موفق عبر نموذج التواصل على المنصة، أو حجز موعد مباشر مع مسؤول نجاح العملاء. (ملاحظة: بيانات الهاتف والبريد الإلكتروني لم تُحدَّد بعد في المصدر الأصلي).",
+      "keywords": [
+        "مقر موفق",
+        "التواصل",
+        "الرياض",
+        "معلومات الاتصال"
+      ]
+    },
+    {
+      "faq_id": "024",
+      "category": "Contact",
+      "lang": "en",
+      "question": "Where is Mwfaq located, and how can I contact them?",
+      "answer": "Mwfaq's office is located in Riyadh, King Faisal Street, U Commercial Center, Saudi Arabia. You can reach the Mwfaq team via the contact form on the platform or by booking a direct meeting with a customer success manager. (Note: phone and email details were not yet finalized in the original source document.)",
+      "keywords": [
+        "Mwfaq location",
+        "contact",
+        "Riyadh",
+        "contact information"
+      ]
+    },
+    {
+      "faq_id": "025",
+      "category": "Getting Started",
+      "lang": "ar",
+      "question": "كيف أبدأ استخدام موفق كفرد؟",
+      "answer": "يمكنك حجز فحصك الطبي فوراً عبر منصة موفق أو تطبيق الجوال: اختر نوع الفحص والمدينة والتاريخ المناسب، أكّد الحجز وادفع بأمان، ثم توجه لأقرب مركز طبي معتمد لاستلام تقريرك المعتمد فور صدوره.",
+      "keywords": [
+        "البدء كفرد",
+        "حجز فحص طبي",
+        "خطوات البدء"
+      ]
+    },
+    {
+      "faq_id": "025",
+      "category": "Getting Started",
+      "lang": "en",
+      "question": "How do I get started with Mwfaq as an individual?",
+      "answer": "You can book your medical exam right away through the Mwfaq platform or mobile app: choose the exam type, city, and date, confirm and pay securely, then visit the nearest certified medical center to receive your certified report as soon as it's issued.",
+      "keywords": [
+        "getting started as individual",
+        "book a medical exam",
+        "onboarding steps"
+      ]
+    },
+    {
+      "faq_id": "026",
+      "category": "Getting Started",
+      "lang": "ar",
+      "question": "كيف تبدأ شركتي باستخدام موفق أعمال؟",
+      "answer": "يمكن للشركة البدء عبر التواصل مع مسؤول نجاح العملاء، أو طلب تجربة المنصة، أو فتح حساب شركة مباشرة، أو حجز عرض تجريبي لاستعراض كيفية أتمتة فحوصات الموظفين وإدارة الامتثال الصحي للمنشأة.",
+      "keywords": [
+        "البدء كشركة",
+        "فتح حساب شركة",
+        "طلب عرض تجريبي",
+        "موفق أعمال"
+      ]
+    },
+    {
+      "faq_id": "026",
+      "category": "Getting Started",
+      "lang": "en",
+      "question": "How does my company get started with Mwfaq Business?",
+      "answer": "A company can get started by contacting a customer success manager, requesting a platform trial, opening a company account directly, or booking a live demo to see how Mwfaq automates employee medical exams and manages the facility's health compliance.",
+      "keywords": [
+        "getting started as a company",
+        "open company account",
+        "request a demo",
+        "Mwfaq Business"
+      ]
+    }
+  ]
+}

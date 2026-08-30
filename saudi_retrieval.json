@@ -1,0 +1,3117 @@
+{
+  "metrics": {
+    "k": 5,
+    "total_cases": 100,
+    "retrieval_hit_rate@5": 0.955,
+    "retrieval_scored_cases": 88,
+    "hit_rate_by_kind": {
+      "ambiguous": {
+        "cases": 7,
+        "hits": 6,
+        "hit_rate": 0.857
+      },
+      "clean": {
+        "cases": 69,
+        "hits": 67,
+        "hit_rate": 0.971
+      },
+      "no_fabrication": {
+        "cases": 3,
+        "hits": 2,
+        "hit_rate": 0.667
+      },
+      "paraphrase": {
+        "cases": 9,
+        "hits": 9,
+        "hit_rate": 1.0
+      }
+    },
+    "out_of_scope_refusal_rate": 0.25,
+    "in_scope_answer_rate": 0.909,
+    "groundedness_rate": null,
+    "groundedness_judged_cases": 0,
+    "citation_accuracy": 0.75,
+    "fabrication_free_rate": 1.0,
+    "language_match_rate": 1.0,
+    "median_latency_ms": 2093.9,
+    "suite": "saudi"
+  },
+  "cases": [
+    {
+      "question": "وش هي موفق؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "001"
+      ],
+      "retrieved_faq_ids": [
+        "001",
+        "012",
+        "002",
+        "003",
+        "004"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5863,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "001"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "موفق هي المنصة الرقمية الرائدة في المملكة العربية السعودية لأتمتة وتسهيل الفحوصات الطبية الإلزامية، عبر شبكة وطنية موحدة من المراكز والمستشفيات المعتمدة. تخدم الأفراد والشركات، وتهدف لتمكينهم من تحقيق الامتثال الصحي بكفاءة وسرعة، بما يدعم مستهدفات رؤية 2030.",
+      "latency_ms": 3182.7
+    },
+    {
+      "question": "ايش تسوي منصة موفق بالضبط؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "001"
+      ],
+      "retrieved_faq_ids": [
+        "001",
+        "008",
+        "022",
+        "012",
+        "004"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.7126,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "001"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "موفق هي المنصة الرقمية الرائدة في المملكة العربية السعودية لأتمتة وتسهيل الفحوصات الطبية الإلزامية، عبر شبكة وطنية موحدة من المراكز والمستشفيات المعتمدة. تخدم الأفراد والشركات، وتهدف لتمكينهم من تحقيق الامتثال الصحي بكفاءة وسرعة، بما يدعم مستهدفات رؤية 2030.",
+      "latency_ms": 2093.4
+    },
+    {
+      "question": "موفق هذي وش قصتها وش تقدم؟",
+      "lang": "ar",
+      "kind": "ambiguous",
+      "expected_faq_ids": [
+        "001",
+        "004"
+      ],
+      "retrieved_faq_ids": [
+        "004",
+        "002",
+        "014",
+        "012",
+        "008"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5152,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "004"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "بدأت موفق من قناعة أن الامتثال الصحي لا يجب أن يكون عبئاً إدارياً على المنشأة. فبُنيت منصة موحدة تدمج المنشآت والمختبرات في شبكة رقمية واحدة، لتصبح المصدر الرسمي والموثق للفحوصات الطبية، والوجهة اليومية لآلاف المستخدمين في المملكة.",
+      "latency_ms": 2128.0
+    },
+    {
+      "question": "وش هدفكم من المنصة؟",
+      "lang": "ar",
+      "kind": "ambiguous",
+      "expected_faq_ids": [
+        "001",
+        "002",
+        "004"
+      ],
+      "retrieved_faq_ids": [
+        "001",
+        "022",
+        "008",
+        "004",
+        "012"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5854,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "001"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "موفق هي المنصة الرقمية الرائدة في المملكة العربية السعودية لأتمتة وتسهيل الفحوصات الطبية الإلزامية، عبر شبكة وطنية موحدة من المراكز والمستشفيات المعتمدة. تخدم الأفراد والشركات، وتهدف لتمكينهم من تحقيق الامتثال الصحي بكفاءة وسرعة، بما يدعم مستهدفات رؤية 2030.",
+      "latency_ms": 2103.7
+    },
+    {
+      "question": "وش رؤيتكم للمستقبل؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "002"
+      ],
+      "retrieved_faq_ids": [
+        "002",
+        "006",
+        "023",
+        "010",
+        "002"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.4685,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "002"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "رؤية موفق تتجاوز مجرد تسهيل المواعيد؛ فهي تسعى لإعادة تعريف الامتثال الصحي وأتمتة الفحوصات الطبية بكفاءة مطلقة، لتمنح الشركات والأفراد حماية تشغيلية وربطاً فورياً يواكب المستقبل.",
+      "latency_ms": 2100.8
+    },
+    {
+      "question": "وش القيم اللي تشتغلون عليها؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "003"
+      ],
+      "retrieved_faq_ids": [
+        "003",
+        "002",
+        "016",
+        "003",
+        "006"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5813,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "003"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقوم موفق على ست قيم أساسية: الابتكار، الجودة، المرونة، السرعة والكفاءة، التعاون، والوعي الصحي.",
+      "latency_ms": 2101.8
+    },
+    {
+      "question": "ليش أسستوا موفق من الأساس؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "004"
+      ],
+      "retrieved_faq_ids": [
+        "001",
+        "004",
+        "008",
+        "023",
+        "022"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5704,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "001"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "موفق هي المنصة الرقمية الرائدة في المملكة العربية السعودية لأتمتة وتسهيل الفحوصات الطبية الإلزامية، عبر شبكة وطنية موحدة من المراكز والمستشفيات المعتمدة. تخدم الأفراد والشركات، وتهدف لتمكينهم من تحقيق الامتثال الصحي بكفاءة وسرعة، بما يدعم مستهدفات رؤية 2030.",
+      "latency_ms": 2106.4
+    },
+    {
+      "question": "وش قصة تأسيس الشركة؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "004"
+      ],
+      "retrieved_faq_ids": [
+        "004",
+        "023",
+        "026",
+        "015",
+        "020"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5926,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "004"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "بدأت موفق من قناعة أن الامتثال الصحي لا يجب أن يكون عبئاً إدارياً على المنشأة. فبُنيت منصة موحدة تدمج المنشآت والمختبرات في شبكة رقمية واحدة، لتصبح المصدر الرسمي والموثق للفحوصات الطبية، والوجهة اليومية لآلاف المستخدمين في المملكة.",
+      "latency_ms": 2104.9
+    },
+    {
+      "question": "كم مركز طبي معتمد عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "005"
+      ],
+      "retrieved_faq_ids": [
+        "009",
+        "025",
+        "008",
+        "023",
+        "011"
+      ],
+      "hit": false,
+      "confident": true,
+      "confidence": 0.5411,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2076.1
+    },
+    {
+      "question": "كم مدينة تغطون بالمملكة؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "005"
+      ],
+      "retrieved_faq_ids": [
+        "005",
+        "001",
+        "024",
+        "015",
+        "004"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5579,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "005"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تضم شبكة موفق أكثر من 214 مركزاً طبياً معتمداً، وقد أنجزت آلاف الفحوصات الطبية، وتغطي أكثر من 38 مدينة حول المملكة، بنسبة دقة وموثوقية في النتائج تصل إلى 100%.",
+      "latency_ms": 2101.5
+    },
+    {
+      "question": "وش إنجازاتكم لين الحين؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "005"
+      ],
+      "retrieved_faq_ids": [
+        "005",
+        "023",
+        "010",
+        "002",
+        "008"
+      ],
+      "hit": true,
+      "confident": false,
+      "confidence": 0.4147,
+      "answered": false,
+      "refusal_correct": false,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2108.7
+    },
+    {
+      "question": "مين المدير التنفيذي حقكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "006"
+      ],
+      "retrieved_faq_ids": [
+        "006",
+        "021",
+        "024",
+        "022",
+        "008"
+      ],
+      "hit": true,
+      "confident": false,
+      "confidence": 0.4302,
+      "answered": false,
+      "refusal_correct": false,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2090.4
+    },
+    {
+      "question": "وش قال الرئيس التنفيذي عن موفق؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "006"
+      ],
+      "retrieved_faq_ids": [
+        "006",
+        "004",
+        "003",
+        "024",
+        "016"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5895,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "006"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "قال د. سعيد العسيري، المدير التنفيذي لموفق: \"رؤيتنا تتجاوز مجرد تسهيل المواعيد؛ نحن هنا لإعادة تعريف الامتثال الصحي وأتمتة الفحوصات الطبية بكفاءة مطلقة، لنمنح الشركات والأفراد حماية تشغيلية وربطاً فورياً يواكب المستقبل.\"",
+      "latency_ms": 2133.0
+    },
+    {
+      "question": "وش الفحوصات اللي تسوونها للأفراد؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "007"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "017",
+        "019",
+        "008",
+        "021"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6521,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2127.7
+    },
+    {
+      "question": "عندكم فحص إقامة؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "007"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "009",
+        "010",
+        "023"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6448,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2112.5
+    },
+    {
+      "question": "أبغى أجدد إقامتي، وش الفحص اللي أحتاجه؟",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "007",
+        "009"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "009",
+        "010",
+        "023"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6036,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2113.4
+    },
+    {
+      "question": "فيه فحص رخصة قيادة عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "007"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "009",
+        "010",
+        "006"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6201,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2104.1
+    },
+    {
+      "question": "أبغى أسوي فحص قبل الزواج",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "007",
+        "009"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "009",
+        "010",
+        "013"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5055,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2094.3
+    },
+    {
+      "question": "عندكم فحص الشهادة الصحية؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "007"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "009",
+        "010",
+        "023"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.648,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2097.3
+    },
+    {
+      "question": "فيه فحص لمناديب التوصيل؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "007"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "009",
+        "010",
+        "021"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5159,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2087.4
+    },
+    {
+      "question": "أبغى فحص قبل ما يدخل ولدي المدرسة",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "007"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "009",
+        "011",
+        "021"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5049,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2093.3
+    },
+    {
+      "question": "تسوون فحوصات للعمالة؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "007",
+        "017"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "017",
+        "021",
+        "019",
+        "015"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6126,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2109.4
+    },
+    {
+      "question": "ليش أختاركم انتم بالذات؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "008"
+      ],
+      "retrieved_faq_ids": [
+        "008",
+        "025",
+        "022",
+        "009",
+        "007"
+      ],
+      "hit": true,
+      "confident": false,
+      "confidence": 0.4069,
+      "answered": false,
+      "refusal_correct": false,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2077.0
+    },
+    {
+      "question": "وش يميزكم عن باقي المراكز؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "008"
+      ],
+      "retrieved_faq_ids": [
+        "008",
+        "005",
+        "016",
+        "006",
+        "017"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5552,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "008"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "لأن موفق منصة موحدة تجمع كل الفحوصات الطبية في مكان واحد، مع حجز فوري وسريع، وشبكة واسعة من المراكز الطبية المعتمدة، وإدارة سهلة وذكية لتقاريرك، بشكل آمن وموثوق بالكامل.",
+      "latency_ms": 2070.0
+    },
+    {
+      "question": "وش الفايدة لي إني أستخدم موفق؟",
+      "lang": "ar",
+      "kind": "ambiguous",
+      "expected_faq_ids": [
+        "008",
+        "001",
+        "010"
+      ],
+      "retrieved_faq_ids": [
+        "022",
+        "008",
+        "004",
+        "003",
+        "010"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6605,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "022"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "تستهدف موفق فئتين رئيسيتين: المستهلكين الأفراد (عبر تطبيق موفق للجوال)، والمستهلكين من الشركات (عبر منصة موفق أعمال).",
+      "latency_ms": 2101.5
+    },
+    {
+      "question": "كيف أحجز فحص؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "009"
+      ],
+      "retrieved_faq_ids": [
+        "009",
+        "025",
+        "007",
+        "010",
+        "026"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.7261,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2095.1
+    },
+    {
+      "question": "أبغى أحجز موعد، كيف الطريقة؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "009"
+      ],
+      "retrieved_faq_ids": [
+        "009",
+        "025",
+        "026",
+        "010",
+        "024"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6558,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2090.0
+    },
+    {
+      "question": "وش خطوات الحجز عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "009"
+      ],
+      "retrieved_faq_ids": [
+        "009",
+        "025",
+        "020",
+        "021",
+        "011"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6805,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2077.2
+    },
+    {
+      "question": "بعد ما أحجز وش أسوي؟",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "009"
+      ],
+      "retrieved_faq_ids": [
+        "009",
+        "010",
+        "011",
+        "007",
+        "021"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5645,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2106.5
+    },
+    {
+      "question": "كيف تجيني النتيجة بعد ما أخلص الفحص؟",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "009",
+        "010"
+      ],
+      "retrieved_faq_ids": [
+        "009",
+        "025",
+        "007",
+        "010",
+        "021"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5999,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2088.9
+    },
+    {
+      "question": "فيه تطبيق جوال لموفق؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "010"
+      ],
+      "retrieved_faq_ids": [
+        "010",
+        "025",
+        "022",
+        "006",
+        "001"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6475,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "010"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يتيح لك تطبيق موفق إنجاز كل فحوصاتك من شاشة واحدة: احجز فحصك، تتبع موعدك، واستلم نتيجتك فوراً. كما يوفر متابعة لحظية لحالة الفحص بدون اتصالات، وتحميل ملف التقرير الطبي مباشرة على جوالك، وتنبيهات وتذكيرات ذكية بالفحوصات الطبية الدورية قبل انتهاء صلاحيتها.",
+      "latency_ms": 2075.2
+    },
+    {
+      "question": "وش يسوي التطبيق حقكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "010"
+      ],
+      "retrieved_faq_ids": [
+        "010",
+        "022",
+        "025",
+        "009",
+        "016"
+      ],
+      "hit": true,
+      "confident": false,
+      "confidence": 0.4434,
+      "answered": false,
+      "refusal_correct": false,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2115.0
+    },
+    {
+      "question": "أقدر أتابع فحصي من الجوال؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "010"
+      ],
+      "retrieved_faq_ids": [
+        "025",
+        "008",
+        "009",
+        "010",
+        "017"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6444,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "025"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي فوراً عبر منصة موفق أو تطبيق الجوال: اختر نوع الفحص والمدينة والتاريخ المناسب، أكّد الحجز وادفع بأمان، ثم توجه لأقرب مركز طبي معتمد لاستلام تقريرك المعتمد فور صدوره.",
+      "latency_ms": 2074.3
+    },
+    {
+      "question": "ينزل التقرير على جوالي؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "010"
+      ],
+      "retrieved_faq_ids": [
+        "010",
+        "003",
+        "004",
+        "024",
+        "025"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5439,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "010"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يتيح لك تطبيق موفق إنجاز كل فحوصاتك من شاشة واحدة: احجز فحصك، تتبع موعدك، واستلم نتيجتك فوراً. كما يوفر متابعة لحظية لحالة الفحص بدون اتصالات، وتحميل ملف التقرير الطبي مباشرة على جوالك، وتنبيهات وتذكيرات ذكية بالفحوصات الطبية الدورية قبل انتهاء صلاحيتها.",
+      "latency_ms": 2094.3
+    },
+    {
+      "question": "فيه تنبيهات تذكرني بالمواعيد؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "010"
+      ],
+      "retrieved_faq_ids": [
+        "010",
+        "016",
+        "002",
+        "013",
+        "006"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.4871,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "010"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يتيح لك تطبيق موفق إنجاز كل فحوصاتك من شاشة واحدة: احجز فحصك، تتبع موعدك، واستلم نتيجتك فوراً. كما يوفر متابعة لحظية لحالة الفحص بدون اتصالات، وتحميل ملف التقرير الطبي مباشرة على جوالك، وتنبيهات وتذكيرات ذكية بالفحوصات الطبية الدورية قبل انتهاء صلاحيتها.",
+      "latency_ms": 2134.9
+    },
+    {
+      "question": "كيف أقدر أدفع؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "011"
+      ],
+      "retrieved_faq_ids": [
+        "009",
+        "025",
+        "026",
+        "020",
+        "011"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6199,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2075.6
+    },
+    {
+      "question": "وش طرق الدفع عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "011"
+      ],
+      "retrieved_faq_ids": [
+        "011",
+        "013",
+        "025",
+        "009",
+        "026"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.675,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "011"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي والدفع عبر عدة طرق ميسرة: تابي، تمارا، مدى، فيزا، آبل باي، وسامسونج باي.",
+      "latency_ms": 2098.5
+    },
+    {
+      "question": "تقبلون تابي؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "011"
+      ],
+      "retrieved_faq_ids": [
+        "011",
+        "026",
+        "006",
+        "025",
+        "008"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.4755,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "011"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي والدفع عبر عدة طرق ميسرة: تابي، تمارا، مدى، فيزا، آبل باي، وسامسونج باي.",
+      "latency_ms": 2096.8
+    },
+    {
+      "question": "تمارا موجودة عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "011"
+      ],
+      "retrieved_faq_ids": [
+        "011",
+        "013",
+        "007",
+        "025",
+        "026"
+      ],
+      "hit": true,
+      "confident": false,
+      "confidence": 0.4263,
+      "answered": false,
+      "refusal_correct": false,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2084.3
+    },
+    {
+      "question": "أقدر أدفع بآبل باي؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "011"
+      ],
+      "retrieved_faq_ids": [
+        "011",
+        "025",
+        "026",
+        "009",
+        "010"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6409,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "011"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي والدفع عبر عدة طرق ميسرة: تابي، تمارا، مدى، فيزا، آبل باي، وسامسونج باي.",
+      "latency_ms": 2069.8
+    },
+    {
+      "question": "مدى يشتغل معكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "011"
+      ],
+      "retrieved_faq_ids": [
+        "011",
+        "020",
+        "005",
+        "016",
+        "015"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.4583,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "011"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي والدفع عبر عدة طرق ميسرة: تابي، تمارا، مدى، فيزا، آبل باي، وسامسونج باي.",
+      "latency_ms": 2085.8
+    },
+    {
+      "question": "أقدر أدفع كاش في المركز؟",
+      "lang": "ar",
+      "kind": "ambiguous",
+      "expected_faq_ids": [
+        "011"
+      ],
+      "retrieved_faq_ids": [
+        "025",
+        "024",
+        "009",
+        "011",
+        "013"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.4708,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "025"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي فوراً عبر منصة موفق أو تطبيق الجوال: اختر نوع الفحص والمدينة والتاريخ المناسب، أكّد الحجز وادفع بأمان، ثم توجه لأقرب مركز طبي معتمد لاستلام تقريرك المعتمد فور صدوره.",
+      "latency_ms": 2081.2
+    },
+    {
+      "question": "وش هي أكاديمية موفق؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "012"
+      ],
+      "retrieved_faq_ids": [
+        "012",
+        "013",
+        "014",
+        "018",
+        "001"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.7508,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "012"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "أكاديمية موفق هي منظومة تعليمية ذكية تقدم برامج تأهيل وتدريب متكاملة عبر منصة تعلم واحدة، من الخطوات الأولى للتدريب وحتى اجتياز الاختبار، لتأهيل الأفراد والكوادر مهنياً وصحياً بأقل مجهود تشغيلي.",
+      "latency_ms": 2112.6
+    },
+    {
+      "question": "الأكاديمية تدرب على ايش؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "012"
+      ],
+      "retrieved_faq_ids": [
+        "012",
+        "013",
+        "014",
+        "018",
+        "023"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6014,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "012"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "أكاديمية موفق هي منظومة تعليمية ذكية تقدم برامج تأهيل وتدريب متكاملة عبر منصة تعلم واحدة، من الخطوات الأولى للتدريب وحتى اجتياز الاختبار، لتأهيل الأفراد والكوادر مهنياً وصحياً بأقل مجهود تشغيلي.",
+      "latency_ms": 2076.3
+    },
+    {
+      "question": "وش مميزات التدريب عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "013"
+      ],
+      "retrieved_faq_ids": [
+        "013",
+        "018",
+        "008",
+        "010",
+        "014"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6261,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "013"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تتميز أكاديمية موفق بـ: تدريب مرن ومؤتمت بسبع لغات عالمية (دورات مسجلة واختبارات تجريبية مصغرة متاحة في أي وقت ومكان)، أسعار موحدة وخيارات دفع وفوترة ميسرة، لوحة تحكم وتتبع رقمي عالي الجودة لمسار إنجاز التدريب مع توثيق رقمي لكافة الوثائق، وتنبيهات وتذكيرات آلية قبل انتهاء صلاحية الشهادات لتجديدها في الوقت المناسب.",
+      "latency_ms": 2083.8
+    },
+    {
+      "question": "الدورات مسجلة ولا مباشر؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "013"
+      ],
+      "retrieved_faq_ids": [
+        "013",
+        "021",
+        "024",
+        "020",
+        "018"
+      ],
+      "hit": true,
+      "confident": false,
+      "confidence": 0.4344,
+      "answered": false,
+      "refusal_correct": false,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2074.6
+    },
+    {
+      "question": "فيه اختبارات تجريبية قبل الاختبار الحقيقي؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "013"
+      ],
+      "retrieved_faq_ids": [
+        "007",
+        "013",
+        "010",
+        "014",
+        "021"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5848,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2094.1
+    },
+    {
+      "question": "التدريب عندكم بكم لغة؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "014",
+        "013"
+      ],
+      "retrieved_faq_ids": [
+        "013",
+        "014",
+        "018",
+        "016",
+        "005"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6136,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "013"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تتميز أكاديمية موفق بـ: تدريب مرن ومؤتمت بسبع لغات عالمية (دورات مسجلة واختبارات تجريبية مصغرة متاحة في أي وقت ومكان)، أسعار موحدة وخيارات دفع وفوترة ميسرة، لوحة تحكم وتتبع رقمي عالي الجودة لمسار إنجاز التدريب مع توثيق رقمي لكافة الوثائق، وتنبيهات وتذكيرات آلية قبل انتهاء صلاحية الشهادات لتجديدها في الوقت المناسب.",
+      "latency_ms": 2093.7
+    },
+    {
+      "question": "كم نسبة النجاح عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "014"
+      ],
+      "retrieved_faq_ids": [
+        "014",
+        "024",
+        "026",
+        "005",
+        "008"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6359,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "014"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تحقق أكاديمية موفق نسبة نجاح 93% في الاختبارات باللغة العربية، و81% في الاختبارات باللغات الأخرى، وتقدم التدريب بأكثر من 7 لغات معتمدة.",
+      "latency_ms": 2064.7
+    },
+    {
+      "question": "فيه لوحة تحكم أتابع فيها تدريبي؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "013"
+      ],
+      "retrieved_faq_ids": [
+        "013",
+        "018",
+        "021",
+        "016",
+        "020"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5551,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "013"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تتميز أكاديمية موفق بـ: تدريب مرن ومؤتمت بسبع لغات عالمية (دورات مسجلة واختبارات تجريبية مصغرة متاحة في أي وقت ومكان)، أسعار موحدة وخيارات دفع وفوترة ميسرة، لوحة تحكم وتتبع رقمي عالي الجودة لمسار إنجاز التدريب مع توثيق رقمي لكافة الوثائق، وتنبيهات وتذكيرات آلية قبل انتهاء صلاحية الشهادات لتجديدها في الوقت المناسب.",
+      "latency_ms": 2074.1
+    },
+    {
+      "question": "الأسعار موحدة في الأكاديمية؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "013"
+      ],
+      "retrieved_faq_ids": [
+        "013",
+        "012",
+        "014",
+        "018",
+        "008"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5553,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "013"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تتميز أكاديمية موفق بـ: تدريب مرن ومؤتمت بسبع لغات عالمية (دورات مسجلة واختبارات تجريبية مصغرة متاحة في أي وقت ومكان)، أسعار موحدة وخيارات دفع وفوترة ميسرة، لوحة تحكم وتتبع رقمي عالي الجودة لمسار إنجاز التدريب مع توثيق رقمي لكافة الوثائق، وتنبيهات وتذكيرات آلية قبل انتهاء صلاحية الشهادات لتجديدها في الوقت المناسب.",
+      "latency_ms": 2055.1
+    },
+    {
+      "question": "وش هو موفق أعمال؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "015"
+      ],
+      "retrieved_faq_ids": [
+        "015",
+        "016",
+        "018",
+        "026",
+        "022"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6171,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "015"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "موفق أعمال هو نظام متكامل موجّه للشركات وإدارة الموارد البشرية، يؤتمت الفحوصات الطبية لموظفي الشركة في دقائق، ويشمل إدارة الحجوزات، وتتبع التقارير والنتائج، والتذكير الذكي بمواعيد الفحوصات الدورية، بأسعار موحدة وعبر شبكة مراكز طبية معتمدة حول المملكة.",
+      "latency_ms": 2078.6
+    },
+    {
+      "question": "عندي شركة، وش تقدمون لي؟",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "015",
+        "016",
+        "017"
+      ],
+      "retrieved_faq_ids": [
+        "026",
+        "015",
+        "004",
+        "016",
+        "023"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6044,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "026"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "يمكن للشركة البدء عبر التواصل مع مسؤول نجاح العملاء، أو طلب تجربة المنصة، أو فتح حساب شركة مباشرة، أو حجز عرض تجريبي لاستعراض كيفية أتمتة فحوصات الموظفين وإدارة الامتثال الصحي للمنشأة.",
+      "latency_ms": 2116.8
+    },
+    {
+      "question": "ليش الشركات تحتاج موفق أعمال؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "016"
+      ],
+      "retrieved_faq_ids": [
+        "015",
+        "002",
+        "016",
+        "026",
+        "018"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6269,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "015"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "موفق أعمال هو نظام متكامل موجّه للشركات وإدارة الموارد البشرية، يؤتمت الفحوصات الطبية لموظفي الشركة في دقائق، ويشمل إدارة الحجوزات، وتتبع التقارير والنتائج، والتذكير الذكي بمواعيد الفحوصات الدورية، بأسعار موحدة وعبر شبكة مراكز طبية معتمدة حول المملكة.",
+      "latency_ms": 2102.0
+    },
+    {
+      "question": "وش الفايدة اللي بتعود على شركتي؟",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "016"
+      ],
+      "retrieved_faq_ids": [
+        "026",
+        "004",
+        "003",
+        "010",
+        "016"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5598,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "026"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "يمكن للشركة البدء عبر التواصل مع مسؤول نجاح العملاء، أو طلب تجربة المنصة، أو فتح حساب شركة مباشرة، أو حجز عرض تجريبي لاستعراض كيفية أتمتة فحوصات الموظفين وإدارة الامتثال الصحي للمنشأة.",
+      "latency_ms": 2093.4
+    },
+    {
+      "question": "تختصرون علينا ملفات الإكسل والمتابعة اليدوية؟",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "016"
+      ],
+      "retrieved_faq_ids": [
+        "016",
+        "010",
+        "017",
+        "018",
+        "006"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5607,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "016"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "لأنه يوفر: أتمتة كاملة وتوفيراً للوقت (بدلاً من المتابعة اليدوية وملفات الإكسل)، امتثالاً قانونياً مضموناً 100% عبر تنبيهات تواريخ انتهاء الرخص والشهادات، تقارير رقمية ولوحة تحكم موحدة لمتابعة حالة فحوصات الموظفين ومؤشرات الصحة المهنية فورياً، وخفضاً للتكاليف التشغيلية الناتجة عن تذبذب أسعار الفحوصات والتدريب بين الفروع والمدن.",
+      "latency_ms": 2081.2
+    },
+    {
+      "question": "فيه تنبيهات لانتهاء الرخص والشهادات؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "016",
+        "017"
+      ],
+      "retrieved_faq_ids": [
+        "013",
+        "016",
+        "018",
+        "021",
+        "007"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.499,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "013"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "تتميز أكاديمية موفق بـ: تدريب مرن ومؤتمت بسبع لغات عالمية (دورات مسجلة واختبارات تجريبية مصغرة متاحة في أي وقت ومكان)، أسعار موحدة وخيارات دفع وفوترة ميسرة، لوحة تحكم وتتبع رقمي عالي الجودة لمسار إنجاز التدريب مع توثيق رقمي لكافة الوثائق، وتنبيهات وتذكيرات آلية قبل انتهاء صلاحية الشهادات لتجديدها في الوقت المناسب.",
+      "latency_ms": 2086.4
+    },
+    {
+      "question": "وش خدمة الفحوصات اللي تقدمونها للشركات؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "017"
+      ],
+      "retrieved_faq_ids": [
+        "017",
+        "019",
+        "015",
+        "007",
+        "016"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6462,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "017"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تشمل جدولة فحوصات الموظفين عبر شبكة واسعة من المراكز الطبية المعتمدة، وأتمتة الحجز والمتابعة، ومنصة موحدة للتقارير، وربطاً مباشراً مع المراكز الطبية، ومتابعة ذكية وتنبيهات بصلاحية الرخص.",
+      "latency_ms": 2088.2
+    },
+    {
+      "question": "تجدولون فحوصات الموظفين؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "017"
+      ],
+      "retrieved_faq_ids": [
+        "017",
+        "007",
+        "019",
+        "021",
+        "015"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5646,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "017"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تشمل جدولة فحوصات الموظفين عبر شبكة واسعة من المراكز الطبية المعتمدة، وأتمتة الحجز والمتابعة، ومنصة موحدة للتقارير، وربطاً مباشراً مع المراكز الطبية، ومتابعة ذكية وتنبيهات بصلاحية الرخص.",
+      "latency_ms": 2074.6
+    },
+    {
+      "question": "فيه ربط مباشر مع المراكز الطبية؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "017",
+        "019"
+      ],
+      "retrieved_faq_ids": [
+        "017",
+        "008",
+        "005",
+        "021",
+        "024"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5217,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "017"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تشمل جدولة فحوصات الموظفين عبر شبكة واسعة من المراكز الطبية المعتمدة، وأتمتة الحجز والمتابعة، ومنصة موحدة للتقارير، وربطاً مباشراً مع المراكز الطبية، ومتابعة ذكية وتنبيهات بصلاحية الرخص.",
+      "latency_ms": 2082.5
+    },
+    {
+      "question": "فيه تدريب لموظفيني؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "018"
+      ],
+      "retrieved_faq_ids": [
+        "018",
+        "013",
+        "014",
+        "016",
+        "020"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6375,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "018"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "نعم، عبر أكاديمية موفق تقدم موفق أعمال تأهيلاً وتدريباً للكوادر البشرية والمهنية عبر برامج تخصصية معتمدة ومؤتمتة بالكامل، تشمل إجراءات أونلاين، لوحة تحكم مركزية لإدارة الموظفين، متابعة ذكية وتنبيهات بصلاحية الشهادات، وتدريباً متوافقاً مع متطلبات الشهادات.",
+      "latency_ms": 2098.3
+    },
+    {
+      "question": "تدربون الكوادر عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "018"
+      ],
+      "retrieved_faq_ids": [
+        "012",
+        "018",
+        "013",
+        "014",
+        "026"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5612,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "012"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "أكاديمية موفق هي منظومة تعليمية ذكية تقدم برامج تأهيل وتدريب متكاملة عبر منصة تعلم واحدة، من الخطوات الأولى للتدريب وحتى اجتياز الاختبار، لتأهيل الأفراد والكوادر مهنياً وصحياً بأقل مجهود تشغيلي.",
+      "latency_ms": 2094.6
+    },
+    {
+      "question": "وش هي خدمة الصحة المهنية عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "019"
+      ],
+      "retrieved_faq_ids": [
+        "019",
+        "017",
+        "023",
+        "002",
+        "007"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.646,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "019"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "إدارة متكاملة للفحوصات الطبية البيئية والمهنية لحماية المنشأة وضمان استقرارها التشغيلي والقانوني، تشمل أتمتة وإدارة فحوصات الصحة المهنية، لوحة تحكم مركزية لإدارة الموظفين، ربطاً مباشراً مع المراكز الطبية، ومتابعة ذكية وتنبيهات بمؤشرات الصحة المهنية.",
+      "latency_ms": 2115.4
+    },
+    {
+      "question": "تسوون فحوصات بيئية للمنشأة؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "019"
+      ],
+      "retrieved_faq_ids": [
+        "019",
+        "017",
+        "007",
+        "021",
+        "026"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5977,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "019"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "إدارة متكاملة للفحوصات الطبية البيئية والمهنية لحماية المنشأة وضمان استقرارها التشغيلي والقانوني، تشمل أتمتة وإدارة فحوصات الصحة المهنية، لوحة تحكم مركزية لإدارة الموظفين، ربطاً مباشراً مع المراكز الطبية، ومتابعة ذكية وتنبيهات بمؤشرات الصحة المهنية.",
+      "latency_ms": 2087.4
+    },
+    {
+      "question": "وش مراحل التسجيل للشركات عندكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "020"
+      ],
+      "retrieved_faq_ids": [
+        "020",
+        "021",
+        "017",
+        "015",
+        "016"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6279,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "020"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "عبر خمس مراحل: 1) التسجيل والحوكمة: توثيق المنشأة والتحقق الفوري من السجل التجاري رقمياً في دقائق. 2) إعداد الهيكل الإداري: إدخال بيانات الطاقم، تنظيم الأقسام، وأتمتة مسارات الموافقة والصلاحيات. 3) حجز وإصدار الخدمات: جدولة الفحوصات الطبية، الشهادات المهنية، وفحوصات التأشيرات عبر شبكة مراكز طبية موحدة. 4) التتبع اللحظي والسيطرة: مراقبة حالة الطلبات والنتائج مباشرة عبر لوحة مركزية واحدة. 5) التوسع بثقة: تفعيل التجديد التلقائي وإصدار تقارير وتحليلات الامتثال لحماية نمو المنشأة.",
+      "latency_ms": 2090.4
+    },
+    {
+      "question": "كيف تتحققون من السجل التجاري؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "020"
+      ],
+      "retrieved_faq_ids": [
+        "020",
+        "021",
+        "026",
+        "009",
+        "025"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5809,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "020"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "عبر خمس مراحل: 1) التسجيل والحوكمة: توثيق المنشأة والتحقق الفوري من السجل التجاري رقمياً في دقائق. 2) إعداد الهيكل الإداري: إدخال بيانات الطاقم، تنظيم الأقسام، وأتمتة مسارات الموافقة والصلاحيات. 3) حجز وإصدار الخدمات: جدولة الفحوصات الطبية، الشهادات المهنية، وفحوصات التأشيرات عبر شبكة مراكز طبية موحدة. 4) التتبع اللحظي والسيطرة: مراقبة حالة الطلبات والنتائج مباشرة عبر لوحة مركزية واحدة. 5) التوسع بثقة: تفعيل التجديد التلقائي وإصدار تقارير وتحليلات الامتثال لحماية نمو المنشأة.",
+      "latency_ms": 2116.0
+    },
+    {
+      "question": "وش خطوات إدارة فحوصات الفريق؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "021"
+      ],
+      "retrieved_faq_ids": [
+        "021",
+        "009",
+        "019",
+        "020",
+        "017"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.7316,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "021"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "ثلاث خطوات رئيسية: التوثيق والإعداد (تسجيل المنشأة، التحقق من السجل التجاري، وإدخال بيانات الفريق رقمياً في دقائق)، الجدولة الفورية (حجز الفحوصات الطبية والشهادات المهنية والتأشيرات عبر شبكة مراكز طبية موحدة بنقرة واحدة)، والتتبع والامتثال (مراقبة النتائج مباشرة عبر لوحة تحكم مركزية مع تفعيل تنبيهات التجديد).",
+      "latency_ms": 2109.1
+    },
+    {
+      "question": "كيف أدير فحوصات موظفيني؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "021",
+        "017"
+      ],
+      "retrieved_faq_ids": [
+        "009",
+        "025",
+        "021",
+        "026",
+        "017"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6517,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2120.3
+    },
+    {
+      "question": "فيه لوحة تحكم موحدة أشوف فيها كل الموظفين؟",
+      "lang": "ar",
+      "kind": "ambiguous",
+      "expected_faq_ids": [
+        "016",
+        "017",
+        "019",
+        "021"
+      ],
+      "retrieved_faq_ids": [
+        "015",
+        "016",
+        "013",
+        "021",
+        "008"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.4917,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "015"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "موفق أعمال هو نظام متكامل موجّه للشركات وإدارة الموارد البشرية، يؤتمت الفحوصات الطبية لموظفي الشركة في دقائق، ويشمل إدارة الحجوزات، وتتبع التقارير والنتائج، والتذكير الذكي بمواعيد الفحوصات الدورية، بأسعار موحدة وعبر شبكة مراكز طبية معتمدة حول المملكة.",
+      "latency_ms": 2075.8
+    },
+    {
+      "question": "أبغى أتابع امتثال شركتي، تقدرون؟",
+      "lang": "ar",
+      "kind": "paraphrase",
+      "expected_faq_ids": [
+        "016",
+        "021",
+        "019"
+      ],
+      "retrieved_faq_ids": [
+        "026",
+        "002",
+        "021",
+        "016",
+        "020"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5839,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "026"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "يمكن للشركة البدء عبر التواصل مع مسؤول نجاح العملاء، أو طلب تجربة المنصة، أو فتح حساب شركة مباشرة، أو حجز عرض تجريبي لاستعراض كيفية أتمتة فحوصات الموظفين وإدارة الامتثال الصحي للمنشأة.",
+      "latency_ms": 2118.6
+    },
+    {
+      "question": "مين اللي يستخدم موفق؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "022"
+      ],
+      "retrieved_faq_ids": [
+        "022",
+        "004",
+        "008",
+        "024",
+        "001"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.579,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "022"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تستهدف موفق فئتين رئيسيتين: المستهلكين الأفراد (عبر تطبيق موفق للجوال)، والمستهلكين من الشركات (عبر منصة موفق أعمال).",
+      "latency_ms": 2101.8
+    },
+    {
+      "question": "موفق للأفراد ولا للشركات؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "022"
+      ],
+      "retrieved_faq_ids": [
+        "015",
+        "016",
+        "022",
+        "007",
+        "002"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6071,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "015"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "موفق أعمال هو نظام متكامل موجّه للشركات وإدارة الموارد البشرية، يؤتمت الفحوصات الطبية لموظفي الشركة في دقائق، ويشمل إدارة الحجوزات، وتتبع التقارير والنتائج، والتذكير الذكي بمواعيد الفحوصات الدورية، بأسعار موحدة وعبر شبكة مراكز طبية معتمدة حول المملكة.",
+      "latency_ms": 2075.6
+    },
+    {
+      "question": "وش الفئات اللي تخدمونها؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "022"
+      ],
+      "retrieved_faq_ids": [
+        "022",
+        "007",
+        "017",
+        "018",
+        "002"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5706,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "022"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "تستهدف موفق فئتين رئيسيتين: المستهلكين الأفراد (عبر تطبيق موفق للجوال)، والمستهلكين من الشركات (عبر منصة موفق أعمال).",
+      "latency_ms": 2131.4
+    },
+    {
+      "question": "متى تأسست موفق؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "023"
+      ],
+      "retrieved_faq_ids": [
+        "004",
+        "003",
+        "024",
+        "008",
+        "001"
+      ],
+      "hit": false,
+      "confident": true,
+      "confidence": 0.6126,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "004"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "بدأت موفق من قناعة أن الامتثال الصحي لا يجب أن يكون عبئاً إدارياً على المنشأة. فبُنيت منصة موحدة تدمج المنشآت والمختبرات في شبكة رقمية واحدة، لتصبح المصدر الرسمي والموثق للفحوصات الطبية، والوجهة اليومية لآلاف المستخدمين في المملكة.",
+      "latency_ms": 2113.4
+    },
+    {
+      "question": "وش صار عندكم في 2024؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "023"
+      ],
+      "retrieved_faq_ids": [
+        "023",
+        "005",
+        "023",
+        "001",
+        "002"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.4683,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "023"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "2023: انطلاق الفكرة والتأسيس، وبناء النواة الأولى للفريق حول قناعة واحدة أن الالتزام الطبي يمكن أن يكون تجربة واحدة لا خمساً. 2024: توثيق وإصدار أكثر من 10,000 فحص طبي مكتمل، واستقبال أوائل الشركاء المؤسسين. 2025: تدشين أكاديمية موفق لتقديم برامج تدريبية متخصصة بإجراءات رقمية مؤتمتة بالكامل. 2026: إعادة تعريف الامتثال الصحي الشامل بإطلاق حلول الصحة المهنية المؤتمتة لحوكمة المنشآت رقمياً.",
+      "latency_ms": 2105.7
+    },
+    {
+      "question": "وش أهم محطاتكم من البداية؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "023"
+      ],
+      "retrieved_faq_ids": [
+        "004",
+        "008",
+        "023",
+        "001",
+        "021"
+      ],
+      "hit": true,
+      "confident": false,
+      "confidence": 0.406,
+      "answered": false,
+      "refusal_correct": false,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2119.5
+    },
+    {
+      "question": "وين مقركم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "024"
+      ],
+      "retrieved_faq_ids": [
+        "024",
+        "008",
+        "004",
+        "024",
+        "005"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5623,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "024"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يقع مقر موفق في الرياض، شارع الملك فيصل، مركز يو التجاري، المملكة العربية السعودية. يمكن التواصل مع فريق موفق عبر نموذج التواصل على المنصة، أو حجز موعد مباشر مع مسؤول نجاح العملاء. (ملاحظة: بيانات الهاتف والبريد الإلكتروني لم تُحدَّد بعد في المصدر الأصلي).",
+      "latency_ms": 2104.4
+    },
+    {
+      "question": "مقر الشركة في أي مدينة؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "024"
+      ],
+      "retrieved_faq_ids": [
+        "024",
+        "004",
+        "005",
+        "023",
+        "026"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5645,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "024"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يقع مقر موفق في الرياض، شارع الملك فيصل، مركز يو التجاري، المملكة العربية السعودية. يمكن التواصل مع فريق موفق عبر نموذج التواصل على المنصة، أو حجز موعد مباشر مع مسؤول نجاح العملاء. (ملاحظة: بيانات الهاتف والبريد الإلكتروني لم تُحدَّد بعد في المصدر الأصلي).",
+      "latency_ms": 2107.5
+    },
+    {
+      "question": "كيف أتواصل معكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "024"
+      ],
+      "retrieved_faq_ids": [
+        "025",
+        "024",
+        "009",
+        "026",
+        "020"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5545,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "025"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي فوراً عبر منصة موفق أو تطبيق الجوال: اختر نوع الفحص والمدينة والتاريخ المناسب، أكّد الحجز وادفع بأمان، ثم توجه لأقرب مركز طبي معتمد لاستلام تقريرك المعتمد فور صدوره.",
+      "latency_ms": 2094.8
+    },
+    {
+      "question": "أبغى أكلم مسؤول نجاح العملاء",
+      "lang": "ar",
+      "kind": "ambiguous",
+      "expected_faq_ids": [
+        "024",
+        "026"
+      ],
+      "retrieved_faq_ids": [
+        "026",
+        "024",
+        "014",
+        "022",
+        "025"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.539,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "026"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكن للشركة البدء عبر التواصل مع مسؤول نجاح العملاء، أو طلب تجربة المنصة، أو فتح حساب شركة مباشرة، أو حجز عرض تجريبي لاستعراض كيفية أتمتة فحوصات الموظفين وإدارة الامتثال الصحي للمنشأة.",
+      "latency_ms": 2117.7
+    },
+    {
+      "question": "أبغى أبدأ معكم كفرد، كيف؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "025"
+      ],
+      "retrieved_faq_ids": [
+        "025",
+        "026",
+        "009",
+        "020",
+        "004"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.597,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "025"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي فوراً عبر منصة موفق أو تطبيق الجوال: اختر نوع الفحص والمدينة والتاريخ المناسب، أكّد الحجز وادفع بأمان، ثم توجه لأقرب مركز طبي معتمد لاستلام تقريرك المعتمد فور صدوره.",
+      "latency_ms": 2092.4
+    },
+    {
+      "question": "أول خطوة عشان أستخدم موفق وش هي؟",
+      "lang": "ar",
+      "kind": "ambiguous",
+      "expected_faq_ids": [
+        "025",
+        "009"
+      ],
+      "retrieved_faq_ids": [
+        "001",
+        "010",
+        "023",
+        "004",
+        "002"
+      ],
+      "hit": false,
+      "confident": true,
+      "confidence": 0.5242,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "001"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": null,
+      "answer": "موفق هي المنصة الرقمية الرائدة في المملكة العربية السعودية لأتمتة وتسهيل الفحوصات الطبية الإلزامية، عبر شبكة وطنية موحدة من المراكز والمستشفيات المعتمدة. تخدم الأفراد والشركات، وتهدف لتمكينهم من تحقيق الامتثال الصحي بكفاءة وسرعة، بما يدعم مستهدفات رؤية 2030.",
+      "latency_ms": 2091.8
+    },
+    {
+      "question": "شركتي كيف تبدأ معكم؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "026"
+      ],
+      "retrieved_faq_ids": [
+        "026",
+        "025",
+        "020",
+        "009",
+        "023"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.7018,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "026"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكن للشركة البدء عبر التواصل مع مسؤول نجاح العملاء، أو طلب تجربة المنصة، أو فتح حساب شركة مباشرة، أو حجز عرض تجريبي لاستعراض كيفية أتمتة فحوصات الموظفين وإدارة الامتثال الصحي للمنشأة.",
+      "latency_ms": 2121.2
+    },
+    {
+      "question": "أبغى أفتح حساب شركة",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "026"
+      ],
+      "retrieved_faq_ids": [
+        "026",
+        "004",
+        "023",
+        "015",
+        "025"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.6755,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "026"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكن للشركة البدء عبر التواصل مع مسؤول نجاح العملاء، أو طلب تجربة المنصة، أو فتح حساب شركة مباشرة، أو حجز عرض تجريبي لاستعراض كيفية أتمتة فحوصات الموظفين وإدارة الامتثال الصحي للمنشأة.",
+      "latency_ms": 2094.1
+    },
+    {
+      "question": "فيه عرض تجريبي للشركات؟",
+      "lang": "ar",
+      "kind": "clean",
+      "expected_faq_ids": [
+        "026"
+      ],
+      "retrieved_faq_ids": [
+        "026",
+        "017",
+        "018",
+        "015",
+        "016"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5508,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "026"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": null,
+      "answer": "يمكن للشركة البدء عبر التواصل مع مسؤول نجاح العملاء، أو طلب تجربة المنصة، أو فتح حساب شركة مباشرة، أو حجز عرض تجريبي لاستعراض كيفية أتمتة فحوصات الموظفين وإدارة الامتثال الصحي للمنشأة.",
+      "latency_ms": 2107.7
+    },
+    {
+      "question": "كم رقم جوالكم؟",
+      "lang": "ar",
+      "kind": "no_fabrication",
+      "expected_faq_ids": [
+        "024"
+      ],
+      "retrieved_faq_ids": [
+        "005",
+        "025",
+        "010",
+        "024",
+        "011"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.4617,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "005"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": false,
+      "fabricated": false,
+      "answer": "تضم شبكة موفق أكثر من 214 مركزاً طبياً معتمداً، وقد أنجزت آلاف الفحوصات الطبية، وتغطي أكثر من 38 مدينة حول المملكة، بنسبة دقة وموثوقية في النتائج تصل إلى 100%.",
+      "latency_ms": 2078.7
+    },
+    {
+      "question": "وش الإيميل حقكم؟",
+      "lang": "ar",
+      "kind": "no_fabrication",
+      "expected_faq_ids": [
+        "024"
+      ],
+      "retrieved_faq_ids": [
+        "016",
+        "022",
+        "010",
+        "025",
+        "026"
+      ],
+      "hit": false,
+      "confident": false,
+      "confidence": 0.4101,
+      "answered": false,
+      "refusal_correct": false,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": false,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2083.4
+    },
+    {
+      "question": "عطني رقم التواصل المباشر",
+      "lang": "ar",
+      "kind": "no_fabrication",
+      "expected_faq_ids": [
+        "024"
+      ],
+      "retrieved_faq_ids": [
+        "024",
+        "026",
+        "025",
+        "009",
+        "010"
+      ],
+      "hit": true,
+      "confident": true,
+      "confidence": 0.5377,
+      "answered": true,
+      "refusal_correct": true,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "024"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": true,
+      "fabricated": false,
+      "answer": "يقع مقر موفق في الرياض، شارع الملك فيصل، مركز يو التجاري، المملكة العربية السعودية. يمكن التواصل مع فريق موفق عبر نموذج التواصل على المنصة، أو حجز موعد مباشر مع مسؤول نجاح العملاء. (ملاحظة: بيانات الهاتف والبريد الإلكتروني لم تُحدَّد بعد في المصدر الأصلي).",
+      "latency_ms": 2069.5
+    },
+    {
+      "question": "بكم الفحص الطبي؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "009",
+        "025",
+        "007",
+        "008",
+        "011"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.5835,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "009"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "عبر ثلاث خطوات فقط: 1) اختر فحصك وموعدك: حدد نوع الفحص الطبي، المدينة، والتاريخ المناسب لك، ثم أكد حجزك وادفع بأمان عبر المنصة أو التطبيق. 2) قم بزيارة المركز: توجه إلى المركز الطبي المعتمد في موعدك لإجراء الفحص، وتابع حالة طلبك لحظة بلحظة عبر المنصة. 3) استلم تقريرك المعتمد: فور صدور نتيجتك، ستصلك رسالة نصية عبر هاتفك، ويكون تقريرك الطبي المعتمد جاهزاً للتحميل والمشاركة.",
+      "latency_ms": 2074.9
+    },
+    {
+      "question": "كم سعر فحص الإقامة بالريال؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "009",
+        "010",
+        "011"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.4952,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2063.3
+    },
+    {
+      "question": "أقدر ألغي موعدي؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "025",
+        "009",
+        "011",
+        "008",
+        "010"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.5141,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "025"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "يمكنك حجز فحصك الطبي فوراً عبر منصة موفق أو تطبيق الجوال: اختر نوع الفحص والمدينة والتاريخ المناسب، أكّد الحجز وادفع بأمان، ثم توجه لأقرب مركز طبي معتمد لاستلام تقريرك المعتمد فور صدوره.",
+      "latency_ms": 2104.4
+    },
+    {
+      "question": "فيه استرجاع فلوس لو ما رحت للموعد؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "011",
+        "002",
+        "003",
+        "010",
+        "015"
+      ],
+      "hit": null,
+      "confident": false,
+      "confidence": 0.3908,
+      "answered": false,
+      "refusal_correct": true,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2096.1
+    },
+    {
+      "question": "وش دوامكم؟ متى تفتحون؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "023",
+        "020",
+        "026",
+        "015",
+        "024"
+      ],
+      "hit": null,
+      "confident": false,
+      "confidence": 0.4379,
+      "answered": false,
+      "refusal_correct": true,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2068.5
+    },
+    {
+      "question": "وش عنوان فرعكم في الدمام؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "024",
+        "004",
+        "005",
+        "020",
+        "001"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.528,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "024"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "يقع مقر موفق في الرياض، شارع الملك فيصل، مركز يو التجاري، المملكة العربية السعودية. يمكن التواصل مع فريق موفق عبر نموذج التواصل على المنصة، أو حجز موعد مباشر مع مسؤول نجاح العملاء. (ملاحظة: بيانات الهاتف والبريد الإلكتروني لم تُحدَّد بعد في المصدر الأصلي).",
+      "latency_ms": 2083.3
+    },
+    {
+      "question": "تشتغلون في الكويت والإمارات؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "024",
+        "015",
+        "020",
+        "001",
+        "014"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.6,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "024"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "يقع مقر موفق في الرياض، شارع الملك فيصل، مركز يو التجاري، المملكة العربية السعودية. يمكن التواصل مع فريق موفق عبر نموذج التواصل على المنصة، أو حجز موعد مباشر مع مسؤول نجاح العملاء. (ملاحظة: بيانات الهاتف والبريد الإلكتروني لم تُحدَّد بعد في المصدر الأصلي).",
+      "latency_ms": 2088.9
+    },
+    {
+      "question": "كم مدة صلاحية الشهادة الصحية؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "007",
+        "013",
+        "023",
+        "002",
+        "019"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.5099,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2065.9
+    },
+    {
+      "question": "فيه خصم للطلاب؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "022",
+        "013",
+        "018",
+        "014",
+        "007"
+      ],
+      "hit": null,
+      "confident": false,
+      "confidence": 0.403,
+      "answered": false,
+      "refusal_correct": true,
+      "language_correct": null,
+      "cited_faq_ids": [],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "لا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة.",
+      "latency_ms": 2084.7
+    },
+    {
+      "question": "كم تكلفة اشتراك الشركات؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "022",
+        "002",
+        "006",
+        "016",
+        "001"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.6,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "022"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "تستهدف موفق فئتين رئيسيتين: المستهلكين الأفراد (عبر تطبيق موفق للجوال)، والمستهلكين من الشركات (عبر منصة موفق أعمال).",
+      "latency_ms": 2082.5
+    },
+    {
+      "question": "عندكم خدمة فحص منزلي؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "007",
+        "025",
+        "017",
+        "009",
+        "010"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.6005,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "007"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "تقدم موفق للأفراد: فحوصات الإقامة وتجديد الإقامة، فحوصات الشهادة الصحية، فحوصات الموظفين والعمالة، فحص رخصة القيادة وفحص مناديب التوصيل، فحوصات ما قبل الزواج وفحص ما قبل المدرسة، بالإضافة إلى فحوصات مخصصة حسب الاحتياج.",
+      "latency_ms": 2086.3
+    },
+    {
+      "question": "كم عدد موظفين شركة موفق؟",
+      "lang": "ar",
+      "kind": "out_of_scope",
+      "expected_faq_ids": [],
+      "retrieved_faq_ids": [
+        "005",
+        "015",
+        "018",
+        "004",
+        "026"
+      ],
+      "hit": null,
+      "confident": true,
+      "confidence": 0.5975,
+      "answered": true,
+      "refusal_correct": false,
+      "language_correct": true,
+      "cited_faq_ids": [
+        "005"
+      ],
+      "grounded": null,
+      "unsupported_claims": [],
+      "judge_reason": "",
+      "citation_correct": null,
+      "fabricated": null,
+      "answer": "تضم شبكة موفق أكثر من 214 مركزاً طبياً معتمداً، وقد أنجزت آلاف الفحوصات الطبية، وتغطي أكثر من 38 مدينة حول المملكة، بنسبة دقة وموثوقية في النتائج تصل إلى 100%.",
+      "latency_ms": 2087.0
+    }
+  ]
+}
