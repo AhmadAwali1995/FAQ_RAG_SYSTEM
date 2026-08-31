@@ -34,6 +34,7 @@ from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import Body, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from .config import get_settings
@@ -234,6 +235,29 @@ app = FastAPI(
         "docExpansion": "list",
         "tryItOutEnabled": True,
     },
+)
+
+# --- CORS ------------------------------------------------------------------
+# The chat UI in `web/` is served by this app on the same origin, so it needs no
+# CORS. This entry exists for the separately hosted frontend, which calls these
+# endpoints cross-origin and would otherwise be blocked by the browser.
+#
+# The origin list is exact and deliberately narrow: a wildcard here would let any
+# page on the internet spend this deployment's OpenAI and Anthropic budget, since
+# the API has no authentication of its own. Add an origin per deployed frontend
+# rather than widening the pattern.
+#
+# Note this does not cover `WS /v1/ws`: browsers do not apply CORS to WebSockets,
+# so the socket is reachable from any origin regardless of this setting.
+ALLOWED_ORIGINS = [
+    "https://abusahel.ahmadawali1995.workers.dev",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ALLOWED_ORIGINS,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
