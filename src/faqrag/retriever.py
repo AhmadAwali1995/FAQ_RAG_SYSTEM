@@ -181,9 +181,14 @@ class HybridRetriever:
 
         * The reranker's 0-10 score, rescaled. It is the only signal that judges
           query and chunk together, so it carries the larger weight.
-        * Raw embedding cosine similarity. For bge-m3 this separates cleanly on
-          this corpus -- genuinely relevant chunks land around 0.6-0.8, while
-          out-of-scope queries top out near 0.3.
+        * Raw embedding cosine similarity. The absolute cosine scale is a
+          property of the embedding model, not of relevance: under bge-m3 this
+          corpus separated at 0.6-0.8 for genuine matches vs ~0.3 for
+          out-of-scope, while the OpenAI text-embedding-3 models run lower
+          across the board. After changing the embedding model, re-run
+          ``python -m faqrag.eval`` and re-tune ``FAQRAG_MIN_RELEVANCE_SCORE``
+          -- left alone, a lower cosine scale shows up as spurious "no
+          confident match" refusals.
 
         Blending matters because a strict reranker will score a correct-but-terse
         FAQ entry mid-range, which alone would fall below the threshold and

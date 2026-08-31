@@ -73,6 +73,13 @@ class TestSearch:
         with pytest.raises(RuntimeError, match="empty"):
             NumpyVectorStore(tmp_path, "empty").search([1.0], k=1)
 
+    def test_query_of_the_wrong_dimension_names_the_fix(
+        self, store: NumpyVectorStore
+    ) -> None:
+        """A changed embedding model must not surface as a NumPy shape error."""
+        with pytest.raises(RuntimeError, match="faqrag.index"):
+            store.search([1.0, 0.0, 0.0, 0.0], k=1)
+
 
 class TestAdd:
     """Index construction guards."""

@@ -14,6 +14,7 @@ from abc import ABC, abstractmethod
 import httpx
 
 from .config import Settings
+from .http_utils import describe_http_error
 
 logger = logging.getLogger(__name__)
 
@@ -157,7 +158,9 @@ class OpenAILLM(LLMClient):
             response.raise_for_status()
             content = response.json()["choices"][0]["message"]["content"]
         except httpx.HTTPError as exc:
-            raise LLMError(f"OpenAI chat request failed: {exc}") from exc
+            raise LLMError(
+                f"OpenAI chat request failed: {describe_http_error(exc)}"
+            ) from exc
         return strip_reasoning(content or "")
 
 
@@ -168,11 +171,13 @@ class AnthropicLLM(LLMClient):
         if not settings.anthropic_api_key:
             raise LLMError("llm_provider='anthropic' requires FAQRAG_ANTHROPIC_API_KEY to be set")
         self._model = model or settings.llm_model
+        self._url = settings.anthropic_base_url.rstrip("/") + "/messages"
         self._headers = {
             "x-api-key": settings.anthropic_api_key,
-            "anthropic-version": "2023-06-01",
+            "anthropic-version": settings.anthropic_version,
             "content-type": "application/json",
         }
+        self._timeout = settings.anthropic_timeout
         self._temperature = settings.llm_temperature
         self._max_tokens = settings.llm_max_tokens
         self.name = f"anthropic:{self._model}"
@@ -194,18 +199,33 @@ class AnthropicLLM(LLMClient):
         }
         try:
             response = httpx.post(
-                "https://api.anthropic.com/v1/messages",
-                json=payload,
-                headers=self._headers,
-                timeout=120.0,
+                self._url, json=payload, headers=self._headers, timeout=self._timeout
             )
             response.raise_for_status()
-            blocks = response.json()["content"]
+            body = response.json()
         except httpx.HTTPError as exc:
-            raise LLMError(f"Anthropic request failed: {exc}") from exc
-        return strip_reasoning(
+            raise LLMError(
+                f"Anthropic request to {self._model} failed: {describe_http_error(exc)}"
+            ) from exc
+
+        blocks = body.get("content", [])
+        content = strip_reasoning(
             "".join(b.get("text", "") for b in blocks if b.get("type") == "text")
         )
+        if not content:
+            # A reply can carry no text block at all: the budget ran out before
+            # the answer, or a safety classifier declined the request.
+            if body.get("stop_reason") == "max_tokens":
+                raise LLMError(
+                    f"{self._model} hit its {payload['max_tokens']}-token budget "
+                    f"before finishing an answer. Raise FAQRAG_LLM_MAX_TOKENS or "
+                    f"FAQRAG_RERANK_MAX_TOKENS."
+                )
+            raise LLMError(
+                f"{self._model} returned no text (stop_reason="
+                f"{body.get('stop_reason')!r})"
+            )
+        return content
 
 
 _PROVIDERS: dict[str, type[LLMClient]] = {

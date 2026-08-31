@@ -4,7 +4,9 @@ Bilingual (Arabic + English) retrieval-augmented generation over the Mwfaq FAQ k
 26 FAQs, 52 chunks. Hybrid retrieval (dense + BM25 with reciprocal rank fusion), language-aware
 ranking, LLM reranking, and strictly grounded generation with citations.
 
-Runs fully locally against [Ollama](https://ollama.com); no API keys required.
+Embeddings run on the OpenAI API; answering and reranking run on Claude Haiku via the
+Anthropic API. Both providers are swappable by config — an all-local Ollama setup is still
+one `.env` edit away.
 
 ---
 
@@ -23,7 +25,8 @@ Runs fully locally against [Ollama](https://ollama.com); no API keys required.
 
 ## Quick start
 
-**Prerequisites:** Python 3.10+ and a running [Ollama](https://ollama.com) server.
+**Prerequisites:** Python 3.10+, an OpenAI API key (embeddings), and an Anthropic API key
+(generation). Nothing runs locally except the index itself.
 
 ```bash
 # 1. Environment
@@ -31,17 +34,15 @@ python -m venv .venv
 .venv\Scripts\activate            # Windows;  source .venv/bin/activate on Unix
 pip install -e ".[dev]"
 
-# 2. Models (~1.2 GB for the embedding model; the LLM is served from Ollama Cloud)
-ollama pull bge-m3
-ollama pull deepseek-v4-flash:cloud
-
-# 3. Config
+# 2. Config — then put your two keys in .env:
 copy .env.example .env            # cp on Unix
+#   FAQRAG_OPENAI_API_KEY=sk-...
+#   FAQRAG_ANTHROPIC_API_KEY=sk-ant-...
 
-# 4. Build the index (~15s for 52 chunks)
+# 3. Build the index (one embedding pass over 52 chunks; a few cents at most)
 python -m faqrag.index
 
-# 5. Ask something
+# 4. Ask something
 python -m faqrag.cli "What is Mwfaq Academy?"
 python -m faqrag.cli "كيف أحجز فحصي الطبي عبر موفق؟"
 ```
@@ -62,7 +63,7 @@ python -m faqrag.cli "كيف أحجز فحصي الطبي عبر موفق؟"
                     └─────────┬─────────┘
               ┌───────────────┴───────────────┐
    ┌──────────▼──────────┐        ┌───────────▼───────────┐
-   │ dense: bge-m3 cosine │        │ lexical: BM25         │
+   │ dense: vector cosine │        │ lexical: BM25         │
    │ over question+answer │        │ over q + a + keywords │
    │ (both languages)     │        │ (Arabic-normalised)   │
    └──────────┬──────────┘        └───────────┬───────────┘
@@ -162,8 +163,8 @@ Interactive docs at `http://127.0.0.1:8000/docs`.
 **`GET /health`** — liveness plus the active index and model configuration.
 
 ```json
-{ "status": "ok", "indexed_chunks": 52, "embedding_model": "bge-m3",
-  "llm_model": "deepseek-v4-flash:cloud", "vector_store": "numpy", "rerank_enabled": true }
+{ "status": "ok", "indexed_chunks": 52, "embedding_model": "openai:text-embedding-3-large",
+  "llm_model": "anthropic:claude-haiku-4-5", "vector_store": "numpy", "rerank_enabled": true }
 ```
 
 **`POST /query`** — `{"question": "...", "top_k": 5}`
@@ -249,7 +250,8 @@ Two suites ship:
 questions, out-of-scope questions, and one case where the FAQ explicitly leaves a detail
 unspecified.
 
-Current results (`bge-m3` + `deepseek-v4-flash:cloud`, rerank on, k=5):
+Results below were measured on the previous stack (`bge-m3` + `deepseek-v4-flash:cloud`,
+rerank on, k=5) and have not yet been re-run against OpenAI embeddings + Claude Haiku:
 
 | Metric | Result | |
 |---|---|---|
@@ -308,8 +310,10 @@ No values are hardcoded in logic modules — everything is defined in [`config.p
 
 | Variable | Default | Notes |
 |---|---|---|
-| `FAQRAG_EMBEDDING_PROVIDER` | `ollama` | or `openai` |
-| `FAQRAG_EMBEDDING_MODEL` | `bge-m3` | multilingual; **must** handle Arabic |
+| `FAQRAG_EMBEDDING_PROVIDER` | `openai` | or `ollama` for a local daemon |
+| `FAQRAG_EMBEDDING_MODEL` | `text-embedding-3-large` | multilingual; **must** handle Arabic |
+| `FAQRAG_EMBEDDING_BATCH_SIZE` | `64` | texts per embedding request |
+| `FAQRAG_OPENAI_API_KEY` | — | required by the `openai` embedding provider |
 | `FAQRAG_VECTOR_STORE` | `numpy` | or `chroma` |
 | `FAQRAG_TOP_K` | `5` | chunks passed to the generator |
 | `FAQRAG_CANDIDATE_K` | `20` | candidates pulled from *each* retriever before fusion |
@@ -318,8 +322,10 @@ No values are hardcoded in logic modules — everything is defined in [`config.p
 | `FAQRAG_MIN_RELEVANCE_SCORE` | `0.45` | below this the system declines to answer |
 | `FAQRAG_RERANK_ENABLED` | `true` | **latency toggle**: off saves ~8s/query |
 | `FAQRAG_RERANK_MAX_TOKENS` | `4096` | must leave room for reasoning models to think |
-| `FAQRAG_LLM_PROVIDER` | `ollama` | or `openai`, `anthropic`, `extractive` |
-| `FAQRAG_LLM_MODEL` | `deepseek-v4-flash:cloud` | |
+| `FAQRAG_LLM_PROVIDER` | `anthropic` | or `ollama`, `openai`, `extractive` |
+| `FAQRAG_LLM_MODEL` | `claude-haiku-4-5` | used for answering **and** reranking |
+| `FAQRAG_ANTHROPIC_API_KEY` | — | required by the `anthropic` provider |
+| `FAQRAG_LLM_MAX_TOKENS` | `2048` | budget per generation |
 | `FAQRAG_LOG_RETRIEVAL_TRACES` | `true` | append per-query traces to `logs/retrieval.jsonl` |
 | `FAQRAG_ENABLE_CHAT_UI` | `true` | serve the browser chat UI at `/chat` |
 | `FAQRAG_ANSWER_STYLE` | `saudi` | answer voice: `saudi` dialect or formal `msa` |
@@ -335,15 +341,20 @@ Each of these is a config change, not a code change:
 # Vector store → Chroma
 FAQRAG_VECTOR_STORE=chroma   # then: pip install chromadb && python -m faqrag.index
 
-# Embeddings → OpenAI
-FAQRAG_EMBEDDING_PROVIDER=openai
-FAQRAG_EMBEDDING_MODEL=text-embedding-3-large
-FAQRAG_OPENAI_API_KEY=sk-...   # then re-index
+# Embeddings → cheaper OpenAI model (1536-dim instead of 3072)
+FAQRAG_EMBEDDING_MODEL=text-embedding-3-small   # then re-index
 
-# Generation → Anthropic
-FAQRAG_LLM_PROVIDER=anthropic
+# Embeddings → back to a local Ollama daemon
+FAQRAG_EMBEDDING_PROVIDER=ollama
+FAQRAG_EMBEDDING_MODEL=bge-m3
+FAQRAG_OLLAMA_BASE_URL=http://localhost:11434   # then re-index
+
+# Generation → a stronger Claude model
 FAQRAG_LLM_MODEL=claude-sonnet-5
-FAQRAG_ANTHROPIC_API_KEY=sk-ant-...
+
+# Generation → local Ollama
+FAQRAG_LLM_PROVIDER=ollama
+FAQRAG_LLM_MODEL=deepseek-v4-flash:cloud
 
 # No LLM at all: return the top FAQ answer verbatim (zero hallucination risk)
 FAQRAG_LLM_PROVIDER=extractive
@@ -410,9 +421,10 @@ deliberately avoided: aggressive Arabic stemmers conflate distinct FAQ topics at
 
 **Language preference, not a language filter.** Same-language chunks get a ×1.15 boost, but the
 other language is never excluded — so a strongly relevant cross-lingual chunk can still win, and
-`cross_lingual_fallback` flags when the query's own language had nothing strong. bge-m3's
-cross-lingual margin on this corpus is modest (0.49 same-question AR/EN vs 0.37 unrelated), which
-is precisely why same-language retrieval is preferred and BM25 is there to back it up.
+`cross_lingual_fallback` flags when the query's own language had nothing strong. The measured
+cross-lingual margin on this corpus is modest (0.49 same-question AR/EN vs 0.37 unrelated under
+bge-m3), which is precisely why same-language retrieval is preferred and BM25 is there to back it
+up. The margin is a property of the embedding model, so re-measure it after a model swap.
 
 **Refusal happens before generation.** If nothing clears the threshold, the LLM is never called.
 A model shown a weak context and asked not to use it will often use it anyway; not showing it is
@@ -429,8 +441,8 @@ grounded, never invented.
 
 | Component | Choice | Why |
 |---|---|---|
-| Embeddings | `bge-m3` via Ollama | Strong multilingual/Arabic coverage, 1024-dim, no PyTorch dependency |
-| Generation | `deepseek-v4-flash:cloud` | Good Arabic generation and instruction-following; no API key needed |
+| Embeddings | `text-embedding-3-large` via OpenAI | Strongest Arabic coverage in the OpenAI family, 3072-dim, no local daemon or PyTorch dependency |
+| Generation | `claude-haiku-4-5` via Anthropic | Strong Arabic generation and instruction-following at the cheapest Claude tier ($1/$5 per MTok), fast enough to also carry the rerank call |
 | Reranker | LLM-based (0–10 scoring) | A cross-encoder (`bge-reranker-v2-m3`) would need PyTorch, which this deployment avoids |
 
 Reranking costs ~8s per query but is worth it: it lifted `hit_rate@5` from 0.88 to 1.00 and
@@ -468,13 +480,14 @@ The current defaults suit ~50 chunks. What changes as the corpus grows:
 │   ├── models.py                 # Chunk, ScoredChunk, QueryResponse, ...
 │   ├── lang.py                   # language detection + Arabic normalisation
 │   ├── ingest.py                 # JSON → chunks
-│   ├── embeddings.py             # EmbeddingProvider: Ollama, OpenAI
+│   ├── embeddings.py             # EmbeddingProvider: OpenAI, Ollama
 │   ├── stores/                   # VectorStore: base, numpy, chroma
 │   ├── bm25.py                   # Okapi BM25 with Arabic tokenisation
 │   ├── fusion.py                 # RRF, weighted fusion, language boost
 │   ├── rerank.py                 # Reranker: LLM-based, no-op
 │   ├── retriever.py              # hybrid retrieval orchestration
-│   ├── llm.py                    # LLMClient: Ollama, OpenAI, Anthropic
+│   ├── llm.py                    # LLMClient: Anthropic, OpenAI, Ollama
+│   ├── http_utils.py             # shared provider-error rendering
 │   ├── prompts.py                # grounding + rerank prompts
 │   ├── generate.py               # grounded answering, citation parsing
 │   ├── pipeline.py               # end-to-end, shared by CLI/API/eval

@@ -61,6 +61,15 @@ class NumpyVectorStore(VectorStore):
             raise RuntimeError("vector store is empty; build the index first")
 
         query = np.asarray(vector, dtype=np.float32)
+        if query.shape[0] != self._matrix.shape[1]:
+            # The usual cause is a changed embedding model: every model has its
+            # own dimension, so the persisted index no longer matches the
+            # embedder. Say so instead of letting NumPy report a shape error.
+            raise RuntimeError(
+                f"index holds {self._matrix.shape[1]}-dim vectors but the embedder "
+                f"produced {query.shape[0]}. The embedding model changed -- re-run: "
+                f"python -m faqrag.index"
+            )
         query /= max(float(np.linalg.norm(query)), 1e-12)
         scores = self._matrix @ query
 

@@ -43,12 +43,23 @@ class Settings(BaseSettings):
     )
 
     # --- Embeddings --------------------------------------------------------
-    embedding_provider: Literal["ollama", "openai"] = "ollama"
+    embedding_provider: Literal["ollama", "openai"] = "openai"
     embedding_model: str = Field(
-        default="bge-m3",
-        description="Multilingual embedding model. bge-m3 covers Arabic well.",
+        default="text-embedding-3-large",
+        description=(
+            "Multilingual embedding model. text-embedding-3-large (3072-dim) has "
+            "the strongest Arabic coverage of the OpenAI family; "
+            "text-embedding-3-small (1536-dim) is ~6x cheaper and a third the "
+            "storage. Changing this changes the vector dimension -- re-index."
+        ),
     )
-    embedding_batch_size: int = 16
+    embedding_batch_size: int = Field(
+        default=64,
+        description=(
+            "Texts per embedding request. The OpenAI endpoint accepts large "
+            "batches, so a bigger batch mostly removes round-trips."
+        ),
+    )
 
     # --- Vector store ------------------------------------------------------
     vector_store: Literal["numpy", "chroma"] = Field(
@@ -110,8 +121,14 @@ class Settings(BaseSettings):
     )
 
     # --- Generation --------------------------------------------------------
-    llm_provider: Literal["ollama", "openai", "anthropic", "extractive"] = "ollama"
-    llm_model: str = "deepseek-v4-flash:cloud"
+    llm_provider: Literal["ollama", "openai", "anthropic", "extractive"] = "anthropic"
+    llm_model: str = Field(
+        default="claude-haiku-4-5",
+        description=(
+            "Generation model. Model IDs are complete as written -- never append "
+            "a date suffix."
+        ),
+    )
     answer_style: Literal["saudi", "msa"] = Field(
         default="saudi",
         description=(
@@ -135,6 +152,14 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
     anthropic_api_key: str = ""
+    anthropic_base_url: str = "https://api.anthropic.com/v1"
+    anthropic_version: str = Field(
+        default="2023-06-01",
+        description="Value sent as the anthropic-version header.",
+    )
+    anthropic_timeout: float = Field(
+        default=120.0, description="Seconds to wait on a Messages API call."
+    )
 
     # --- API ---------------------------------------------------------------
     api_host: str = "127.0.0.1"

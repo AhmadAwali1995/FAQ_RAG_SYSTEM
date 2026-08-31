@@ -12,6 +12,7 @@ from abc import ABC, abstractmethod
 import httpx
 
 from .config import Settings
+from .http_utils import describe_http_error
 
 logger = logging.getLogger(__name__)
 
@@ -107,8 +108,12 @@ class OllamaEmbeddings(EmbeddingProvider):
 class OpenAIEmbeddings(EmbeddingProvider):
     """Embeddings from an OpenAI-compatible ``/embeddings`` endpoint.
 
-    Present so that swapping to ``text-embedding-3-large`` is a config change.
-    Requires ``FAQRAG_OPENAI_API_KEY``.
+    Defaults to ``text-embedding-3-large`` (3072-dim), the strongest Arabic
+    coverage in the OpenAI family. These models are symmetric, so queries and
+    documents are embedded identically. Requires ``FAQRAG_OPENAI_API_KEY``.
+
+    The vector dimension differs from every other model, so switching here
+    invalidates an existing index -- rebuild it with ``python -m faqrag.index``.
     """
 
     def __init__(self, settings: Settings) -> None:
@@ -134,19 +139,30 @@ class OpenAIEmbeddings(EmbeddingProvider):
             response.raise_for_status()
             payload = response.json()
         except httpx.HTTPError as exc:
-            raise EmbeddingError(f"OpenAI embedding request failed: {exc}") from exc
+            raise EmbeddingError(
+                f"OpenAI embedding request to {self._model} failed: "
+                f"{describe_http_error(exc)}"
+            ) from exc
 
         # The API may return items out of order; sort by the echoed index.
-        items = sorted(payload["data"], key=lambda item: item["index"])
+        items = sorted(payload.get("data") or [], key=lambda item: item["index"])
         vectors = [item["embedding"] for item in items]
+        if len(vectors) != len(inputs):
+            raise EmbeddingError(
+                f"expected {len(inputs)} embeddings from {self._model}, got {len(vectors)}"
+            )
         self._dimension = len(vectors[0])
         return vectors
 
     def embed_documents(self, texts: list[str]) -> list[list[float]]:
         """Embed ``texts`` in batches, preserving input order."""
+        if not texts:
+            return []
         vectors: list[list[float]] = []
         for start in range(0, len(texts), self._batch_size):
-            vectors.extend(self._post(texts[start : start + self._batch_size]))
+            batch = texts[start : start + self._batch_size]
+            logger.debug("embedding batch %d-%d of %d", start, start + len(batch), len(texts))
+            vectors.extend(self._post(batch))
         return vectors
 
     def embed_query(self, text: str) -> list[float]:
