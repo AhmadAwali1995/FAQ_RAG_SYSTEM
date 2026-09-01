@@ -439,6 +439,7 @@ def to_speech_text(answer: str) -> str:
     with it, each item gets its natural pause.
     """
     text = _MD_HEADING.sub("", _MD_BULLET.sub("", _MD_EMPHASIS.sub("", answer)))
+    text = re.sub(r"\bmwfaq\b", "\u0645\u0648\u0641\u0642", text, flags=re.IGNORECASE)
 
     lines = []
     for line in (raw.strip() for raw in text.splitlines()):

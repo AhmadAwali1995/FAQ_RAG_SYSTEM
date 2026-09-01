@@ -1,0 +1,6 @@
+INFO:     Started server process [57028]
+INFO:     Waiting for application startup.
+03:25:41 INFO    faqrag.retriever | loaded index: 94 chunks from C:\Users\mohma\OneDrive\Desktop\New folder (15)\FAQ_RAG_SYSTEM\data\index
+03:25:41 INFO    faqrag.api | pipeline ready: 94 chunks indexed
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)

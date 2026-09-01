@@ -133,6 +133,13 @@ class QueryResponse(BaseModel):
     latency_ms: float | None = None
 
 
+class StreamEvent(BaseModel):
+    """One streaming event emitted by the RAG API."""
+
+    event: Literal["metadata", "delta", "final", "error"]
+    data: dict[str, object] = Field(default_factory=dict)
+
+
 class RetrievedChunk(BaseModel):
     """One retrieval candidate with every score that produced its rank.
 

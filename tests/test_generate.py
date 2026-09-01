@@ -10,10 +10,15 @@ from __future__ import annotations
 import pytest
 
 from faqrag.config import Settings
-from faqrag.generate import AnswerGenerator, parse_sources, to_citations
+from faqrag.generate import AnswerGenerator, clean_answer_text, parse_sources, to_citations
 from faqrag.llm import LLMClient, LLMError, strip_reasoning
 from faqrag.models import Chunk, RetrievalResult, ScoredChunk
-from faqrag.prompts import INSUFFICIENT_CONTEXT_MARKER, format_context, no_match_message
+from faqrag.prompts import (
+    INSUFFICIENT_CONTEXT_MARKER,
+    casual_reply,
+    format_context,
+    no_match_message,
+)
 from faqrag.rerank import LLMReranker, NoOpReranker, parse_rerank_scores
 
 
@@ -50,12 +55,22 @@ class StubLLM(LLMClient):
         self.reply = reply
         self.error = error
         self.calls: list[tuple[str, str]] = []
+        self.stream_chunks: list[str] = []
 
     def complete(self, system, user, temperature=None, max_tokens=None) -> str:
         self.calls.append((system, user))
         if self.error:
             raise self.error
         return self.reply
+
+    def stream_complete(self, system, user, temperature=None, max_tokens=None):
+        self.calls.append((system, user))
+        if self.error:
+            raise self.error
+        if self.stream_chunks:
+            yield from self.stream_chunks
+            return
+        yield self.reply
 
 
 class TestParseSources:
@@ -87,6 +102,18 @@ class TestParseSources:
         body, cited = parse_sources("Just an answer.", {"011"})
         assert body == "Just an answer."
         assert cited == []
+
+    def test_normalises_spacing_and_invisible_characters(self) -> None:
+        body, cited = parse_sources("Hello ,world. \u200bNext!\nSOURCES: 011", {"011"})
+        assert body == "Hello,world. Next!"
+        assert cited == ["011"]
+
+
+class TestCleanAnswerText:
+    def test_repairs_safe_punctuation_spacing(self) -> None:
+        assert clean_answer_text(" First sentence.Second sentence?Third ") == (
+            "First sentence. Second sentence? Third"
+        )
 
     def test_arabic_answer_body_is_preserved(self) -> None:
         body, cited = parse_sources("موفق تقبل تابي.\nSOURCES: 011", {"011"})
@@ -204,11 +231,58 @@ class TestAnswerGenerator:
         assert answer == no_match_message("ar", style)
 
     def test_saudi_refusal_uses_dialect_not_msa(self) -> None:
-        """Guards the dialect wording itself, since the refusal path never calls
-        the model and so cannot be corrected by it."""
+        """The fallback should explain that the assistant is Mwfaq-specific."""
         answer = no_match_message("ar", "saudi")
-        assert "تقدر" in answer, "Saudi refusal must use تقدر, not يمكنك"
-        assert "يمكنك" not in answer
+        assert "\u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0627\u0644\u0645\u062a\u0639\u0644\u0642\u0629 \u0628\u0646\u0638\u0627\u0645 \u0645\u0648\u0641\u0642" in answer
+
+    def test_answers_a_standalone_arabic_greeting_naturally(self, settings: Settings) -> None:
+        result = make_result("011", confident=False, lang="ar")
+        result.query = "\u0647\u0644\u0627 \u0623\u0628\u0648 \u0633\u0647\u0644"
+        answer, cited = AnswerGenerator(settings, StubLLM()).generate(result)
+        assert answer == "\u0647\u0644\u0627 \u0648\u063a\u0644\u0627\u060c \u0623\u0646\u0627 \u0623\u0628\u0648 \u0633\u0647\u0644. \u0648\u0634 \u062d\u0627\u0628 \u062a\u0639\u0631\u0641 \u0639\u0646 \u0646\u0638\u0627\u0645 \u0645\u0648\u0641\u0642\u061f"
+        assert cited == []
+
+    def test_answers_an_arabic_check_in_with_a_question_mark(self, settings: Settings) -> None:
+        result = make_result("011", confident=False, lang="ar")
+        result.query = "\u0643\u064a\u0641\u0643\u061f"
+        answer, cited = AnswerGenerator(settings, StubLLM()).generate(result)
+        assert answer == "\u064a\u0627 \u0647\u0644\u0627\u060c \u0623\u0646\u0627 \u0628\u062e\u064a\u0631 \u0637\u0627\u0644\u0645\u0627 \u0623\u0646\u062a \u0628\u062e\u064a\u0631. \u0648\u0634 \u062d\u0627\u0628 \u062a\u0639\u0631\u0641 \u0639\u0646 \u0646\u0638\u0627\u0645 \u0645\u0648\u0641\u0642\u061f"
+        assert cited == []
+
+    @pytest.mark.parametrize(
+        "query",
+        [
+            "\u0643\u064a\u0641\u0643 \u0623\u0628\u0648 \u0633\u0647\u0644",
+            "\u0623\u062e\u0628\u0627\u0631\u0643 \u0623\u0628\u0648 \u0633\u0647\u0644",
+            "\u0639\u0644\u0648\u0645\u0643",
+            "\u0627\u062d\u0648\u0627\u0644\u0643",
+            "\u0634\u0644\u0648\u0646\u0643",
+        ],
+    )
+    def test_understands_common_arabic_check_ins(self, settings: Settings, query: str) -> None:
+        result = make_result("011", confident=False, lang="ar")
+        result.query = query
+        answer, cited = AnswerGenerator(settings, StubLLM()).generate(result)
+        assert answer.startswith("\u064a\u0627 \u0647\u0644\u0627")
+        assert cited == []
+
+    def test_out_of_scope_reply_explains_the_supported_topic(self) -> None:
+        answer = no_match_message("ar", "saudi")
+        assert "\u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0627\u0644\u0645\u062a\u0639\u0644\u0642\u0629 \u0628\u0646\u0638\u0627\u0645 \u0645\u0648\u0641\u0642" in answer
+
+
+class TestAnswerGeneratorContinuation:
+    @pytest.fixture
+    def settings(self) -> Settings:
+        return Settings()
+
+    def test_does_not_match_a_greeting_with_a_real_question(self) -> None:
+        assert casual_reply("\u0647\u0644\u0627 \u0623\u0628\u0648 \u0633\u0647\u0644 \u0648\u0634 \u0637\u0631\u0642 \u0627\u0644\u062f\u0641\u0639\u061f", "ar") is None
+
+    def test_answers_english_identity_question(self) -> None:
+        assert casual_reply("Who are you?", "en") == (
+            "I'm Abu Sahl, the Mwfaq system assistant. What would you like to know?"
+        )
 
     def test_honours_the_insufficient_context_marker(self, settings: Settings) -> None:
         stub = StubLLM(f"I don't know.\n{INSUFFICIENT_CONTEXT_MARKER}")
@@ -235,6 +309,17 @@ class TestAnswerGenerator:
         answer, cited = AnswerGenerator(settings, stub).generate(make_result("011"))
         assert answer == "Answer for 011."
         assert cited == ["011"]
+
+    def test_stream_generate_yields_arabic_chunks(self, settings: Settings) -> None:
+        stub = StubLLM()
+        stub.stream_chunks = ["أهلًا ", "بك ", "في موفق."]
+        parts = list(AnswerGenerator(settings, stub).stream_generate(make_result("011", lang="ar")))
+        assert parts == ["أهلًا ", "بك ", "في موفق."]
+
+    def test_stream_generate_falls_back_to_extractive_on_error(self, settings: Settings) -> None:
+        stub = StubLLM(error=LLMError("stream down"))
+        parts = list(AnswerGenerator(settings, stub).stream_generate(make_result("011")))
+        assert parts == ["Answer for 011."]
 
     def test_extractive_mode_returns_source_text_verbatim(self, settings: Settings) -> None:
         answer, cited = AnswerGenerator(settings, None).generate(make_result("011", "012"))

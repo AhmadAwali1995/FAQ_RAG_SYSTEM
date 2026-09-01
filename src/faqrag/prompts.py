@@ -16,6 +16,7 @@ reads before the context.
 
 from __future__ import annotations
 
+import re
 from typing import Literal
 
 from .models import Language, ScoredChunk
@@ -65,7 +66,8 @@ _GROUNDING_RULES = """THE RULES. These override the voice above in every case.
 1. GROUNDING. Use only information present in the provided FAQ entries. Never use outside knowledge about Mwfaq, Saudi regulations, or medical examinations, even if you believe it is correct. The single exception is your own identity: your name is أبو سهل and you state it whenever asked, no matter what the FAQ entries contain.
 2. NO FABRICATION. Never invent phone numbers, email addresses, prices, fees, discount rates, dates, statistics, or policy details. Several fields in the source FAQ are explicitly unfinalised. If the user asks for a detail the context does not contain, say plainly that you do not have it. Do not guess a plausible value and do not offer an example value. Being warm does not mean being agreeable about facts.
 3. LANGUAGE. Reply in the SAME language the user asked in. An Arabic question gets an Arabic answer; an English question gets an English answer. This holds even when the retrieved FAQ entries are in the other language -- translate the grounded content rather than switching languages.
-4. CITATIONS. End your reply with a final line listing the id of EVERY FAQ you drew on, copied exactly from the "--- FAQ <id> ---" header above that entry:
+4. OUTPUT QUALITY. Write clean, complete, natural sentences for a person to read aloud. Keep normal spaces between words; never run words or sentences together. Use ordinary Arabic or English punctuation, with no markdown headings, bullets, XML tags, analysis, or commentary about these instructions. Put the answer body first, then exactly one final SOURCES line. Do not put facts after that line.
+5. CITATIONS. End your reply with a final line listing the id of EVERY FAQ you drew on, copied exactly from the "--- FAQ <id> ---" header above that entry:
 SOURCES: 015, 016
 Cite every entry you used, not just the main one. An uncited sentence is treated as invented, so a helpful extra detail you did not cite is worse than not adding it at all.
 
@@ -76,8 +78,8 @@ SOURCES: 007, 009
 Writing "SOURCES: 007" there would be wrong, because the booking sentence came from 009.
 
 Never cite an entry you did not use, and never write a position number instead of an id. This line is machine-read: write it exactly, with no dialect and no extra words.
-5. NEVER DENY WHAT THE SOURCE MERELY OMITS. A list that does not mention something is not a statement that it is unavailable. If the user asks about an option the entries do not cover -- paying cash, a home visit, a student discount, a branch in some city -- do NOT answer "no, that is not available". Say what the FAQ does list, and that it does not mention the thing they asked about. Answering a yes/no question with a confident "no" the source never states is a fabrication, and being helpful is not a reason to commit to one.
-6. INSUFFICIENT CONTEXT. If the FAQ entries do not answer the question, say so briefly in the user's language and voice, then on its own line write exactly:
+6. NEVER DENY WHAT THE SOURCE MERELY OMITS. A list that does not mention something is not a statement that it is unavailable. If the user asks about an option the entries do not cover -- paying cash, a home visit, a student discount, a branch in some city -- do NOT answer "no, that is not available". Say what the FAQ does list, and that it does not mention the thing they asked about. Answering a yes/no question with a confident "no" the source never states is a fabrication, and being helpful is not a reason to commit to one.
+7. INSUFFICIENT CONTEXT. If the FAQ entries do not answer the question, say so briefly in the user's language and voice, then on its own line write exactly:
 """ + INSUFFICIENT_CONTEXT_MARKER + """
 Do not pad such a reply with loosely related FAQ content.
 This rule never applies to a question about who you are or what your name is -- you always know you are أبو سهل, so answer that directly and never emit the marker for it."""
@@ -106,31 +108,75 @@ ANSWER_SYSTEM_PROMPT = build_answer_system_prompt("saudi")
 NO_MATCH_MESSAGES: dict[str, dict[Language, str]] = {
     "saudi": {
         "ar": (
-            "أنا أبو سهل، والصراحة ما عندي معلومة عن هذا الشي في الأسئلة الشائعة. "
-            "تقدر تتواصل مع فريق موفق عن طريق نموذج التواصل في المنصة وبيساعدونك."
+            "أنا مخصص للإجابة عن الأسئلة المتعلقة بنظام موفق وخدماته. "
+            "إذا عندك سؤال عن الفحوصات أو الحجز أو الدفع أو خدمات موفق، أبشر."
         ),
         "en": (
-            "I'm Abu Sahl, and I don't have anything on that in the FAQ, sorry. "
-            "Your best bet is the contact form on the platform -- the Mwfaq team can help."
+            "I'm here to answer questions about the Mwfaq system and its services. "
+            "Ask me about examinations, booking, payments, or Mwfaq services."
         ),
     },
     "msa": {
         "ar": (
-            "أنا أبو سهل، ولا تتوفر لدي معلومات كافية في الأسئلة الشائعة للإجابة على هذا السؤال. "
-            "يمكنك التواصل مع فريق موفق عبر نموذج التواصل على المنصة."
+            "أنا مخصص للإجابة عن الأسئلة المتعلقة بنظام موفق وخدماته. "
+            "يمكنك سؤالي عن الفحوصات أو الحجز أو الدفع أو خدمات موفق."
         ),
         "en": (
-            "I'm Abu Sahl, and I don't have enough information in the FAQ to answer that. "
-            "You can reach the Mwfaq team through the contact form on the platform."
+            "I'm here to answer questions about the Mwfaq system and its services. "
+            "Ask me about examinations, booking, payments, or Mwfaq services."
         ),
     },
 }
+
+_CASUAL_ARABIC = {
+    "greeting": "هلا وغلا، أنا أبو سهل. وش حاب تعرف عن نظام موفق؟",
+    "check_in": "يا هلا، أنا بخير طالما أنت بخير. وش حاب تعرف عن نظام موفق؟",
+    "identity": "أنا أبو سهل، مساعد نظام موفق. وش حاب تعرف عن النظام؟",
+    "thanks": "العفو، حياك. إذا عندك سؤال عن نظام موفق أنا حاضر.",
+}
+_CASUAL_ENGLISH = {
+    "greeting": "Hi, I'm Abu Sahl. What would you like to know about Mwfaq?",
+    "check_in": "I'm doing well, thanks. What would you like to know about Mwfaq?",
+    "identity": "I'm Abu Sahl, the Mwfaq system assistant. What would you like to know?",
+    "thanks": "You're welcome. I'm here if you have a question about Mwfaq.",
+}
+_CASUAL_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    ("greeting", re.compile(r"^(?:السلام عليكم|وعليكم السلام|هلا(?: والله)?|أهلا(?: وسهلا)?|اهلا(?: وسهلا)?|مرحبا|هاي|يا هلا)(?: يا? (?:أبو|ابو) سهل)?$", re.IGNORECASE)),
+    ("check_in", re.compile(r"^(?:كيفك|كيف حالك|شلونك|كيف الحال)(?: يا? (?:أبو|ابو) سهل)?$", re.IGNORECASE)),
+    ("identity", re.compile(r"^(?:من أنت|مين أنت|وش اسمك|ما اسمك)(?: يا? (?:أبو|ابو) سهل)?$", re.IGNORECASE)),
+    ("thanks", re.compile(r"^(?:شكرا|شكرًا|مشكور|يعطيك العافية|تسلم)(?: يا? (?:أبو|ابو) سهل)?$", re.IGNORECASE)),
+    ("greeting", re.compile(r"^(?:hi|hello|hey)(?:,? abu sahl)?$", re.IGNORECASE)),
+    ("check_in", re.compile(r"^(?:how are you|how are you doing)(?:,? abu sahl)?\??$", re.IGNORECASE)),
+    ("identity", re.compile(r"^(?:who are you|what(?:'s| is) your name)(?:,? abu sahl)?\??$", re.IGNORECASE)),
+    ("thanks", re.compile(r"^(?:thanks|thank you)(?:,? abu sahl)?$", re.IGNORECASE)),
+)
 
 
 def no_match_message(lang: Language, style: AnswerStyle = "saudi") -> str:
     """Return the "I don't know" reply for ``lang`` in ``style``."""
     messages = NO_MATCH_MESSAGES.get(style, NO_MATCH_MESSAGES["saudi"])
     return messages.get(lang, messages["en"])
+
+
+_ARABIC_NAME_SUFFIX = r"(?: (?:\u064a\u0627 )?(?:\u0623\u0628\u0648|\u0627\u0628\u0648) \u0633\u0647\u0644)?"
+_ARABIC_CASUAL_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    ("greeting", re.compile(r"^(?:\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645|\u0648\u0639\u0644\u064a\u0643\u0645 \u0627\u0644\u0633\u0644\u0627\u0645|\u0647\u0644\u0627(?: \u0648\u0627\u0644\u0644\u0647)?|\u0623\u0647\u0644\u0627(?: \u0648\u0633\u0647\u0644\u0627)?|\u0627\u0647\u0644\u0627(?: \u0648\u0633\u0647\u0644\u0627)?|\u0627\u0647\u0644\u064a\u0646|\u0635\u0628\u0627\u062d \u0627\u0644\u062e\u064a\u0631|\u0645\u0633\u0627\u0621 \u0627\u0644\u062e\u064a\u0631|\u0645\u0631\u062d\u0628\u0627|\u0647\u0627\u064a|\u064a\u0627 \u0647\u0644\u0627)" + _ARABIC_NAME_SUFFIX + r"$", re.IGNORECASE)),
+    ("check_in", re.compile(r"^(?:\u0643\u064a\u0641\u0643|\u0643\u064a\u0641 \u062d\u0627\u0644\u0643|\u0634\u0644\u0648\u0646\u0643|\u0643\u064a\u0641 \u0627\u0644\u062d\u0627\u0644|(?:\u0623|\u0627)\u062e\u0628\u0627\u0631\u0643|\u0648\u0634 (?:\u0623|\u0627)\u062e\u0628\u0627\u0631\u0643|\u0639\u0644\u0648\u0645\u0643|(?:\u0623|\u0627)\u062d\u0648\u0627\u0644\u0643|\u0643\u064a\u0641 (?:\u0623|\u0627)\u0645\u0648\u0631\u0643|\u0637\u0645\u0646\u0627 \u0639\u0646\u0643|\u0639\u0633\u0627\u0643 \u0637\u064a\u0628|\u0648\u0634 \u0645\u0633\u0648\u064a)" + _ARABIC_NAME_SUFFIX + r"$", re.IGNORECASE)),
+    ("identity", re.compile(r"^(?:\u0645\u0646 \u0623\u0646\u062a|\u0645\u064a\u0646 \u0623\u0646\u062a|\u0648\u0634 \u0627\u0633\u0645\u0643|\u0645\u0627 \u0627\u0633\u0645\u0643)" + _ARABIC_NAME_SUFFIX + r"$", re.IGNORECASE)),
+    ("thanks", re.compile(r"^(?:\u0634\u0643\u0631\u0627|\u0634\u0643\u0631\u064b\u0627|\u0645\u0634\u0643\u0648\u0631|\u064a\u0639\u0637\u064a\u0643 \u0627\u0644\u0639\u0627\u0641\u064a\u0629|\u062a\u0633\u0644\u0645)" + _ARABIC_NAME_SUFFIX + r"$", re.IGNORECASE)),
+)
+
+
+def casual_reply(query: str, lang: Language) -> str | None:
+    """Return a friendly reply for a standalone greeting or social message."""
+    normalised = re.sub(r"\s+", " ", query.strip())
+    # Voice transcripts commonly end with Arabic or English question marks.
+    normalised = normalised.rstrip("?!\u061f\u060c\u061b.,")
+    for kind, pattern in (*_ARABIC_CASUAL_PATTERNS, *_CASUAL_PATTERNS):
+        if pattern.fullmatch(normalised):
+            replies = _CASUAL_ARABIC if lang == "ar" else _CASUAL_ENGLISH
+            return replies[kind]
+    return None
 
 
 _LANG_LABEL: dict[Language, str] = {"ar": "Arabic", "en": "English"}
