@@ -1,84 +1,38 @@
-"""FastAPI service exposing the FAQ RAG pipeline.
-
-Start it with::
-
-    python -m faqrag.api
-    uvicorn faqrag.api:app --reload
-
-Interactive documentation:
-    ``/docs``          Swagger UI -- every endpoint, with runnable examples
-    ``/redoc``         ReDoc, a reference-style rendering of the same schema
-    ``/openapi.json``  the raw OpenAPI 3.1 document, for client generation
-
-Endpoints:
-    ``GET  /health``                        liveness plus index metadata
-    ``POST /query``                         question in, answer out (synchronous)
-    ``POST /retrieve``                      retrieval only, for debugging ranking
-    ``POST /v1/messages``                   receive text from an external system
-    ``GET  /v1/messages/{id}``              collect that message's answer
-    ``WS   /v1/ws``                         live push of every message event
-    ``GET  /v1/events``                     the same events as SSE (see caveat)
-    ``GET  /v1/sessions/{id}/messages``     a session's message history
-
-``/query`` answers in one call and blocks for the ~10s a full generation takes.
-``/v1/messages`` is the pair to use from another system: it accepts instantly
-and lets the caller collect the answer separately, so their request timeout does
-not have to accommodate ours.
-"""
+"""FastAPI service exposing the FAQ RAG pipeline."""
 
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 from contextlib import asynccontextmanager
 from typing import Any
 
-from fastapi import Body, FastAPI, HTTPException
+from fastapi import Body, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from .config import get_settings
 from .ingest import IngestionError
 from .logging_utils import configure_logging
-from .messages import MessageService, MessageStore, build_messages_router
+from .messages import MessageService, MessageStore, build_messages_router, to_speech_text
 from .models import QueryResponse, RetrieveResponse
 from .pipeline import RagPipeline
 
 logger = logging.getLogger(__name__)
 
-# Populated on startup so the index and embedding client are loaded once for the
-# process rather than rebuilt per request.
 _state: dict[str, Any] = {"pipeline": None, "error": None, "messages": None}
 
 
 API_DESCRIPTION = """\
 Bilingual (Arabic / English) question answering over the **Mwfaq** FAQ knowledge base.
 
-Answers are generated **only** from retrieved FAQ entries and always cite the
-`faq_id`s they came from. When nothing in the knowledge base covers the question,
-the service says so instead of guessing.
+`POST /query` supports two modes:
 
-### Choosing an endpoint
-
-| You are | Use | Why |
-|---|---|---|
-| A server-side script that can wait ~10s | `POST /query` | One call, answer returned inline |
-| A widget, app, or messaging bridge | `POST /v1/messages` then `GET /v1/messages/{id}` | Accepts in ~40ms; your timeout is independent of ours |
-| A live screen that must react instantly | `POST /v1/messages` + **`WS /v1/ws`** | Pushed on arrival (~90ms), no polling |
-| Debugging why an answer was wrong | `POST /retrieve` | Every ranking score, no LLM call |
-
-### Two fields every client must handle
-
-* **`confident`** — `false` means the FAQ did not cover the question. The `answer`
-  is a polite "I don't have that" and `cited_faq_ids` is empty. Render it
-  differently; do not present it as fact.
-* **`status`** (async only) — answer fields stay `null` until it is `"done"`, so
-  branch on the status rather than on whether `answer` is present.
-
-### Notes
-
-Answers are written in Saudi dialect for Arabic questions (`FAQRAG_ANSWER_STYLE`).
-There is no authentication; the server binds to `127.0.0.1` by default.
+* Default JSON mode for a single final answer.
+* Low-latency SSE mode with `stream=true`, which emits metadata, text deltas,
+  and a final structured answer so voice playback can begin early.
 """
 
 TAGS_METADATA = [
@@ -87,11 +41,11 @@ TAGS_METADATA = [
         "description": "Liveness, and which index and models are actually loaded.",
     },
     {
-        "name": "Ask (synchronous)",
+        "name": "Ask",
         "description": (
-            "Answer a question in a single call. **Blocks for roughly 10 seconds** "
-            "while retrieval, reranking, and generation run. Good for server-side "
-            "scripts; use the async endpoints for anything user-facing."
+            "Answer a question in one call. Use JSON mode for a final answer, or "
+            "`stream=true` for `text/event-stream` output that flushes deltas as "
+            "soon as the model produces them."
         ),
     },
     {
@@ -99,39 +53,37 @@ TAGS_METADATA = [
         "description": (
             "The pair to integrate an external system against. `POST /v1/messages` "
             "accepts the text in ~40ms and returns a `message_id`; "
-            "`GET /v1/messages/{id}` collects the answer once it is ready. "
-            "Splitting them keeps the caller's request timeout independent of "
-            "our generation time."
+            "`GET /v1/messages/{id}` collects the answer once it is ready."
         ),
     },
     {
         "name": "Debug",
-        "description": (
-            "Retrieval internals, for working out whether a bad answer came from "
-            "retrieval or from generation. Makes no LLM call."
-        ),
+        "description": "Retrieval internals, for diagnosing ranking and confidence.",
     },
 ]
 
-# Reusable example payloads, shown as a dropdown in Swagger's "Try it out".
 QUESTION_EXAMPLES = {
     "arabic_dialect": {
         "summary": "Arabic (Saudi dialect)",
-        "description": "A colloquial question. The answer comes back in dialect too.",
-        "value": {"question": "وش طرق الدفع عندكم؟"},
+        "description": "A colloquial voice transcript.",
+        "value": {"text": "وش طرق الدفع عندكم؟"},
     },
     "arabic_msa": {
         "summary": "Arabic (Modern Standard)",
-        "value": {"question": "ما هي أكاديمية موفق؟"},
+        "value": {"text": "ما هي أكاديمية موفق؟"},
     },
     "english": {
         "summary": "English",
-        "value": {"question": "What is Mwfaq Business?"},
+        "value": {"text": "What is Mwfaq Business?"},
     },
-    "out_of_scope": {
-        "summary": "Out of scope (expect confident=false)",
-        "description": "Pricing is not in the knowledge base, so the service declines.",
-        "value": {"question": "بكم الفحص الطبي؟"},
+    "streaming_voice": {
+        "summary": "Streaming voice mode",
+        "value": {
+            "text": "وش طرق الدفع عندكم؟",
+            "stream": True,
+            "session": {"session_id": "sess_123"},
+            "user": {"user_id": "user_456"},
+        },
     },
 }
 
@@ -139,18 +91,40 @@ QUESTION_EXAMPLES = {
 class QueryRequest(BaseModel):
     """Body of a ``POST /query`` or ``POST /retrieve`` request."""
 
-    question: str = Field(
-        ...,
+    question: str | None = Field(
+        default=None,
         min_length=1,
         max_length=2000,
-        description="The question, in Arabic or English. Language is detected automatically.",
+        description="Legacy alias. Prefer `text` for voice integrations.",
+    )
+    text: str | None = Field(
+        default=None,
+        min_length=1,
+        max_length=2000,
+        description="The user transcript, in Arabic or English.",
     )
     top_k: int | None = Field(
         default=None,
         ge=1,
         le=20,
-        description="How many FAQ chunks to retrieve. Defaults to the configured value (5).",
+        description="How many FAQ chunks to retrieve. Defaults to the configured value.",
     )
+    session: dict[str, Any] | None = Field(
+        default=None,
+        description="Optional session metadata for caller-side tracking.",
+    )
+    user: dict[str, Any] | None = Field(
+        default=None,
+        description="Optional user metadata for caller-side tracking.",
+    )
+    stream: bool = Field(
+        default=False,
+        description="When true, return `text/event-stream` instead of JSON.",
+    )
+
+    def prompt_text(self) -> str:
+        """Return whichever field carried the user's utterance."""
+        return (self.text or self.question or "").strip()
 
 
 class HealthResponse(BaseModel):
@@ -163,20 +137,12 @@ class HealthResponse(BaseModel):
     vector_store: str
     rerank_enabled: bool
     answer_style: str = Field(description='Answer voice: "saudi" or "msa".')
-    messages: dict[str, int] = Field(
-        default_factory=dict, description="Async message counts by status."
-    )
-    detail: str | None = Field(default=None, description="Why the service is unhealthy, if it is.")
+    messages: dict[str, int] = Field(default_factory=dict)
+    detail: str | None = None
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Load the pipeline once at startup.
-
-    A failure here is captured rather than raised so the service still starts
-    and ``/health`` can report *why* it is unhealthy -- a process that refuses
-    to boot tells you far less than one that explains itself.
-    """
     settings = get_settings()
     configure_logging(settings.log_level)
     try:
@@ -186,8 +152,6 @@ async def lifespan(app: FastAPI):
         _state["error"] = str(exc)
         logger.error("failed to load pipeline: %s", exc)
 
-    # The async message API shares the one pipeline; workers are bounded so a
-    # burst of inbound messages queues instead of spawning unbounded threads.
     _state["messages"] = MessageService(
         store=MessageStore(
             ttl_seconds=settings.message_ttl_seconds,
@@ -196,21 +160,8 @@ async def lifespan(app: FastAPI):
         pipeline_getter=_get_pipeline,
         max_workers=settings.message_workers,
     )
-    # Worker threads publish SSE events into this loop, so bind it before any
-    # message can be accepted.
     _state["messages"].broadcaster.bind_loop(asyncio.get_running_loop())
     app.include_router(build_messages_router(_state["messages"]))
-    logger.info("message API mounted at /v1/messages (%d workers)", settings.message_workers)
-    logger.info("live event stream at /v1/events")
-
-    # The chat UI mounts at import time, before logging is configured, so its
-    # outcome is reported here where it is actually visible.
-    if _state.get("chat_ui"):
-        logger.info("chat UI: http://%s:%d/chat", settings.api_host, settings.api_port)
-    elif settings.enable_chat_ui:
-        logger.warning("chat UI enabled but not mounted (missing %s)", settings.web_dir)
-
-    logger.info("API docs: http://%s:%d/docs", settings.api_host, settings.api_port)
 
     yield
 
@@ -226,29 +177,8 @@ app = FastAPI(
     version="0.1.0",
     openapi_tags=TAGS_METADATA,
     lifespan=lifespan,
-    contact={"name": "Mwfaq FAQ RAG", "url": "http://127.0.0.1:8000/docs"},
-    license_info={"name": "Internal use"},
-    servers=[{"url": "/", "description": "This server"}],
-    swagger_ui_parameters={
-        "defaultModelsExpandDepth": 2,
-        "displayRequestDuration": True,
-        "docExpansion": "list",
-        "tryItOutEnabled": True,
-    },
 )
 
-# --- CORS ------------------------------------------------------------------
-# The chat UI in `web/` is served by this app on the same origin, so it needs no
-# CORS. This entry exists for the separately hosted frontend, which calls these
-# endpoints cross-origin and would otherwise be blocked by the browser.
-#
-# The origin list is exact and deliberately narrow: a wildcard here would let any
-# page on the internet spend this deployment's OpenAI and Anthropic budget, since
-# the API has no authentication of its own. Add an origin per deployed frontend
-# rather than widening the pattern.
-#
-# Note this does not cover `WS /v1/ws`: browsers do not apply CORS to WebSockets,
-# so the socket is reachable from any origin regardless of this setting.
 ALLOWED_ORIGINS = [
     "https://abusahel.ahmadawali1995.workers.dev",
 ]
@@ -262,7 +192,6 @@ app.add_middleware(
 
 
 def _get_pipeline() -> RagPipeline:
-    """Return the loaded pipeline, or raise 503 with the startup error."""
     pipeline = _state.get("pipeline")
     if pipeline is None:
         raise HTTPException(
@@ -272,20 +201,12 @@ def _get_pipeline() -> RagPipeline:
     return pipeline
 
 
-@app.get(
-    "/health",
-    response_model=HealthResponse,
-    tags=["Health"],
-    summary="Service health and active configuration",
-    response_description="Health status plus the index and models actually in use.",
-)
-def health() -> HealthResponse:
-    """Report service health and the active model/index configuration.
+def _sse_frame(event: str, data: dict[str, Any]) -> str:
+    return f"event: {event}\ndata: {json.dumps(data, ensure_ascii=False)}\n\n"
 
-    Always returns `200`. Check the `status` field: `"unhealthy"` with a
-    `detail` explaining why usually means the index has not been built
-    (`python -m faqrag.index`).
-    """
+
+@app.get("/health", response_model=HealthResponse, tags=["Health"])
+def health() -> HealthResponse:
     settings = get_settings()
     pipeline = _state.get("pipeline")
     service = _state.get("messages")
@@ -318,72 +239,58 @@ def health() -> HealthResponse:
 @app.post(
     "/query",
     response_model=QueryResponse,
-    tags=["Ask (synchronous)"],
-    summary="Ask a question and get the answer in the same call",
-    response_description="The grounded answer, its citations, and every retrieved chunk.",
-    responses={
-        422: {"description": "The question was empty or too long."},
-        500: {"description": "Generation failed. The retrieval trace is in logs/retrieval.jsonl."},
-        503: {"description": "No index loaded. Run `python -m faqrag.index`."},
-    },
+    tags=["Ask"],
+    summary="Ask a question and get JSON or streamed SSE output",
 )
-def query(
+async def query(
+    request_obj: Request,
     request: QueryRequest = Body(..., openapi_examples=QUESTION_EXAMPLES),
-) -> QueryResponse:
-    """Answer a question from the FAQ corpus, blocking until the answer is ready.
-
-    **This takes about 10 seconds** — retrieval, an LLM rerank, then generation.
-    Set your client timeout to at least 60s, or use `POST /v1/messages` instead.
-
-    The response carries the answer, the cited FAQ ids, the cited source entries,
-    **every** retrieved chunk, a confidence score, and the detected language.
-
-    `sources` holds only what the model cited — render these as citations.
-    `retrieved` holds everything retrieval surfaced, cited or not, and is
-    populated even on a refusal so a wrong decline is diagnosable.
-
-    **Check `confident` before displaying the answer.** When it is `false`,
-    nothing cleared the relevance threshold, `cited_faq_ids` is empty, and the
-    answer is an "I don't have that" message in the user's language.
-    """
+) -> QueryResponse | StreamingResponse:
     pipeline = _get_pipeline()
-    question = request.question.strip()
+    question = request.prompt_text()
     if not question:
-        raise HTTPException(status_code=422, detail="question must not be empty")
+        raise HTTPException(status_code=422, detail="text must not be empty")
+
+    wants_stream = request.stream or request_obj.query_params.get("stream") in {"1", "true", "yes"}
 
     try:
-        return pipeline.answer(question, request.top_k)
-    except Exception as exc:  # noqa: BLE001 - surface a clean 500, log the trace
+        if not wants_stream:
+            return pipeline.answer(question, request.top_k)
+
+        async def event_stream():
+            try:
+                for event in pipeline.stream_answer(question, request.top_k):
+                    data = event.data.copy()
+                    if event.event == "delta" and isinstance(data.get("text"), str):
+                        data["speech_text"] = to_speech_text(data["text"])
+                    if event.event == "final" and isinstance(data.get("answer"), str):
+                        data["speech_answer"] = to_speech_text(data["answer"])
+                    yield _sse_frame(event.event, data)
+                    await asyncio.sleep(0)
+            except Exception as exc:  # noqa: BLE001
+                logger.exception("streaming query failed: %s", question)
+                yield _sse_frame("error", {"message": str(exc)})
+
+        return StreamingResponse(
+            event_stream(),
+            media_type="text/event-stream; charset=utf-8",
+            headers={
+                "Cache-Control": "no-cache, no-transform",
+                "Connection": "keep-alive",
+                "X-Accel-Buffering": "no",
+            },
+        )
+    except Exception as exc:  # noqa: BLE001
         logger.exception("query failed: %s", question)
         raise HTTPException(status_code=500, detail=f"query failed: {exc}") from exc
 
 
-@app.post(
-    "/retrieve",
-    response_model=RetrieveResponse,
-    tags=["Debug"],
-    summary="Retrieval only — every score, no answer generated",
-    response_description="Ranked candidates with their vector, BM25, and rerank scores.",
-    responses={503: {"description": "No index loaded. Run `python -m faqrag.index`."}},
-)
+@app.post("/retrieve", response_model=RetrieveResponse, tags=["Debug"])
 def retrieve(
     request: QueryRequest = Body(..., openapi_examples=QUESTION_EXAMPLES),
 ) -> RetrieveResponse:
-    """Run retrieval only, returning every score that produced the ranking.
-
-    Use this to tell a **retrieval** fault from a **generation** fault without
-    paying for an LLM call. Fast (~2s) because nothing is generated.
-
-    Two scores are reported per candidate and must not be confused:
-
-    * `rank_score` orders candidates *within this query*, scaled so the best is
-      `1.0`. The top candidate of a completely out-of-scope query still scores
-      `1.0` — it is the best of a bad set.
-    * `relevance` is absolute and comparable across queries. This is the one
-      compared against `threshold` to decide whether to answer at all.
-    """
     pipeline = _get_pipeline()
-    result = pipeline.retrieve(request.question.strip(), request.top_k)
+    result = pipeline.retrieve(request.prompt_text(), request.top_k)
     return RetrieveResponse(
         query=result.query,
         language=result.query_lang,
@@ -410,12 +317,6 @@ def retrieve(
     )
 
 
-# --- Optional chat UI ------------------------------------------------------
-# The browser UI is a self-contained add-on: this guarded import is the only
-# place the core API references it. Delete `web/` and `src/faqrag/web.py` to
-# remove it entirely, or set FAQRAG_ENABLE_CHAT_UI=false to switch it off. The
-# API behaves identically either way. Its routes are excluded from the OpenAPI
-# schema -- it is a page, not part of the API contract.
 try:
     from .web import mount_chat_ui
 
@@ -425,7 +326,6 @@ except ImportError:
 
 
 def main() -> int:
-    """Run the service with uvicorn (``python -m faqrag.api``)."""
     import uvicorn
 
     settings = get_settings()

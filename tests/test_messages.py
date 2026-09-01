@@ -420,6 +420,9 @@ class TestSpeechText:
     def test_english_is_handled_too(self) -> None:
         assert to_speech_text("- **First** item\n- Second item") == "First item. Second item."
 
+    def test_pronounces_the_english_brand_as_arabic(self) -> None:
+        assert to_speech_text("Mwfaq Business is ready.") == "موفق Business is ready."
+
     def test_empty_input(self) -> None:
         assert to_speech_text("") == ""
 

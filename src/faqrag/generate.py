@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import logging
 import re
+import unicodedata
+from collections.abc import Iterator
 
 from .config import Settings
 from .llm import LLMClient, LLMError
@@ -12,6 +14,7 @@ from .prompts import (
     INSUFFICIENT_CONTEXT_MARKER,
     build_answer_prompt,
     build_answer_system_prompt,
+    casual_reply,
     no_match_message,
 )
 
@@ -20,6 +23,23 @@ logger = logging.getLogger(__name__)
 # Matches the trailing "SOURCES: 001, 007" line the system prompt mandates.
 _SOURCES_RE = re.compile(r"^\s*SOURCES\s*:\s*(.+?)\s*$", re.MULTILINE | re.IGNORECASE)
 _FAQ_ID_RE = re.compile(r"[0-9A-Za-z_-]+")
+_INVISIBLE_RE = re.compile(r"[\u200b\u200c\u200d\ufeff]")
+_SPACE_BEFORE_PUNCTUATION_RE = re.compile(r"\s+([,.;:!?\u060c\u061b\u061f])")
+_MISSING_SPACE_AFTER_SENTENCE_RE = re.compile(
+    r"([.!?\u061f])(?=[A-Za-z\u0600-\u06ff])"
+)
+
+
+def clean_answer_text(text: str) -> str:
+    """Normalise model output without changing its meaning."""
+    text = unicodedata.normalize("NFKC", text)
+    text = _INVISIBLE_RE.sub("", text)
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r" *\n *", "\n", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    text = _SPACE_BEFORE_PUNCTUATION_RE.sub(r"\1", text)
+    text = _MISSING_SPACE_AFTER_SENTENCE_RE.sub(r"\1 ", text)
+    return text.strip()
 
 
 def parse_sources(text: str, allowed_ids: set[str]) -> tuple[str, list[str]]:
@@ -43,7 +63,7 @@ def parse_sources(text: str, allowed_ids: set[str]) -> tuple[str, list[str]]:
             if token in allowed_ids and token not in cited:
                 cited.append(token)
 
-    body = _SOURCES_RE.sub("", text).strip()
+    body = clean_answer_text(_SOURCES_RE.sub("", text))
     return body, cited
 
 
@@ -105,6 +125,9 @@ class AnswerGenerator:
         # Refusing here, before the model ever sees a weak context, is what keeps
         # a low-relevance match from being dressed up as a confident answer.
         if not result.confident or not result.chunks:
+            casual = casual_reply(result.query, result.query_lang)
+            if casual:
+                return casual, []
             logger.info("no confident match for %r; declining to answer", result.query)
             return self._no_match(result.query_lang), []
 
@@ -138,3 +161,27 @@ class AnswerGenerator:
             cited = [result.chunks[0].chunk.faq_id]
 
         return answer, cited
+
+    def stream_generate(self, result: RetrievalResult) -> Iterator[str]:
+        """Yield answer text fragments as soon as they are available."""
+        if not result.confident or not result.chunks:
+            casual = casual_reply(result.query, result.query_lang)
+            if casual:
+                yield casual
+                return
+            logger.info("no confident match for %r; declining to answer", result.query)
+            yield self._no_match(result.query_lang)
+            return
+
+        if self.client is None:
+            answer, _ = self._extractive(result)
+            yield answer
+            return
+
+        prompt = build_answer_prompt(result.query, result.chunks, result.query_lang)
+        try:
+            yield from self.client.stream_complete(self.system_prompt, prompt)
+        except LLMError as exc:
+            logger.error("streaming generation failed (%s); falling back to extractive answer", exc)
+            answer, _ = self._extractive(result)
+            yield answer

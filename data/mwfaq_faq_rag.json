@@ -609,7 +609,7 @@
       "category": "Contact",
       "lang": "ar",
       "question": "أين يقع مقر موفق؟ وكيف أتواصل معهم؟",
-      "answer": "يقع مقر موفق في الرياض، شارع الملك فيصل، مركز يو التجاري، المملكة العربية السعودية. يمكن التواصل مع فريق موفق عبر نموذج التواصل على المنصة، أو حجز موعد مباشر مع مسؤول نجاح العملاء. (ملاحظة: بيانات الهاتف والبريد الإلكتروني لم تُحدَّد بعد في المصدر الأصلي).",
+      "answer": "بحسب الملف التعريفي لحلول الأعمال 2026، المكتب الرئيسي لموفق في: الرياض - حي الملك فيصل، المملكة العربية السعودية. البريد الإلكتروني: Info@Mwafq.com. وللمزيد يمكن زيارة: www.mwafq.com. كما يدعو الملف إلى التواصل مع فريق موفق للإجابة على الاستفسارات عبر رمز QR الظاهر في الملف.",
       "keywords": [
         "مقر موفق",
         "التواصل",
@@ -622,7 +622,7 @@
       "category": "Contact",
       "lang": "en",
       "question": "Where is Mwfaq located, and how can I contact them?",
-      "answer": "Mwfaq's office is located in Riyadh, King Faisal Street, U Commercial Center, Saudi Arabia. You can reach the Mwfaq team via the contact form on the platform or by booking a direct meeting with a customer success manager. (Note: phone and email details were not yet finalized in the original source document.)",
+      "answer": "According to the 2026 Mwfaq Business Profile, Mwfaq's main office is in Riyadh - King Faisal District, Saudi Arabia. Email: Info@Mwafq.com. Website: www.mwafq.com. The profile also invites users to contact the Mwfaq team for questions through the QR code shown in the profile.",
       "keywords": [
         "Mwfaq location",
         "contact",
@@ -678,6 +678,840 @@
         "open company account",
         "request a demo",
         "Mwfaq Business"
+      ]
+    },
+    {
+      "faq_id": "027",
+      "category": "Profile Identity & Scope",
+      "lang": "ar",
+      "question": "ما هو الشعار التعريفي لموفق في الملف التعريفي لحلول الأعمال 2026؟",
+      "answer": "موفق .. تقنية ترعى صحتك.",
+      "keywords": [
+        "موفق",
+        "تقنية ترعى صحتك",
+        "الشعار",
+        "الملف التعريفي",
+        "حلول الأعمال",
+        "2026"
+      ]
+    },
+    {
+      "faq_id": "027",
+      "category": "Profile Identity & Scope",
+      "lang": "en",
+      "question": "What tagline appears in the 2026 Mwfaq Business Profile?",
+      "answer": "“Mwfaq .. Technology that cares for your health.”",
+      "keywords": [
+        "Mwfaq",
+        "tagline",
+        "technology",
+        "health",
+        "business profile",
+        "2026"
+      ]
+    },
+    {
+      "faq_id": "028",
+      "category": "Profile Identity & Scope",
+      "lang": "ar",
+      "question": "ما الأقسام التي يغطيها الملف التعريفي لحلول الأعمال 2026؟",
+      "answer": "يتضمن الملف: 01) من نحن وعن موفق. 02) شركاء النجاح. 03) المشهد الحالي والتحول الرقمي. 04) حلول موفق التقنية. 05) نظام موفق للفحوصات الطبية. 06) نظام أكاديمية موفق للتدريب. 07) نظام موفق للصحة المهنية. 08) خطوات إدارة فحوصات فريقك. 09) التواصل الفوري.",
+      "keywords": [
+        "محتويات الملف",
+        "من نحن",
+        "شركاء النجاح",
+        "التحول الرقمي",
+        "حلول موفق",
+        "الفحوصات الطبية",
+        "الأكاديمية",
+        "الصحة المهنية",
+        "إدارة الفحوصات",
+        "التواصل"
+      ]
+    },
+    {
+      "faq_id": "028",
+      "category": "Profile Identity & Scope",
+      "lang": "en",
+      "question": "What sections are covered by the 2026 Mwfaq Business Profile?",
+      "answer": "The profile covers: 01) About Mwfaq. 02) Success partners. 03) The current landscape and digital transformation. 04) Mwfaq technology solutions. 05) Mwfaq Medical Examination System. 06) Mwfaq Academy training system. 07) Mwfaq Occupational Health System. 08) Steps for managing your team's examinations. 09) Instant contact.",
+      "keywords": [
+        "profile contents",
+        "about Mwfaq",
+        "partners",
+        "digital transformation",
+        "medical exams",
+        "academy",
+        "occupational health",
+        "team exams",
+        "contact"
+      ]
+    },
+    {
+      "faq_id": "029",
+      "category": "About Mwfaq Business",
+      "lang": "ar",
+      "question": "كيف يعرّف الملف التعريفي منصة موفق أعمال ورؤيتها؟",
+      "answer": "منصة موفق أعمال هي البنية التحتية الرقمية الرائدة في المملكة العربية السعودية لأتمتة وحوكمة الامتثال الصحي والتدريبي للمنشآت. ندمج التكنولوجيا الذكية بالرعاية الطبية لنربط قطاعات الموارد البشرية والشركات بأكبر شبكة وطنية موحدة من المستشفيات، المراكز الطبية، والمختبرات المعتمدة؛ تحقيقاً لمستهدفات رؤية المملكة 2030 في التحول الرقمي الشامل.",
+      "keywords": [
+        "موفق أعمال",
+        "بنية تحتية رقمية",
+        "الامتثال الصحي",
+        "الامتثال التدريبي",
+        "الموارد البشرية",
+        "المستشفيات",
+        "المراكز الطبية",
+        "المختبرات",
+        "رؤية 2030"
+      ]
+    },
+    {
+      "faq_id": "029",
+      "category": "About Mwfaq Business",
+      "lang": "en",
+      "question": "How does the profile define Mwfaq Business and its vision?",
+      "answer": "Mwfaq Business is described as Saudi Arabia's leading digital infrastructure for automating and governing organizational health and training compliance. It combines smart technology with medical care to connect HR departments and companies with a unified national network of certified hospitals, medical centers, and laboratories, supporting Saudi Vision 2030 and comprehensive digital transformation.",
+      "keywords": [
+        "Mwfaq Business",
+        "digital infrastructure",
+        "health compliance",
+        "training compliance",
+        "HR",
+        "hospitals",
+        "medical centers",
+        "laboratories",
+        "Vision 2030"
+      ]
+    },
+    {
+      "faq_id": "030",
+      "category": "About Mwfaq Business",
+      "lang": "ar",
+      "question": "ما فلسفة موفق أعمال وما القيم المذكورة في الملف التعريفي؟",
+      "answer": "رؤيتنا تتجاوز مجرد تسهيل الإجراءات الطبية؛ نحن هنا لإعادة تعريف الامتثال الصحي المؤسسي عبر الأتمتة الشاملة. نلتزم بمنح المنشآت النخبوية حماية تشغيلية، وربطاً نظامياً فورياً، وحلولاً ذكية تحمي طاقتها البشرية والمالية وتواكب المستقبل بثقة مطلقة. والقيم المذكورة هي: الابتكار، الجودة، المرونة، السرعة والكفاءة، الوعي الصحي، والتعاون.",
+      "keywords": [
+        "فلسفة موفق",
+        "الامتثال الصحي المؤسسي",
+        "الأتمتة الشاملة",
+        "حماية تشغيلية",
+        "ربط نظامي",
+        "الابتكار",
+        "الجودة",
+        "المرونة",
+        "السرعة والكفاءة",
+        "الوعي الصحي",
+        "التعاون"
+      ]
+    },
+    {
+      "faq_id": "030",
+      "category": "About Mwfaq Business",
+      "lang": "en",
+      "question": "What philosophy and values are stated for Mwfaq Business?",
+      "answer": "The profile states that Mwfaq's vision goes beyond simplifying medical procedures and seeks to redefine institutional health compliance through comprehensive automation, giving organizations operational protection, immediate system connectivity, and smart solutions that protect human and financial resources. The listed values are Innovation, Quality, Flexibility, Speed & Efficiency, Health Awareness, and Collaboration.",
+      "keywords": [
+        "Mwfaq philosophy",
+        "institutional health compliance",
+        "automation",
+        "operational protection",
+        "values",
+        "innovation",
+        "quality",
+        "flexibility",
+        "efficiency",
+        "health awareness",
+        "collaboration"
+      ]
+    },
+    {
+      "faq_id": "031",
+      "category": "Success Partners",
+      "lang": "ar",
+      "question": "من هم شركاء نجاح وعملاء موفق الظاهرون في الملف التعريفي 2026؟",
+      "answer": "تعرض صفحة \"شركاء نجاح موفق - عملائنا\" شعارات مجموعة كبيرة من العملاء والشركاء، ومن الأسماء المقروءة بوضوح في الصفحة: Mansard Riyadh - A Radisson Collection Hotel، Sofitel Hotels & Resorts، Fairmont Hotels & Resorts، center3 by stc، cenomi / سينومي، الشركة السعودية للقهوة Saudi Coffee Company، Golf Saudi، nana / نعناع، ninja، Tikka Way، Subway، NADEC / نادك، EGGSACITY، Paolo، PAN Bakery، Meat Moot Smoking، Advanced Food Co. / شركة الأطعمة المتقدمة، فرن الضيعة، Anoosh، Cinnabon، The Coffee Address، عنوان القهوة، Lebanese، saldy، TD Logistics، rpg، مجموعة سدر SEDER GROUP، SAMAYA GROUP، مستشفى الحمادي Al Hammadi Hospital، وNova. كما تحتوي الصفحة على عدة شعارات تجارية إضافية مصورة دون اسم نصي واضح قابل للقراءة من التصميم.",
+      "keywords": [
+        "شركاء النجاح",
+        "عملاء موفق",
+        "Mansard",
+        "Sofitel",
+        "Fairmont",
+        "center3",
+        "cenomi",
+        "Saudi Coffee Company",
+        "Golf Saudi",
+        "nana",
+        "ninja",
+        "Tikka Way",
+        "Subway",
+        "NADEC",
+        "Cinnabon",
+        "Coffee Address",
+        "TD Logistics",
+        "rpg",
+        "Seder Group",
+        "Samaya",
+        "Al Hammadi Hospital",
+        "Nova"
+      ]
+    },
+    {
+      "faq_id": "031",
+      "category": "Success Partners",
+      "lang": "en",
+      "question": "Which success partners and clients are shown in the 2026 Mwfaq profile?",
+      "answer": "The “Mwfaq Success Partners - Our Clients” page shows a large set of client logos. Clearly readable names include Mansard Riyadh - A Radisson Collection Hotel, Sofitel Hotels & Resorts, Fairmont Hotels & Resorts, center3 by stc, cenomi, Saudi Coffee Company, Golf Saudi, nana, ninja, Tikka Way, Subway, NADEC, EGGSACITY, Paolo, PAN Bakery, Meat Moot Smoking, Advanced Food Co., Forn Al-Dhay'ah, Anoosh, Cinnabon, The Coffee Address, Lebanese, saldy, TD Logistics, rpg, SEDER GROUP, SAMAYA GROUP, Al Hammadi Hospital, and Nova. The page also contains several additional logo-only brands whose names are not clearly readable from the design.",
+      "keywords": [
+        "success partners",
+        "clients",
+        "Mansard",
+        "Sofitel",
+        "Fairmont",
+        "center3",
+        "cenomi",
+        "Saudi Coffee Company",
+        "Golf Saudi",
+        "nana",
+        "ninja",
+        "Tikka Way",
+        "Subway",
+        "NADEC",
+        "Cinnabon",
+        "TD Logistics",
+        "rpg",
+        "Seder",
+        "Samaya",
+        "Al Hammadi Hospital",
+        "Nova"
+      ]
+    },
+    {
+      "faq_id": "032",
+      "category": "Current Compliance Landscape",
+      "lang": "ar",
+      "question": "أين يكمن الهدر الحقيقي في إدارة الامتثال الصحي للمنشأة بحسب ملف موفق؟",
+      "answer": "يحدد الملف عشرة مصادر للهدر والتحديات: 1) صعوبة البحث عن المراكز الطبية وعمل التعاقدات في جميع مدن السعودية. 2) عقوبات الامتثال المفاجئة: التعرض لغرامات مالية وقانونية نتيجة نسيان تواريخ تجديد الشهادات والرخص الطبية. 3) تشتت المتابعة اليدوية: استنزاف طاقة طواقم الموارد البشرية بين الإيميلات وتطبيق الواتساب. 4) غياب المؤشرات الاستباقية: انعدام الرقابة الفورية والتقارير التنبؤية للصحة المهنية قبل وقوع الحوادث. 5) تفاوت الأسعار التشغيلية: تشتت الميزانيات المالية وتفاوت تكاليف الفحوصات والتدريب حول مدن المملكة. 6) مشكلة اختلاف أسعار الخدمات: تختلف أسعار الخدمة الواحدة بين المراكز الطبية والتدريبية. 7) مخاطر إصابات العمل: تفاقم التبعات القانونية والإنسانية الحرجة نتيجة ضعف تتبع حوادث الموظفين. 8) ضعف الجاهزية التأهيلية: هدر الوقت والجهد في إنجاز تدريب الموظفين الإلزامي مع صعوبة وجود الترجمة ومحاكاة اجتياز الاختبار. 9) ازدياد أعداد الموظفين داخل الشركة وصعوبة إتمام الامتثال الصحي والتدريبي لكل موظف بشكل سنوي. 10) غياب الأرشيف الموحد: انعدام وجود سجل رقمي مركزي وآمن يجمع التاريخ الصحي والتدريبي والصحة المهنية لكل موظف.",
+      "keywords": [
+        "الهدر الحقيقي",
+        "صعوبة البحث",
+        "التعاقدات",
+        "غرامات الامتثال",
+        "تجديد الشهادات",
+        "الرخص الطبية",
+        "متابعة يدوية",
+        "إيميلات",
+        "واتساب",
+        "مؤشرات استباقية",
+        "تفاوت الأسعار",
+        "إصابات العمل",
+        "تدريب إلزامي",
+        "ترجمة",
+        "محاكاة اختبار",
+        "أرشيف موحد"
+      ]
+    },
+    {
+      "faq_id": "032",
+      "category": "Current Compliance Landscape",
+      "lang": "en",
+      "question": "Where does the profile say the real waste in organizational health-compliance management comes from?",
+      "answer": "The profile lists ten issues: difficulty finding medical centers and contracting across Saudi cities; unexpected compliance penalties caused by missed certificate and medical-license renewals; fragmented manual follow-up across email and WhatsApp; lack of real-time proactive indicators and predictive occupational-health reporting; operational price variation and fragmented budgets; different prices for the same service across medical and training centers; workplace-injury risks and serious legal/human consequences from weak incident tracking; weak training readiness, translation difficulty, and lack of exam simulation; growing employee counts that make annual health and training compliance harder; and the absence of a secure unified digital archive combining each employee's health, training, and occupational-health history.",
+      "keywords": [
+        "compliance waste",
+        "medical center search",
+        "contracts",
+        "fines",
+        "renewals",
+        "manual follow-up",
+        "email",
+        "WhatsApp",
+        "proactive indicators",
+        "price variation",
+        "workplace injuries",
+        "training",
+        "translation",
+        "exam simulation",
+        "unified archive"
+      ]
+    },
+    {
+      "faq_id": "033",
+      "category": "Digital Transformation",
+      "lang": "ar",
+      "question": "كيف تصف موفق التحول الرقمي للحالة التقليدية؟",
+      "answer": "مع حلول موفق نعيد هندسة الوضع الحالي التقليدي عبر الأتمتة الكاملة والحل الرقمي الموحد لإلغاء الهدر الإداري والمالي بنسبة 99%.",
+      "keywords": [
+        "التحول الرقمي",
+        "إعادة هندسة",
+        "أتمتة كاملة",
+        "حل رقمي موحد",
+        "هدر إداري",
+        "هدر مالي",
+        "99%"
+      ]
+    },
+    {
+      "faq_id": "033",
+      "category": "Digital Transformation",
+      "lang": "en",
+      "question": "How does Mwfaq describe the digital transformation of the traditional process?",
+      "answer": "“With Mwfaq solutions, we re-engineer the current traditional situation through complete automation and a unified digital solution to eliminate administrative and financial waste by 99%.”",
+      "keywords": [
+        "digital transformation",
+        "re-engineering",
+        "complete automation",
+        "unified digital solution",
+        "administrative waste",
+        "financial waste",
+        "99%"
+      ]
+    },
+    {
+      "faq_id": "034",
+      "category": "Digital Transformation",
+      "lang": "ar",
+      "question": "ما عناصر التحول الرقمي مع حلول موفق؟",
+      "answer": "1) نظام موحد وبنقرة واحدة: دمج الفحوصات الطبية، الصحة المهنية، برامج الأكاديمية المترجمة مع محاكاة الاختبارات، في نظام تقني واحد. 2) لوحة تحكم مركزية (Dashboard): تتبع لحظي وسيطرة كاملة تصدر مؤشرات كفاءة فورية وتقارير متكاملة لامتثال منشأتك قانونياً وإنسانياً. 3) أسعار موحدة وأرشفة سحابية: تكلفة ثابتة وتسعيرة موحدة عبر المملكة تضمن أعلى توفير مالي، مع توثيق رقمي عالي الجودة يؤرشف سجلات فريقك سحابياً بأمان مطلق وسهولة. 4) متابعة التقارير وتنبيهات آلية: نظام إشعارات ذكي يعمل بالنيابة عنك للتذكير الدوري بمواعيد تجديد الفحوصات والشهادات قبل انتهائها لمنع العقوبات والغرامات.",
+      "keywords": [
+        "نظام موحد",
+        "بنقرة واحدة",
+        "الفحوصات الطبية",
+        "الصحة المهنية",
+        "الأكاديمية",
+        "محاكاة الاختبارات",
+        "Dashboard",
+        "لوحة تحكم",
+        "مؤشرات كفاءة",
+        "أسعار موحدة",
+        "أرشفة سحابية",
+        "تنبيهات آلية",
+        "تجديد الفحوصات",
+        "تجديد الشهادات"
+      ]
+    },
+    {
+      "faq_id": "034",
+      "category": "Digital Transformation",
+      "lang": "en",
+      "question": "What are the components of Mwfaq's digital-transformation solution?",
+      "answer": "1) A one-click unified system combining medical examinations, occupational health, translated academy programs, and exam simulations in one technical system. 2) A centralized dashboard providing real-time tracking and full control, immediate efficiency indicators, and integrated legal and human compliance reports. 3) Unified pricing and cloud archiving with fixed nationwide pricing, high-quality digital documentation, and secure cloud archiving of team records. 4) Report follow-up and automated alerts through a smart notification system that reminds organizations about examination and certificate renewals before expiry to prevent penalties and fines.",
+      "keywords": [
+        "unified system",
+        "one click",
+        "medical exams",
+        "occupational health",
+        "academy",
+        "exam simulation",
+        "dashboard",
+        "efficiency indicators",
+        "unified pricing",
+        "cloud archive",
+        "automated alerts",
+        "renewals"
+      ]
+    },
+    {
+      "faq_id": "035",
+      "category": "Mwfaq Business Solutions",
+      "lang": "ar",
+      "question": "ما حلول موفق للأعمال المذكورة في الملف التعريفي؟",
+      "answer": "حلول موفق للأعمال هي بنية تحتية رقمية متكاملة لحوكمة الامتثال الصحي لمنشأتك، وتشمل ثلاثة أنظمة: 1) نظام الفحوصات الطبية: أتمتة وجدولة فحوصات التوظيف رقمياً عبر شبكة مراكز طبية حول المملكة بأسعار موحدة وبجودة عالية. 2) نظام أكاديمية موفق: برامج تأهيل مهني متكاملة ومترجمة بأكثر من 7 لغات مع أنظمة محاكاة تسهل اجتياز الاختبار. 3) نظام الصحة المهنية: فحوصات صحية استباقية ومؤشرات كفاءة فورية لمراجعة إصابات العمل وحماية منشأتك.",
+      "keywords": [
+        "حلول موفق للأعمال",
+        "بنية تحتية رقمية",
+        "حوكمة الامتثال",
+        "الفحوصات الطبية",
+        "أكاديمية موفق",
+        "الصحة المهنية",
+        "فحوصات التوظيف",
+        "7 لغات",
+        "محاكاة",
+        "إصابات العمل"
+      ]
+    },
+    {
+      "faq_id": "035",
+      "category": "Mwfaq Business Solutions",
+      "lang": "en",
+      "question": "What Mwfaq Business solutions are listed in the profile?",
+      "answer": "Mwfaq Business is presented as an integrated digital infrastructure for governing organizational health compliance through three systems: 1) Medical Examinations: automated digital scheduling of employment exams through a nationwide medical-center network with unified pricing and high quality. 2) Mwfaq Academy: integrated professional qualification programs translated into more than seven languages with exam-simulation systems. 3) Occupational Health: proactive health examinations and immediate efficiency indicators for reviewing workplace injuries and protecting the organization.",
+      "keywords": [
+        "Mwfaq Business solutions",
+        "digital infrastructure",
+        "compliance governance",
+        "medical exams",
+        "academy",
+        "occupational health",
+        "employment exams",
+        "seven languages",
+        "simulation",
+        "workplace injuries"
+      ]
+    },
+    {
+      "faq_id": "036",
+      "category": "Mwfaq Medical Examination System",
+      "lang": "ar",
+      "question": "ما هو نظام موفق للفحوصات الطبية الإلزامية؟",
+      "answer": "منظومة الفحوصات المعتمدة من \"موفق أعمال\" هي الحل الرقمي الذكي لأتمتة الإجراءات الطبية الرسمية للمنشآت. نربط منشأتك فورياً بأكبر شبكة مستشفيات ومراكز طبية معتمدة حول المملكة بأسعار موحدة، لحوكمة وإصدار فحوصات التوظيف، الإقامات، البلدية، رخص القيادة، والمناديب في مكان واحد، وبكفاءة تشغيلية مطلقة تسهل كافة المعاملات بضغطة زر.",
+      "keywords": [
+        "الفحوصات الطبية الإلزامية",
+        "الإجراءات الطبية الرسمية",
+        "مستشفيات",
+        "مراكز طبية",
+        "أسعار موحدة",
+        "فحوصات التوظيف",
+        "الإقامات",
+        "البلدية",
+        "رخص القيادة",
+        "المناديب",
+        "ضغطة زر"
+      ]
+    },
+    {
+      "faq_id": "036",
+      "category": "Mwfaq Medical Examination System",
+      "lang": "en",
+      "question": "What is the Mwfaq Mandatory Medical Examination System?",
+      "answer": "The certified examination system from Mwfaq Business is the smart digital solution for automating official medical procedures for organizations. It instantly connects an organization to a large network of certified hospitals and medical centers across Saudi Arabia at unified prices, governing and issuing employment, residency, municipality, driving-license, and delivery-agent examinations in one place, with one-click operational efficiency.",
+      "keywords": [
+        "mandatory medical exams",
+        "official medical procedures",
+        "hospitals",
+        "medical centers",
+        "unified prices",
+        "employment exams",
+        "residency",
+        "municipality",
+        "driving license",
+        "delivery agents"
+      ]
+    },
+    {
+      "faq_id": "037",
+      "category": "Mwfaq Medical Examination System",
+      "lang": "ar",
+      "question": "ما مميزات نظام موفق للفحوصات الطبية؟",
+      "answer": "مميزات نظام موفق للفحوصات الطبية هي: 1) اتفاقية مستوى الخدمة (SLA) والتي تلزم بإصدار النتائج في المدة المحددة. 2) إمكانية حجز الفحوصات بأكثر من مدينة حول المملكة بإجراءات سهلة عبر النظام. 3) لوحة تحكم مركزية للمتابعة اللحظية وقياس المؤشرات والتقارير. 4) إصدار تقارير فحوصات الموظفين. 5) ضمان جودة المراكز الطبية والتدقيق في النتائج لضمان الامتثال. 6) التذكيرات والتنبيهات الآلية لمتابعة الامتثال قبل انتهاء صلاحية الفحوصات. 7) تقارير بالذكاء الاصطناعي لإصدار مؤشرات كفاءة وتنبؤات استباقية.",
+      "keywords": [
+        "مميزات نظام موفق",
+        "SLA",
+        "اتفاقية مستوى الخدمة",
+        "حجز الفحوصات",
+        "مدن المملكة",
+        "لوحة تحكم",
+        "تقارير الموظفين",
+        "ضمان الجودة",
+        "تدقيق النتائج",
+        "تنبيهات آلية",
+        "ذكاء اصطناعي",
+        "تنبؤات استباقية"
+      ]
+    },
+    {
+      "faq_id": "037",
+      "category": "Mwfaq Medical Examination System",
+      "lang": "en",
+      "question": "What are the features of the Mwfaq Medical Examination System?",
+      "answer": "Its features are: 1) a Service Level Agreement (SLA) requiring results to be issued within the specified period; 2) easy examination booking in multiple cities across Saudi Arabia; 3) a centralized dashboard for real-time follow-up and measurement of indicators and reports; 4) employee examination reports; 5) medical-center quality assurance and result auditing to ensure compliance; 6) automated reminders and alerts before examinations expire; and 7) AI reports that generate efficiency indicators and proactive predictions.",
+      "keywords": [
+        "Mwfaq medical exam features",
+        "SLA",
+        "booking",
+        "multiple cities",
+        "dashboard",
+        "employee reports",
+        "quality assurance",
+        "result audit",
+        "alerts",
+        "AI",
+        "proactive predictions"
+      ]
+    },
+    {
+      "faq_id": "038",
+      "category": "Mwfaq Academy",
+      "lang": "ar",
+      "question": "ما تعريف أكاديمية موفق في الملف التعريفي لحلول الأعمال؟",
+      "answer": "أكاديمية موفق هي منظومة رقمية متكاملة لتأهيل وتدريب الموظفين قبل إصدار الشهادة الإلزامية. نطور حلول التدريب التقليدية لنمنح منشأتك منصة رقمية مرنة لتدريب الرخص الإلزامية بتسعيرة موحدة وبلغات متعددة، مما يضمن اجتياز طواقمك للاختبارات المهنية المعتمدة بأعلى معايير الجودة، وبأقل مجهود تشغيلي ودون هدر للوقت.",
+      "keywords": [
+        "أكاديمية موفق",
+        "تأهيل الموظفين",
+        "تدريب الموظفين",
+        "الشهادة الإلزامية",
+        "الرخص الإلزامية",
+        "تسعيرة موحدة",
+        "لغات متعددة",
+        "اختبارات مهنية"
+      ]
+    },
+    {
+      "faq_id": "038",
+      "category": "Mwfaq Academy",
+      "lang": "en",
+      "question": "How is Mwfaq Academy defined in the business profile?",
+      "answer": "Mwfaq Academy is an integrated digital system for qualifying and training employees before mandatory certificates are issued. It develops traditional training into a flexible digital platform for mandatory-license training with unified pricing and multiple languages, helping staff pass accredited professional examinations with high quality, minimal operational effort, and without wasting time.",
+      "keywords": [
+        "Mwfaq Academy",
+        "employee qualification",
+        "employee training",
+        "mandatory certificate",
+        "mandatory licenses",
+        "unified pricing",
+        "multilingual",
+        "professional exams"
+      ]
+    },
+    {
+      "faq_id": "039",
+      "category": "Mwfaq Academy",
+      "lang": "ar",
+      "question": "ما مميزات نظام أكاديمية موفق؟",
+      "answer": "مميزات نظام أكاديمية موفق هي: 1) تأهيل مرن يتجاوز عوائق الترجمة: محتوى تدريبي يدعم أكثر من سبع لغات. 2) تتبع ورقابة لحظية: مراقبة حية لمسار إنجاز الموظفين. 3) حلول فوترة ميسرة: خيارات دفع مرنة تضمن الكفاءة. 4) تدريب مرن ومؤتمت: دورات تخصصية مسجلة بالكامل. 5) تكلفة وأسعار موحدة: باقات ثابتة ومحتوى مسجل مرئي أون لاين. 6) محاكاة وأنظمة اختبارات قصيرة: تضمن تسهيل اجتياز الاختبارات الرسمية. 7) تقارير بالذكاء الاصطناعي: إصدار مؤشرات كفاءة وتنبؤات استباقية.",
+      "keywords": [
+        "أكاديمية موفق",
+        "سبع لغات",
+        "ترجمة",
+        "تتبع لحظي",
+        "رقابة",
+        "فوترة",
+        "خيارات دفع",
+        "تدريب مؤتمت",
+        "دورات مسجلة",
+        "أسعار موحدة",
+        "محاكاة",
+        "اختبارات قصيرة",
+        "ذكاء اصطناعي"
+      ]
+    },
+    {
+      "faq_id": "039",
+      "category": "Mwfaq Academy",
+      "lang": "en",
+      "question": "What are the features of the Mwfaq Academy system?",
+      "answer": "The listed features are: 1) flexible qualification that overcomes translation barriers through training content supporting more than seven languages; 2) real-time tracking and oversight of employee completion; 3) convenient billing and flexible payment options; 4) flexible automated training through fully recorded specialized courses; 5) unified costs and prices through fixed packages and recorded online visual content; 6) simulations and short-test systems that make official exams easier to pass; and 7) AI reports that generate efficiency indicators and proactive predictions.",
+      "keywords": [
+        "Mwfaq Academy features",
+        "seven languages",
+        "translation",
+        "real-time tracking",
+        "billing",
+        "payment",
+        "automated training",
+        "recorded courses",
+        "unified prices",
+        "simulation",
+        "short tests",
+        "AI reports"
+      ]
+    },
+    {
+      "faq_id": "040",
+      "category": "Mwfaq Occupational Health",
+      "lang": "ar",
+      "question": "ما هو نظام موفق للصحة المهنية؟",
+      "answer": "منظومة الصحة المهنية من \"موفق أعمال\" هي حائط الصد الوقائي والقانوني لحماية المنشآت واستقرارها التشغيلي. ننتقل بأعمالك من مرحلة التعامل التقليدي مع الحوادث إلى مرحلة الحوكمة الاستباقية الكاملة، عبر دمج الفحوصات الصحية المهنية الدورية، ورفع وعي المنشآت بالسلامة المهنية لضمان بيئة عمل آمنة وممتثلة للأنظمة.",
+      "keywords": [
+        "الصحة المهنية",
+        "حائط الصد",
+        "حماية المنشآت",
+        "استقرار تشغيلي",
+        "حوكمة استباقية",
+        "فحوصات دورية",
+        "سلامة مهنية",
+        "بيئة عمل آمنة",
+        "امتثال"
+      ]
+    },
+    {
+      "faq_id": "040",
+      "category": "Mwfaq Occupational Health",
+      "lang": "en",
+      "question": "What is the Mwfaq Occupational Health System?",
+      "answer": "The occupational-health system from Mwfaq Business is described as a preventive and legal line of defense for protecting organizations and their operational stability. It moves organizations from traditional incident handling to full proactive governance by combining periodic occupational-health examinations with increased workplace-safety awareness to ensure a safe, regulation-compliant work environment.",
+      "keywords": [
+        "occupational health",
+        "preventive protection",
+        "legal protection",
+        "operational stability",
+        "proactive governance",
+        "periodic exams",
+        "workplace safety",
+        "compliance"
+      ]
+    },
+    {
+      "faq_id": "041",
+      "category": "Mwfaq Occupational Health",
+      "lang": "ar",
+      "question": "ما مميزات نظام موفق للصحة المهنية؟",
+      "answer": "مميزات نظام موفق للصحة المهنية هي: 1) حماية قانونية وتشغيلية: تحصين المنشأة ضد الثغرات والمساءلات. 2) تقارير بالذكاء الاصطناعي: إصدار مؤشرات كفاءة وتنبؤات استباقية. 3) فحوصات صحية دورية: مراقبة مستمرة لسلامة طاقم العمل. 4) تقليل حوادث العمل: رصد استباقي للمخاطر قبل وقوعها. 5) حوكمة وقائية استباقية: الانتقال من التعامل التقليدي للحوادث. 6) استقرار واستدامة مؤسسية: حماية طاقتك البشرية والمالية بنقرة. 7) تنبيهات آلية فورية: إشعارات ذكية تضمن الامتثال المستمر.",
+      "keywords": [
+        "مميزات الصحة المهنية",
+        "حماية قانونية",
+        "حماية تشغيلية",
+        "ذكاء اصطناعي",
+        "مؤشرات كفاءة",
+        "فحوصات دورية",
+        "حوادث العمل",
+        "مخاطر",
+        "حوكمة وقائية",
+        "استدامة",
+        "تنبيهات فورية"
+      ]
+    },
+    {
+      "faq_id": "041",
+      "category": "Mwfaq Occupational Health",
+      "lang": "en",
+      "question": "What are the features of the Mwfaq Occupational Health System?",
+      "answer": "The listed features are: 1) legal and operational protection against gaps and liabilities; 2) AI reports producing efficiency indicators and proactive predictions; 3) periodic health examinations for continuous workforce-safety monitoring; 4) reducing workplace incidents through proactive risk detection before they occur; 5) proactive preventive governance replacing traditional incident handling; 6) institutional stability and sustainability that protect human and financial resources; and 7) immediate automated alerts and smart notifications that support continuous compliance.",
+      "keywords": [
+        "occupational health features",
+        "legal protection",
+        "operational protection",
+        "AI reports",
+        "periodic exams",
+        "workplace incidents",
+        "proactive risk detection",
+        "preventive governance",
+        "sustainability",
+        "alerts"
+      ]
+    },
+    {
+      "faq_id": "042",
+      "category": "Interactive HR Assistant",
+      "lang": "ar",
+      "question": "ما هو مساعد الـ HR التفاعلي في موفق وما الذي يقوم به؟",
+      "answer": "مساعد الـ HR التفاعلي يقدّم أتمتة المحادثات الذكية لموظفيك على مدار الساعة. في جانب إنجاز المهام والمعاملات، الذكاء الاصطناعي يتولى الإجابة الفورية وتوجيه موظفيك وجدولة الفحوصات وتجهيز التقارير بطريقة سريعة وبلا تدخل بشري. وفي جانب زيادة إنتاجية فريقك، يعمل على إلغاء استهلاك وقت الموارد البشرية في الإجراءات المكررة لتركيز منشأتك على النمو والإنتاجية.",
+      "keywords": [
+        "مساعد HR",
+        "مساعد الموارد البشرية",
+        "محادثات ذكية",
+        "على مدار الساعة",
+        "ذكاء اصطناعي",
+        "إجابة فورية",
+        "توجيه الموظفين",
+        "جدولة الفحوصات",
+        "تجهيز التقارير",
+        "إنتاجية",
+        "إجراءات مكررة"
+      ]
+    },
+    {
+      "faq_id": "042",
+      "category": "Interactive HR Assistant",
+      "lang": "en",
+      "question": "What is Mwfaq's interactive HR assistant and what does it do?",
+      "answer": "The interactive HR assistant automates smart employee conversations around the clock. For tasks and transactions, AI provides immediate answers, guides employees, schedules examinations, and prepares reports quickly without human intervention. To increase team productivity, it reduces HR time spent on repetitive procedures so the organization can focus on growth and productivity.",
+      "keywords": [
+        "HR assistant",
+        "HR automation",
+        "smart conversations",
+        "24/7",
+        "AI",
+        "immediate answers",
+        "employee guidance",
+        "exam scheduling",
+        "reports",
+        "productivity",
+        "repetitive tasks"
+      ]
+    },
+    {
+      "faq_id": "043",
+      "category": "Managing Employee Examinations",
+      "lang": "ar",
+      "question": "ما الخطوات الثلاث لإدارة أتمتة الفحوصات الطبية للموظفين عبر موفق؟",
+      "answer": "الخطوة 1 - رفع البيانات: حدد الصلاحيات وارفع بيانات موظفيك بضغطة. الخطوة 2 - جدولة الحجوزات: كلف طاقمك بالفحوصات عبر شبكة معتمدة من المراكز الطبية. الخطوة 3 - تتبع الامتثال: راقب التقارير والنتائج فوراً وتجنب الغرامات والمساءلة.",
+      "keywords": [
+        "إدارة فحوصات الموظفين",
+        "رفع البيانات",
+        "الصلاحيات",
+        "بيانات الموظفين",
+        "جدولة الحجوزات",
+        "شبكة مراكز طبية",
+        "تتبع الامتثال",
+        "تقارير",
+        "نتائج",
+        "غرامات",
+        "مساءلة"
+      ]
+    },
+    {
+      "faq_id": "043",
+      "category": "Managing Employee Examinations",
+      "lang": "en",
+      "question": "What are the three steps for automating employee medical-exam management through Mwfaq?",
+      "answer": "Step 1 - Upload data: define permissions and upload employee data in one action. Step 2 - Schedule bookings: assign examinations to staff through a certified network of medical centers. Step 3 - Track compliance: monitor reports and results immediately and avoid fines and liability.",
+      "keywords": [
+        "employee exam management",
+        "upload data",
+        "permissions",
+        "employee data",
+        "booking schedule",
+        "medical centers",
+        "compliance tracking",
+        "reports",
+        "results",
+        "fines",
+        "liability"
+      ]
+    },
+    {
+      "faq_id": "044",
+      "category": "Why Mwfaq Is an Ideal HR Partner",
+      "lang": "ar",
+      "question": "لماذا موفق شريك مثالي لإدارة الفحوصات الطبية للموارد البشرية؟",
+      "answer": "يذكر الملف خمسة أسباب: 1) فحوصات مخصصة: توفر المنصة خاصية تخصيص الفحوصات الطبية حسب احتياج شركتك. 2) ضبط التكاليف: بتوحيد أسعار الفحوصات الطبية في جميع المراكز الطبية حول السعودية. 3) تغطية واسعة: منصة تجمع شبكة كبيرة من المراكز الطبية في مختلف مدن السعودية. 4) توحيد الجهود: تعاقد واحد يجمع الكثير من المراكز الطبية ويوفر آلية للمتابعة والاطلاع على النتائج. 5) شمولية أكبر: بإمكانك الحصول على جميع الفحوصات الطبية والتقارير في مكان واحد.",
+      "keywords": [
+        "لماذا موفق",
+        "شريك مثالي",
+        "موارد بشرية",
+        "فحوصات مخصصة",
+        "ضبط التكاليف",
+        "توحيد الأسعار",
+        "تغطية واسعة",
+        "توحيد الجهود",
+        "تعاقد واحد",
+        "شمولية",
+        "التقارير"
+      ]
+    },
+    {
+      "faq_id": "044",
+      "category": "Why Mwfaq Is an Ideal HR Partner",
+      "lang": "en",
+      "question": "Why does the profile describe Mwfaq as an ideal partner for HR medical-exam management?",
+      "answer": "The profile gives five reasons: 1) Customized examinations based on company needs. 2) Cost control through unified medical-exam prices across centers in Saudi Arabia. 3) Wide coverage through a large network of medical centers across different Saudi cities. 4) Unified effort through one contract that brings together many medical centers and provides follow-up and results access. 5) Greater comprehensiveness by obtaining all medical examinations and reports in one place.",
+      "keywords": [
+        "why Mwfaq",
+        "ideal HR partner",
+        "customized exams",
+        "cost control",
+        "unified prices",
+        "wide coverage",
+        "one contract",
+        "follow-up",
+        "results",
+        "all reports in one place"
+      ]
+    },
+    {
+      "faq_id": "045",
+      "category": "Employee Examination Value Proposition",
+      "lang": "ar",
+      "question": "ما الرسائل الرئيسية التي يذكرها الملف عن فحص الموظفين عبر موفق؟",
+      "answer": "يذكر الملف: \"فحص الموظفين - إجراءات أسهل .. وأسرع.. وأوفر\"، و\"تعاقد واحد.. منصة واحدة.. لجميع فروعك بالسعودية\"، و\"تقنية.. ترعى صحتك\"، و\"خصوصية عالية.. أمان البيانات..\"، و\"تقارير فحوصات الموظفين بمنصة واحدة\"، و\"فحوصات طبية مخصصة حسب احتياج شركتك\"، و\"أكبر الشركات المحلية والعالمية تثق في موفق\"، و\"تحكم كامل\"، و\"تواصل مع فريقنا للإجابة على أسئلتك\"، مع الإشارة إلى موقع موفق www.mwafq.com.",
+      "keywords": [
+        "فحص الموظفين",
+        "أسهل",
+        "أسرع",
+        "أوفر",
+        "تعاقد واحد",
+        "منصة واحدة",
+        "جميع الفروع",
+        "خصوصية عالية",
+        "أمان البيانات",
+        "تقارير",
+        "فحوصات مخصصة",
+        "تحكم كامل",
+        "شركات تثق في موفق",
+        "موقع موفق"
+      ]
+    },
+    {
+      "faq_id": "045",
+      "category": "Employee Examination Value Proposition",
+      "lang": "en",
+      "question": "What key employee-examination value messages appear in the profile?",
+      "answer": "The profile emphasizes: easier, faster, and more cost-effective employee examinations; one contract and one platform for all company branches in Saudi Arabia; technology that cares for health; high privacy and data security; employee-exam reports in one platform; medical examinations customized to company needs; trust from major local and international companies; full control; direct contact with the Mwfaq team for questions; and the website www.mwafq.com.",
+      "keywords": [
+        "employee exams",
+        "easier",
+        "faster",
+        "cost-effective",
+        "one contract",
+        "one platform",
+        "all branches",
+        "privacy",
+        "data security",
+        "reports",
+        "customized exams",
+        "full control",
+        "trusted companies",
+        "website"
+      ]
+    },
+    {
+      "faq_id": "046",
+      "category": "Contact & Location",
+      "lang": "ar",
+      "question": "ما بيانات التواصل الرسمية الظاهرة في الملف التعريفي 2026؟",
+      "answer": "تواصل مع فريقنا للإجابة على أسئلتك. المكتب الرئيسي: الرياض - حي الملك فيصل، المملكة العربية السعودية. البريد الإلكتروني: Info@Mwafq.com. للمزيد تفضل بزيارة موقعنا عبر: www.mwafq.com. كما يظهر في الملف رمز QR للتواصل مع الفريق.",
+      "keywords": [
+        "تواصل",
+        "المكتب الرئيسي",
+        "الرياض",
+        "حي الملك فيصل",
+        "السعودية",
+        "Info@Mwafq.com",
+        "www.mwafq.com",
+        "QR"
+      ]
+    },
+    {
+      "faq_id": "046",
+      "category": "Contact & Location",
+      "lang": "en",
+      "question": "What official contact details appear in the 2026 Mwfaq profile?",
+      "answer": "The profile invites users to contact the Mwfaq team for questions. Main office: Riyadh - King Faisal District, Saudi Arabia. Email: Info@Mwafq.com. Website: www.mwafq.com. A QR code for contacting the team also appears in the profile.",
+      "keywords": [
+        "contact",
+        "main office",
+        "Riyadh",
+        "King Faisal District",
+        "Saudi Arabia",
+        "Info@Mwafq.com",
+        "www.mwafq.com",
+        "QR"
+      ]
+    },
+    {
+      "faq_id": "047",
+      "category": "Visual UI Examples in the Profile",
+      "lang": "ar",
+      "question": "ما الأمثلة المرئية التي تظهر داخل نماذج لوحة التحكم في الملف التعريفي؟",
+      "answer": "تظهر داخل التصاميم أمثلة مرئية توضيحية لواجهة النظام، منها بطاقات مثل \"حجز جماعي\"، و\"موظفاً - متابعة لحظية\"، و\"التقارير جاهزة - PDF\"، ونسب وأرقام داخل رسوم لوحة التحكم مثل 96% و248 و12. هذه الأرقام معروضة داخل نموذج واجهة وتصميم توضيحي في الملف، وليست مذكورة في النص على أنها إحصاءات تشغيلية رسمية أو نتائج فعلية للشركة.",
+      "keywords": [
+        "واجهة النظام",
+        "Dashboard",
+        "حجز جماعي",
+        "متابعة لحظية",
+        "PDF",
+        "96%",
+        "248",
+        "12",
+        "نموذج توضيحي",
+        "أرقام واجهة"
+      ]
+    },
+    {
+      "faq_id": "047",
+      "category": "Visual UI Examples in the Profile",
+      "lang": "en",
+      "question": "What visual examples appear inside the dashboard mockups in the profile?",
+      "answer": "The profile's UI mockups contain illustrative cards such as “bulk booking,” “employees - live tracking,” and “reports ready - PDF,” along with dashboard example values such as 96%, 248, and 12. These numbers are presented inside visual interface mockups and are not stated in the profile text as official operating statistics or actual company results.",
+      "keywords": [
+        "UI mockup",
+        "dashboard",
+        "bulk booking",
+        "live tracking",
+        "PDF",
+        "96%",
+        "248",
+        "12",
+        "illustrative values"
       ]
     }
   ]

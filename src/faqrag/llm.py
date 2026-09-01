@@ -8,8 +8,10 @@ change.
 from __future__ import annotations
 
 import logging
+import json
 import re
 from abc import ABC, abstractmethod
+from collections.abc import Iterator
 
 import httpx
 
@@ -53,6 +55,16 @@ class LLMClient(ABC):
             temperature: Overrides the configured temperature when given.
             max_tokens: Overrides the configured token budget when given.
         """
+
+    def stream_complete(
+        self,
+        system: str,
+        user: str,
+        temperature: float | None = None,
+        max_tokens: int | None = None,
+    ) -> Iterator[str]:
+        """Yield incremental text fragments as the model produces them."""
+        yield self.complete(system, user, temperature=temperature, max_tokens=max_tokens)
 
 
 class OllamaLLM(LLMClient):
@@ -122,6 +134,43 @@ class OllamaLLM(LLMClient):
             raise LLMError(f"{self._model} returned an empty completion")
         return content
 
+    def stream_complete(
+        self,
+        system: str,
+        user: str,
+        temperature: float | None = None,
+        max_tokens: int | None = None,
+    ) -> Iterator[str]:
+        budget = self._max_tokens if max_tokens is None else max_tokens
+        payload = {
+            "model": self._model,
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+            "stream": True,
+            "options": {
+                "temperature": self._temperature if temperature is None else temperature,
+                "num_predict": budget,
+            },
+        }
+        try:
+            with httpx.stream("POST", self._url, json=payload, timeout=self._timeout) as response:
+                response.raise_for_status()
+                for line in response.iter_lines():
+                    if not line:
+                        continue
+                    body = json.loads(line)
+                    message = body.get("message", {})
+                    content = strip_reasoning(message.get("content", ""))
+                    if content:
+                        yield content
+        except httpx.HTTPError as exc:
+            raise LLMError(
+                f"Ollama chat stream to {self._model} failed ({exc}). Is the server "
+                f"running at {self._url}?"
+            ) from exc
+
 
 class OpenAILLM(LLMClient):
     """Chat completions from an OpenAI-compatible ``/chat/completions`` endpoint."""
@@ -162,6 +211,43 @@ class OpenAILLM(LLMClient):
                 f"OpenAI chat request failed: {describe_http_error(exc)}"
             ) from exc
         return strip_reasoning(content or "")
+
+    def stream_complete(
+        self,
+        system: str,
+        user: str,
+        temperature: float | None = None,
+        max_tokens: int | None = None,
+    ) -> Iterator[str]:
+        payload = {
+            "model": self._model,
+            "messages": [
+                {"role": "system", "content": system},
+                {"role": "user", "content": user},
+            ],
+            "temperature": self._temperature if temperature is None else temperature,
+            "max_tokens": self._max_tokens if max_tokens is None else max_tokens,
+            "stream": True,
+        }
+        try:
+            with httpx.stream(
+                "POST", self._url, json=payload, headers=self._headers, timeout=120.0
+            ) as response:
+                response.raise_for_status()
+                for line in response.iter_lines():
+                    if not line or not line.startswith("data: "):
+                        continue
+                    raw = line[6:].strip()
+                    if raw == "[DONE]":
+                        break
+                    body = json.loads(raw)
+                    delta = body["choices"][0].get("delta", {}).get("content")
+                    if delta:
+                        yield strip_reasoning(delta)
+        except httpx.HTTPError as exc:
+            raise LLMError(
+                f"OpenAI chat stream failed: {describe_http_error(exc)}"
+            ) from exc
 
 
 class AnthropicLLM(LLMClient):
@@ -226,6 +312,43 @@ class AnthropicLLM(LLMClient):
                 f"{body.get('stop_reason')!r})"
             )
         return content
+
+    def stream_complete(
+        self,
+        system: str,
+        user: str,
+        temperature: float | None = None,
+        max_tokens: int | None = None,
+    ) -> Iterator[str]:
+        payload = {
+            "model": self._model,
+            "system": system,
+            "messages": [{"role": "user", "content": user}],
+            "max_tokens": self._max_tokens if max_tokens is None else max_tokens,
+            "temperature": self._temperature if temperature is None else temperature,
+            "stream": True,
+        }
+        try:
+            with httpx.stream(
+                "POST", self._url, json=payload, headers=self._headers, timeout=self._timeout
+            ) as response:
+                response.raise_for_status()
+                for line in response.iter_lines():
+                    if not line or not line.startswith("data: "):
+                        continue
+                    raw = line[6:].strip()
+                    if raw == "[DONE]":
+                        break
+                    body = json.loads(raw)
+                    if body.get("type") != "content_block_delta":
+                        continue
+                    delta = body.get("delta", {}).get("text", "")
+                    if delta:
+                        yield strip_reasoning(delta)
+        except httpx.HTTPError as exc:
+            raise LLMError(
+                f"Anthropic stream to {self._model} failed: {describe_http_error(exc)}"
+            ) from exc
 
 
 _PROVIDERS: dict[str, type[LLMClient]] = {
