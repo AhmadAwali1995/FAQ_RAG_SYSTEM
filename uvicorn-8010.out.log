@@ -1,2 +1,4 @@
 INFO:     127.0.0.1:50240 - "POST /query HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50241 - "GET /health HTTP/1.1" 200 OK
+INFO:     81.21.8.18:0 - "POST /query HTTP/1.1" 200 OK
+INFO:     81.21.8.18:0 - "POST /query HTTP/1.1" 200 OK

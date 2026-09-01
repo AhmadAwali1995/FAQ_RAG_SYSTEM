@@ -4,3 +4,19 @@ INFO:     Waiting for application startup.
 03:25:41 INFO    faqrag.api | pipeline ready: 94 chunks indexed
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)
+03:26:25 INFO    faqrag.retriever | same-language best score 0.232 below fallback threshold 0.450; allowing cross-lingual results
+03:26:27 INFO    faqrag.pipeline | query='سؤال، كيفك أبو سهل؟' lang=ar confident=False reranked=True cross_lingual=True candidates=5
+03:26:27 INFO    faqrag.pipeline |   #1 009::ar score=0.000 vec=0.193 bm25=- rerank=0.0 | كيف أحجز فحصي الطبي عبر موفق؟ (خطوات الحجز)
+03:26:27 INFO    faqrag.pipeline |   #2 010::ar score=0.000 vec=0.194 bm25=- rerank=0.0 | ما هي مميزات تطبيق موفق للجوال؟
+03:26:27 INFO    faqrag.pipeline |   #3 011::ar score=0.000 vec=0.194 bm25=- rerank=0.0 | ما هي طرق الدفع المتاحة في موفق؟
+03:26:27 INFO    faqrag.pipeline |   #4 025::ar score=0.000 vec=0.190 bm25=- rerank=0.0 | كيف أبدأ استخدام موفق كفرد؟
+03:26:27 INFO    faqrag.pipeline |   #5 026::ar score=0.000 vec=0.186 bm25=- rerank=0.0 | كيف تبدأ شركتي باستخدام موفق أعمال؟
+03:26:27 INFO    faqrag.generate | no confident match for 'سؤال، كيفك أبو سهل؟'; declining to answer
+03:26:40 INFO    faqrag.retriever | same-language best score 0.264 below fallback threshold 0.450; allowing cross-lingual results
+03:26:42 INFO    faqrag.pipeline | query='كيفك سهل.' lang=ar confident=False reranked=True cross_lingual=True candidates=5
+03:26:42 INFO    faqrag.pipeline |   #1 009::ar score=0.000 vec=0.258 bm25=- rerank=0.0 | كيف أحجز فحصي الطبي عبر موفق؟ (خطوات الحجز)
+03:26:42 INFO    faqrag.pipeline |   #2 010::ar score=0.000 vec=0.237 bm25=- rerank=0.0 | ما هي مميزات تطبيق موفق للجوال؟
+03:26:42 INFO    faqrag.pipeline |   #3 021::ar score=0.000 vec=0.221 bm25=- rerank=0.0 | ما هي خطوات إدارة فحوصات فريق العمل عبر موفق أعمال؟
+03:26:42 INFO    faqrag.pipeline |   #4 025::ar score=0.000 vec=0.264 bm25=- rerank=0.0 | كيف أبدأ استخدام موفق كفرد؟
+03:26:42 INFO    faqrag.pipeline |   #5 026::ar score=0.000 vec=0.219 bm25=- rerank=0.0 | كيف تبدأ شركتي باستخدام موفق أعمال؟
+03:26:42 INFO    faqrag.generate | no confident match for 'كيفك سهل.'; declining to answer
