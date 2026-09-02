@@ -9,6 +9,7 @@ from collections.abc import Iterator
 
 from .config import Settings, get_settings
 from .generate import AnswerGenerator, clean_answer_text, parse_sources, to_citations
+from .greeting import greeting_reply, is_greeting
 from .lang import detect_language
 from .llm import build_llm
 from .logging_utils import build_trace, log_retrieval_summary, write_trace
@@ -82,9 +83,19 @@ class RagPipeline:
         return self.retriever.retrieve(question, top_k)
 
     def _casual_response(self, question: str, started: float) -> QueryResponse | None:
-        """Reply to standalone social messages without invoking RAG or an LLM."""
+        """Reply to standalone social messages without invoking RAG or an LLM.
+
+        Greetings go through :mod:`~faqrag.greeting` first: it matches the far
+        wider range of forms real users type (dialect check-ins, well-wishing
+        formulas, a vocative anywhere in the chain) and answers the salam with
+        its prescribed reply. Everything else social -- thanks, "who are you" --
+        falls through to :func:`casual_reply`.
+        """
         language = detect_language(question)
-        answer = casual_reply(question, language)
+        if is_greeting(question):
+            answer = greeting_reply(language, question)
+        else:
+            answer = casual_reply(question, language)
         if answer is None:
             return None
         return QueryResponse(
